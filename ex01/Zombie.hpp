@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:38:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 10:47:44 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/15 11:29:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ class Zombie {
     private:
         std::string name;
     public:
-        Zombie() : name("default") {} // Default constructor
-        Zombie(std::string name) : name(name) {} 
+        //Zombie() : name("default") {} // Default constructor
+        Zombie(std::string name) : name(name) {} // Initializer List 
 
         ~Zombie() {
             std::cout << name << " is destroyed." << "\n";

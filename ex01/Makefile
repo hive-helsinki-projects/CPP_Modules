@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/08/15 10:44:09 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/08/15 11:39:45 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	brain
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
-SRCS		=	Zombie.cpp main.cpp ZombieHorde.cpp
+SRCS		=	main.cpp zombieHorde.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 all: $(NAME)

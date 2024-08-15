@@ -6,9 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:08:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 12:21:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:37:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include "Weapon.hpp"
 
@@ -17,10 +20,13 @@ class HumanB {
         std::string name;
         Weapon* weapon; // Pointer to a Weapon
     public:
-    HumanB(const std::string& name, Weapon& weapon) : name(name), weapon(nullptr) {}
+        // Constructor accepting only the name parameter
+        HumanB(const std::string& name) : name(name), weapon(nullptr) {}
+        
         void setWeapon(Weapon& weapon) {
             this->weapon = &weapon;
         }
+        
         void attack() const {
             if (weapon) {
                 std::cout << name << " attacks with their " << weapon->getType() << "\n";
@@ -29,3 +35,5 @@ class HumanB {
             }
         }
 };
+
+#endif

@@ -6,9 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:08:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 12:21:04 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:36:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 
@@ -22,3 +25,5 @@ class HumanA {
             std::cout << name << " attacks with their " << weapon.getType() << "\n";
         }
 };
+
+#endif

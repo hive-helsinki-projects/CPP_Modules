@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 18:53:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/18 18:19:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/18 18:28:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     std::string s1 = argv[2];
     std::string s2= argv[3];
 
-    replaceStringInfile(filename, s1, s2);
+    replaceInfile(filename, s1, s2);
 
     return 0;
 }

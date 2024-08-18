@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 19:06:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/18 19:08:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/18 19:15:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 class HarlFilter {
 private:
-    
     void debug(void);
     void info(void);
     void warning(void);
@@ -27,5 +26,7 @@ private:
 
 public:
     void complain(std::string level);
+    void filter(std::string level);
 };
+
 #endif

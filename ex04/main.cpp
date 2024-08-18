@@ -6,23 +6,19 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 18:53:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 19:14:24 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/18 09:27:58 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-#include <string>
+#include "replace.hpp"
 
 void replaceStringInFile(const std::string& filename, const std::string& s1, const std::string& s2) {
-    // Open the input file
     std::ifstream inputFile(filename);
     if (!inputFile.is_open()) {
         std::cerr << "Error: Could not open the file " << filename << std::endl;
         return;
     }
 
-    // Create the output file
     std::ofstream outputFile(filename + ".replace");
     if (!outputFile.is_open()) {
         std::cerr << "Error: Could not create the file " << filename << ".replace" << std::endl;
@@ -30,15 +26,8 @@ void replaceStringInFile(const std::string& filename, const std::string& s1, con
     }
 
     std::string line;
-    size_t pos;
-
     while (std::getline(inputFile, line)) {
-        // Replace all occurrences of s1 with s2
-        while ((pos = line.find(s1)) != std::string::npos) {
-            line.erase(pos, s1.length());
-            line.insert(pos, s2);
-        }
-        outputFile << line << std::endl;
+        outputFile << replaceAll(line, s1, s2) << "\n";
     }
 
     inputFile.close();

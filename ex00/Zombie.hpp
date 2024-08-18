@@ -6,9 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:47:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/07/02 14:36:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/18 18:34:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
 #include <iostream>
 
@@ -29,3 +32,5 @@ class Zombie {
 Zombie* newZombie( std::string name);
 
 void randomChump( std::string name );
+
+#endif

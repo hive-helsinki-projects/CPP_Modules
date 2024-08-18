@@ -1,14 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:38:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 11:43:29 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/18 18:34:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ZOMBIEHORDE_HPP
+#define ZOMEBIEHORDE_HPP
 
 #include <iostream>
 
@@ -31,3 +34,5 @@ class Zombie {
 };
 
 Zombie* zombieHorde(int N, std::string name);
+
+#endif

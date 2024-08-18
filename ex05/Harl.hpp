@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 10:37:17 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 11:43:05 by lkilpela         ###   ########.fr       */
+/*   Created: 2024/08/18 18:30:28 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/08/18 18:32:02 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-Zombie* zombieHorde(int N, std::string name) {
-    if (N <=0) return nullptr;
-    Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++) {
-        horde[i].setName(name);
-    }
-    return (horde);
-}
+class 
+#endif HARL_HPP

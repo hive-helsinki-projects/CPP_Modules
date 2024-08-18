@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.cpp                                           :+:      :+:    :+:   */
+/*   HarlFilter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 18:43:11 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/18 19:13:16 by lkilpela         ###   ########.fr       */
+/*   Created: 2024/08/18 19:08:25 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/08/18 19:09:47 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "HarlFilter.hpp"
 
-void Harl::debug(void) {
+void HarlFilter::debug(void) {
     std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
 }
 
-void Harl::info(void) {
+void HarlFilter::info(void) {
     std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
-void Harl::warning(void) {
+void HarlFilter::warning(void) {
     std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
-void Harl::error(void) {
+void HarlFilter::error(void) {
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void Harl::complain(std::string level) {
-    std::map<std::string, void (Harl::*)()> mymap;
+void HarlFilter::complain(std::string level) {
+    std::map<std::string, void (HarlFilter::*)()> mymap;
     
-    mymap["DEBUG"] = &Harl::debug;
-    mymap["INFO"] = &Harl::info;
-    mymap["WARNING"] = &Harl::warning;
-    mymap["ERROR"] = &Harl::error;
+    mymap["debug"] = &HarlFilter::debug;
+    mymap["info"] = &HarlFilter::info;
+    mymap["warning"] = &HarlFilter::warning;
+    mymap["error"] = &HarlFilter::error;
 
     auto it = mymap.find(level);
     if(it != mymap.end()) 

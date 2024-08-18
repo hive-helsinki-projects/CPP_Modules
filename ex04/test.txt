@@ -1,2 +1,1 @@
-old old new new old new old
-gooooddd goooddd bad bad bad
+"The quick brown fox jumps over the lazy dog. The fox is quick.";

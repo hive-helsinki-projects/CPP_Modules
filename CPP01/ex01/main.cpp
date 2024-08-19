@@ -6,11 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:44:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 10:46:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:23:57 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ZombieHorde.hpp"
 
 int main() {
     int N = 5;

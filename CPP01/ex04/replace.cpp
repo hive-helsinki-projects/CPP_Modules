@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 09:42:01 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/18 18:29:01 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/19 12:05:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "replace.hpp"
 
-static std::string replaceAll(const std::string& str, const std::string& s1, const std::string& s2) {
+static std::string replaceAll(const std::string& str, const std::string s1, const std::string s2) {
     std::string result;
     size_t pos = 0; // position of found subtring
     size_t prevPos = 0; // position of the previous substring
@@ -26,7 +26,7 @@ static std::string replaceAll(const std::string& str, const std::string& s1, con
     return result;
 }
 
-void    replaceInfile(const std::string& filename, const std::string s1, const std::string s2) {
+void    replaceInfile(const std::string& filename, const std::string& s1, const std::string& s2) {
     std::ifstream inputFile(filename);
     std::ofstream outputFile(filename + ".new");
     std::string line;
@@ -40,10 +40,20 @@ void    replaceInfile(const std::string& filename, const std::string s1, const s
         return ;
     }
 
-    while (std::getline(inputFile, line)) {
-        outputFile << replaceAll(line, s1, s2) << "\n";
+    if (!std::getline(inputFile, line)) {
+    std::cerr << "Error: The file " << filename << " is empty or could not be read" << std::endl;
+    return;
     }
 
-    inputFile.close();
-    outputFile.close();
+    // Process the first line
+    outputFile << replaceAll(line, s1, s2) << "\n";
+    
+    while (std::getline(inputFile, line)) {
+        outputFile << replaceAll(line, s1, s2) << "\n";
+        if (outputFile.bad()) {
+            std::cerr << "Error: Failed to write from the file " << filename << ".new" << std::endl;
+            return;
+        }
+    }
 }
+

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:02:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/15 12:38:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:33:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,14 @@
 #include <string>
 
 class Weapon {
-    private:
-        std::string type;
-    public:
-        // Constructor accepting std::string
-        Weapon(const std::string& type) : type(type) {}
-        
-        void setType(const std::string& newType) {
-            type = newType;
-        }
-        const std::string& getType() const {
-            return type;
-        }
+private:
+    std::string type;
+public:
+    // Constructor accepting std::string
+    Weapon(const std::string& type) : type(type) {}
+    
+    void setType(const std::string& newType);
+    const std::string& getType() const;
 };
 
 #endif

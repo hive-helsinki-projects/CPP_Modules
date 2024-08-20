@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 05:37:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 05:40:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 10:23:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define FIXED_HPP
 
 #include <iostream>
-#include <string>
-#include <cmath>
 
 class Fixed {
 private:
@@ -47,9 +45,12 @@ public:
     Fixed operator++(int); // Post-increment
     Fixed& operator--(); // Pre-decrement
     Fixed operator--(int); // Post-decrement
-};
 
-// Overload of the insertation operators 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+    // Overloaded member functions
+    static Fixed& min(Fixed& f1, Fixed& f2);
+    static const Fixed& min(const Fixed& f1, const Fixed& f2);
+    static Fixed& max(Fixed& f1, Fixed& f2);
+    static const Fixed& max(const Fixed& f1, const Fixed& f2);
+};
 
 #endif

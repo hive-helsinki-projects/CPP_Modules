@@ -6,11 +6,11 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/08/15 12:01:48 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/08/20 19:45:21 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	brain
+NAME		=	a.out
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11

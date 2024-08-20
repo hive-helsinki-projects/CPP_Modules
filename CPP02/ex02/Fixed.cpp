@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 05:37:13 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 10:31:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 10:39:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ Fixed Fixed::operator-(const Fixed& f) const {
 
 Fixed Fixed::operator*(const Fixed& f) const {
     Fixed result;
-    result.fixedPointValue =  fixedPointValue * f.fixedPointValue;
+    result.fixedPointValue =  (fixedPointValue * f.fixedPointValue) / (1 << fractionalBits);
     return result;
 }
 

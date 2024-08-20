@@ -6,21 +6,19 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:49:26 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 12:55:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:14:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-#include "Point.hpp"
-
 // Extract coordinates
-Fixed getX(Point const &p) {
-    return p.getX();
+Fixed Point::getX() const {
+    return this->x;
 }
 
-Fixed getY(Point const &p) {
-    return p.getY();
+Fixed Point::getY() const {
+    return this->y;
 }
 
 // Calculate differences in y-coordinates
@@ -44,14 +42,14 @@ Fixed calculateArea(Fixed sum) {
 }
 
 // Main area function
-Fixed area(Point const &p1, Point const &p2, Point const &p3) {
+Fixed Point::area(Point const &p1, Point const &p2, Point const &p3) {
     // Extract coordinates
-    Fixed x1 = getX(p1);
-    Fixed y1 = getY(p1);
-    Fixed x2 = getX(p2);
-    Fixed y2 = getY(p2);
-    Fixed x3 = getX(p3);
-    Fixed y3 = getY(p3);
+    Fixed x1 = p1.getX();
+    Fixed y1 = p1.getY();
+    Fixed x2 = p2.getX();
+    Fixed y2 = p2.getY();
+    Fixed x3 = p3.getX();
+    Fixed y3 = p3.getY();
 
     // Calculate differences in y-coordinates
     Fixed diffY1 = diffY(p2, p3);
@@ -65,12 +63,12 @@ Fixed area(Point const &p1, Point const &p2, Point const &p3) {
 
     // Sum the products
     Fixed sum = sumProducts(prod1, prod2, prod3);
-3
+
     // Calculate and return the area
     return calculateArea(sum);
 }
 
-bool bsp(Point const a, Point const b, Point const c, Point const point) {
+bool Point::bsp(Point const a, Point const b, Point const c, Point const point) {
     // Calculate the area of the main triangle abc
     Fixed areaABC = area(a, b, c);
 

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 05:37:13 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 11:05:21 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:00:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,4 +136,9 @@ const Fixed& Fixed::max(const Fixed& f1, const Fixed& f2) {
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     os << fixed.toFloat();
     return os;
+}
+
+// Method to return the absolute value
+Fixed Fixed::abs() const {
+    return Fixed(fixedPointValue < 0 ? -fixedPointValue : fixedPointValue);
 }

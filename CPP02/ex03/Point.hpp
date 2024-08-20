@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:49:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 12:52:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:14:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Fixed.hpp"
 
-class Point: {
+class Point {
 private:
     Fixed const x;
     Fixed const y;
@@ -35,10 +35,27 @@ public:
     }
     ~Point() {}
     
+   // Extract coordinates
     Fixed getX() const;
     Fixed getY() const;
+
+    // Main area function
+    static Fixed area(Point const &p1, Point const &p2, Point const &p3);
+
+    // Check if point is inside the triangle
+    static bool bsp(Point const a, Point const b, Point const c, Point const point);
 };
 
-bool bsp(Point const a, Point const b, Point const c, Point const point);
+// Calculate differences in y-coordinates
+Fixed diffY(Point const &p1, Point const &p2);
+
+// Multiply differences by corresponding x-coordinates
+Fixed multiplyDiffX(Fixed x, Fixed diffY);
+
+// Sum the products
+Fixed sumProducts(Fixed prod1, Fixed prod2, Fixed prod3);
+
+// Calculate and return the area
+Fixed calculateArea(Fixed sum);
 
 #endif

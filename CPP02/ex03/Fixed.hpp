@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 05:37:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 11:01:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 18:59:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ public:
     static const Fixed& min(const Fixed& f1, const Fixed& f2);
     static Fixed& max(Fixed& f1, Fixed& f2);
     static const Fixed& max(const Fixed& f1, const Fixed& f2);
+    
+    // Method to return the absolute value
+    Fixed abs() const;
 };
 
 // Overload of the insertation (<<) operator

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 05:37:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 10:31:54 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:01:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,15 @@ private:
     static const int fractionalBits = 8; // Number of fractional bits
 
 public:
+    // Class definition
     Fixed(); // Default constructor
     Fixed(const Fixed& other); // Copy constructor
     Fixed& operator=(const Fixed& other); // Copy assignment operator
     ~Fixed(); // Destructor
 
-    Fixed(const int value);
+    // Float definition
     Fixed(const float value);
-  
     float toFloat(void) const; // Convert to float
-    int   toInt(void) const;   // Convert to int
 
     // Comparison operators
     bool operator>(const Fixed& f) const;

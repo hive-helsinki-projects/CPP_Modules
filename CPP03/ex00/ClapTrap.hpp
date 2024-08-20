@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:00:58 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 20:12:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 20:18:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ private:
     unsigned int attackDamage;
 
 public:
+    ClapTrap();
     ClapTrap(const std::string& name);
     ClapTrap(const ClapTrap& other);
     ClapTrap& operator=(const ClapTrap& other);

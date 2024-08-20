@@ -6,15 +6,21 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:05:43 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 20:16:17 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 20:20:30 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+    : name("Default"), hitPoints(10), energyPoints(10), attackDamage(0) {
+    std::cout << "ClapTrap " << name << " created by default constructor." << std::endl;
+}
+
+// Parameterized Constructor
 ClapTrap::ClapTrap(const std::string& name)
     : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "ClapTrap " << name << " created." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)

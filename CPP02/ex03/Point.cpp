@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:49:26 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 19:14:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:17:25 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ Fixed Point::area(Point const &p1, Point const &p2, Point const &p3) {
     return calculateArea(sum);
 }
 
-bool Point::bsp(Point const a, Point const b, Point const c, Point const point) {
+bool bsp(Point const a, Point const b, Point const c, Point const point) {
     // Calculate the area of the main triangle abc
-    Fixed areaABC = area(a, b, c);
+    Fixed areaABC = Point::area(a, b, c);
 
     // Calculate the areas of the triangles formed with the point p
-    Fixed areaPAB = area(point, a, b);
-    Fixed areaPBC = area(point, b, c);
-    Fixed areaPCA = area(point, c, a);
+    Fixed areaPAB = Point::area(point, a, b);
+    Fixed areaPBC = Point::area(point, b, c);
+    Fixed areaPCA = Point::area(point, c, a);
 
     // Check if the point is on the edge or a vertex
     if (areaPAB == Fixed(0) || areaPBC == Fixed(0) || areaPCA == Fixed(0)) {

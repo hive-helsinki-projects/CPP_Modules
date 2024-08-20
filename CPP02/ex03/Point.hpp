@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:49:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 19:14:52 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:17:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     Point() : x(0), y(0) {};
     Point(const float xVal, const float yVal) : x(xVal), y(yVal) {}
     Point(const Point& other) : x(other.x), y(other.y) {}
-    Point& Point::operator=(const Point& other) {
+    Point& operator=(const Point& other) {
     // Since x and y are const, they cannot be assigned to after initialization.
     // This means we cannot implement a meaningful assignment operator.
     // We can only return *this.
@@ -42,8 +42,6 @@ public:
     // Main area function
     static Fixed area(Point const &p1, Point const &p2, Point const &p3);
 
-    // Check if point is inside the triangle
-    static bool bsp(Point const a, Point const b, Point const c, Point const point);
 };
 
 // Calculate differences in y-coordinates
@@ -57,5 +55,8 @@ Fixed sumProducts(Fixed prod1, Fixed prod2, Fixed prod3);
 
 // Calculate and return the area
 Fixed calculateArea(Fixed sum);
+
+// Check if point is inside the triangle
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

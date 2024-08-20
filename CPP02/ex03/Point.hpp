@@ -6,13 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 11:49:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 19:17:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:55:19 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef POINT_HPP
 #define POINT_HPP
 
+#include <iostream>
 #include "Fixed.hpp"
 
 class Point {
@@ -20,20 +21,12 @@ private:
     Fixed const x;
     Fixed const y;
 public:
-    Point() : x(0), y(0) {};
-    Point(const float xVal, const float yVal) : x(xVal), y(yVal) {}
-    Point(const Point& other) : x(other.x), y(other.y) {}
-    Point& operator=(const Point& other) {
-    // Since x and y are const, they cannot be assigned to after initialization.
-    // This means we cannot implement a meaningful assignment operator.
-    // We can only return *this.
-        if (this != &other) {
-            // Normally, we would assign the values here, but since x and y are const,
-            // we can't do that. This is just to follow the canonical form.
-        }
-        return *this;
-    }
-    ~Point() {}
+    Point();
+    Point(const float xVal, const float yVal);
+    Point(const Point& other);
+    Point& operator=(const Point& other);
+    
+    ~Point();
     
    // Extract coordinates
     Fixed getX() const;

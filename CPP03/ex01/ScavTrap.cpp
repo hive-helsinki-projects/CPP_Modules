@@ -6,25 +6,25 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:33:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 11:40:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:45:03 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTra.hpp"
+#include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap();
+ScavTrap::ScavTrap() : ClapTrap() {}
 
 ScavTrap::ScavTrap(const std::string& name)
     : ClapTrap(name) {
         hitPoints = 100;
         energyPoints = 50;
         attackDamage = 20;
-        std::cout << "ScavTrap" << name << " constructed." << std::endl;
+        std::cout << "ScavTrap " << name << " constructed." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {}
     
-ScavTrap& operator=(const ScavTrap &other) {
+ScavTrap& ScavTrap::operator=(const ScavTrap &other) {
     if (this != &other) {
         ClapTrap::operator=(other);
     }

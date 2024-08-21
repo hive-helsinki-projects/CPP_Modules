@@ -6,13 +6,18 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:33:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:10:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:47:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() {}
+ScavTrap::ScavTrap() : ClapTrap() {
+    hitPoints = 100;
+    energyPoints = 50;
+    attackDamage = 20;
+    std::cout << "ScavTrap default constructed." << std::endl;
+}
 
 ScavTrap::ScavTrap(const std::string& name)
     : ClapTrap(name) {
@@ -27,6 +32,9 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {}
 ScavTrap& ScavTrap::operator=(const ScavTrap &other) {
     if (this != &other) {
         ClapTrap::operator=(other);
+        hitPoints = other.hitPoints;
+        energyPoints = other.energyPoints;
+        attackDamage = other.attackDamage;
     }
     return *this;
 }

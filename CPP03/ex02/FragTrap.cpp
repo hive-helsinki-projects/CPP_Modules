@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:18:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:36:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:46:57 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {}
 FragTrap& FragTrap::operator=(const FragTrap &other) {
     if (this != &other) {
         ClapTrap::operator=(other);
+            hitPoints = other.hitPoints;
+        energyPoints = other.energyPoints;
+        attackDamage = other.attackDamage;
     }
     return *this;
 }

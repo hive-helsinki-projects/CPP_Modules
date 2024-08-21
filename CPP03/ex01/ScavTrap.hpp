@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:27:25 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 11:37:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:48:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define SCAVTRAP_HH
 
 #include "ClapTrap.hpp"
+
+#define GREEN "\033[0;32m"
+#define BLUE "\033[34m"
+#define RED "\033[0;31m"
+#define RESET "\033[0m"
 
 class ScavTrap: public ClapTrap {
 public:

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:00:58 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 11:09:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:33:01 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ public:
     virtual ~ClapTrap();
     
     virtual void attack(const std::string& target);
-    virtual void takeDamage(unsigned int amount);
-    virtual void beRepaired(unsigned int amount);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 #endif

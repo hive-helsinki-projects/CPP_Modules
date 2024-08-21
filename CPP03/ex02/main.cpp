@@ -6,12 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:15:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:24:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
     std::cout << "----------------------------------------" << std::endl;
@@ -43,6 +44,15 @@ int main() {
 
     ScavTrap scavtrap2(scavtrap1);
     scavtrap2.attack("target2");
+
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "\nCreating FragTrap objects:" << std::endl;
+    FragTrap fragtrap1("FragTrap1");
+    fragtrap1.attack("target1");
+    fragtrap1.highFivesGuys();
+
+    FragTrap fragtrap2(fragtrap1);
+    fragtrap2.attack("target2");
     
     std::cout << "----------------------------------------" << std::endl;
     std::cout << BLUE << "\nEnd of main, destructors will be called:" << std::endl << RESET;

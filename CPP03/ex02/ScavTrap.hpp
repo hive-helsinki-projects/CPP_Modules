@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:27:25 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:19:45 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:53:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SCAVTRAP_HH
 
 #include "ClapTrap.hpp"
-
-
 
 class ScavTrap: public ClapTrap {
 public:

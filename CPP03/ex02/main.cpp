@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:24:26 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:41:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 #include "FragTrap.hpp"
 
 int main() {
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE << "Creating ClapTrap objects:" << std::endl << RESET;
+    std::cout << BLUE << "\nCreating ClapTrap objects:" << std::endl << RESET;
     ClapTrap claptrap1("ClapTrap1");
     ClapTrap claptrap2("ClapTrap2");
 
@@ -46,7 +45,7 @@ int main() {
     scavtrap2.attack("target2");
 
     std::cout << "----------------------------------------" << std::endl;
-    std::cout << "\nCreating FragTrap objects:" << std::endl;
+    std::cout << BLUE << "\nCreating FragTrap objects:" << std::endl << RESET;
     FragTrap fragtrap1("FragTrap1");
     fragtrap1.attack("target1");
     fragtrap1.highFivesGuys();

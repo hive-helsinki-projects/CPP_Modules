@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:18:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:21:25 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:26:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ public:
     FragTrap();
     FragTrap(const std::string& name);
     FragTrap(const FragTrap& other);
-   FragTrap& operator=(const FragTrap &other);
+    FragTrap& operator=(const FragTrap &other);
     ~FragTrap();
 
     void highFivesGuys(void);

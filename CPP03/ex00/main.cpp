@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 20:20:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 09:24:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 int main() {
     // Create ClapTrap objects
-    ClapTrap claptrap1("ClapTrap1");
-    ClapTrap claptrap2("ClapTrap2");
+    ClapTrap claptrap1("1");
+    ClapTrap claptrap2("2");
 
     // Test attack function
-    claptrap1.attack("ClapTrap2");
+    claptrap1.attack("2");
 
     // Test takeDamage function
     claptrap2.takeDamage(5);
@@ -30,11 +30,17 @@ int main() {
 
     // Test copy constructor
     ClapTrap claptrap3(claptrap1);
-    claptrap3.attack("ClapTrap2");
+    
+    claptrap3.attack("2");
 
-    // Test assignment operator
-    ClapTrap claptrap4 = claptrap2;
-    claptrap4.takeDamage(2);
+    claptrap2.attack("1");
+
+    claptrap1.takeDamage(10);
+
+    // Test beRepaired function
+    claptrap1.beRepaired(5);
+
+    claptrap1.attack("2");
 
     return 0;
 }

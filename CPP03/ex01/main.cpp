@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 11:40:54 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:15:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "ScavTrap.hpp"
 
 int main() {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << BLUE << "Creating ClapTrap objects:" << std::endl << RESET;
     ClapTrap claptrap1("ClapTrap1");
     ClapTrap claptrap2("ClapTrap2");
 
@@ -33,13 +35,16 @@ int main() {
 
     claptrap1.attack("2");
 
-    // Test ScavTrap
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << BLUE  << "\nCreating ScavTrap objects:" << std::endl << RESET;
     ScavTrap scavtrap1("ScavTrap1");
     scavtrap1.attack("target1");
     scavtrap1.guardGate();
 
     ScavTrap scavtrap2(scavtrap1);
     scavtrap2.attack("target2");
-
+    
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << BLUE << "\nEnd of main, destructors will be called:" << std::endl << RESET;
     return 0;
 }

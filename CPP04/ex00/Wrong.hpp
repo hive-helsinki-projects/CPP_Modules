@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Wrong.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 07:19:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 17:53:21 by lkilpela         ###   ########.fr       */
+/*   Created: 2024/08/22 12:23:51 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/08/22 12:45:03 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONG_HPP
+#define WRONG_HPP
 
 #include <iostream>
 #include <string>
 
-#define GREEN "\033[0;32m"
-#define BLUE "\033[34m"
-#define RED "\033[31m"
-#define RESET "\033[0m"
 
-class Animal {
+class WrongAnimal {
 protected:
     std::string type;    
 
 public:
-    Animal();
-    Animal(const std::string& type);
-    Animal(const Animal& other);
-    Animal& operator=(const Animal& other);
-    virtual ~Animal();
+    WrongAnimal();
+    WrongAnimal(const WrongAnimal& other);
+    WrongAnimal& operator=(const WrongAnimal& other);
+    ~WrongAnimal();
 
-    virtual void makeSound() const;
-
+    void makeSound() const;
     std::string getType() const; 
+};
+
+class WrongCat : public WrongAnimal {
+public:
+    WrongCat();
+    WrongCat(const WrongCat& other);
+    WrongCat& operator=(const WrongCat& other);
+    ~WrongCat();
+
+    void makeSound() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 12:03:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:10:30 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 #include "Dog.hpp"
 #include "Brain.hpp"
 
-/*int main()
+int main()
 {
     const int numAnimals = 10;
     Animal* animals[numAnimals];
 
-    std::cout << BLUE << "Creating half Dog and half Cat objects..." << RESET << std::endl;
     // Create half Dog and half Cat objects
     for (int i = 0; i < numAnimals / 2; ++i) {
         animals[i] = new Dog();
@@ -48,7 +47,7 @@
 
     // Check for memory leaks
     return 0;
-}*/
+}
 
 void testCatDeepCopy() {
     Cat originalCat;

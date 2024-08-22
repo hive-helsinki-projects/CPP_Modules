@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 09:37:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:53:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Dog.hpp"
 #include "Brain.hpp"
 
-int main()
+/*int main()
 {
     const int numAnimals = 10;
     Animal* animals[numAnimals];
@@ -47,5 +47,45 @@ int main()
     }
 
     // Check for memory leaks
+    return 0;
+}*/
+
+void testCatDeepCopy() {
+    Cat originalCat;
+    originalCat.getBrain()->ideas[0] = "Original idea";
+
+    Cat copiedCat = originalCat; // Using copy constructor
+
+    // Modify the original Cat's Brain
+    originalCat.getBrain()->ideas[0] = "Modified idea";
+
+    // Check if the copied Cat's Brain is unaffected
+    if (copiedCat.getBrain()->ideas[0] == "Original idea") {
+        std::cout << "Cat deep copy test passed." << std::endl;
+    } else {
+        std::cout << "Cat deep copy test failed." << std::endl;
+    }
+}
+
+void testDogDeepCopy() {
+    Dog originalDog;
+    originalDog.getBrain()->ideas[0] = "Original idea";
+
+    Dog copiedDog = originalDog; // Using copy constructor
+
+    // Modify the original Dog's Brain
+    originalDog.getBrain()->ideas[0] = "Modified idea";
+
+    // Check if the copied Dog's Brain is unaffected
+    if (copiedDog.getBrain()->ideas[0] == "Original idea") {
+        std::cout << "Dog deep copy test passed." << std::endl;
+    } else {
+        std::cout << "Dog deep copy test failed." << std::endl;
+    }
+}
+
+int main() {
+    testCatDeepCopy();
+    testDogDeepCopy();
     return 0;
 }

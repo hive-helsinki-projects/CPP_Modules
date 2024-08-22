@@ -6,18 +6,21 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:44:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 09:45:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:43:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : brain(new Brain()) {
+Dog::Dog() {
     type = "Dog";
+    brain = new Brain();
     std::cout << GREEN << "[Constructor] " <<  type << RESET << " default constructed" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other), brain(new Brain(*other.brain)) {}
+Dog::Dog(const Dog& other) : Animal(other) {
+    brain = new Brain(*other.brain);
+}
 
 Dog& Dog::operator=(const Dog& other) {
     if (this != &other) {

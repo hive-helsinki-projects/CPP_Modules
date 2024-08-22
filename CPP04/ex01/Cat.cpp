@@ -6,18 +6,21 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:41:09 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 09:45:12 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:57:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : brain(new Brain()) {
+Cat::Cat() {
     type = "Cat";
+    brain = new Brain();
     std::cout << GREEN << "[Constructor]" << RESET << " Cat default constructed." << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other), brain(new Brain(*other.brain)) {}
+Cat::Cat(const Cat& other) : Animal(other) {
+    brain = new Brain(*other.brain);
+}
 
 Cat& Cat::operator=(const Cat& other) {
     if (this != &other) {

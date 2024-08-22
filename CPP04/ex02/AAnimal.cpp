@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 19:02:10 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 19:12:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ AAnimal& AAnimal::operator=(const AAnimal& other) {
 
 AAnimal::~AAnimal() {
     std::cout << "Animal destructed." << std::endl;
-}
-
-void AAnimal::makeSound(void) const {
-    std::cout << "Animal sound" << std::endl;
 }
 
 std::string AAnimal::getType() const {

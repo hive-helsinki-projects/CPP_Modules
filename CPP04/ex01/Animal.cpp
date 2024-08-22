@@ -6,14 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 09:08:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:45:04 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal() : type("Default") {
-    std::cout << "Animal default constructed." << std::endl;
+    std::cout << GREEN << "[Constructor]" << RESET << " Animal default constructed." << std::endl;
 }
 
 Animal::Animal(const Animal& other) : type(other.type) {}
@@ -26,7 +26,7 @@ Animal& Animal::operator=(const Animal& other) {
 }
 
 Animal::~Animal() {
-    std::cout << "Animal class destructed." << std::endl;
+    std::cout << RED << "[Destructor]" << RESET << " Animal class destructed." << std::endl;
 }
 
 void Animal::makeSound(void) const {

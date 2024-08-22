@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 08:13:15 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 08:23:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:39:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 #include <iostream>
 #include <string>
+
+#define GREEN "\033[0;32m"
+#define BLUE "\033[34m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 class Brain {
 public:

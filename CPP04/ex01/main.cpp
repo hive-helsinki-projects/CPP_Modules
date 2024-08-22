@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 09:05:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:37:35 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
     const int numAnimals = 10;
     Animal* animals[numAnimals];
 
+    std::cout << BLUE << "Creating half Dog and half Cat objects..." << RESET << std::endl;
     // Create half Dog and half Cat objects
     for (int i = 0; i < numAnimals / 2; ++i) {
         animals[i] = new Dog();
@@ -28,6 +29,7 @@ int main()
         animals[i] = new Cat();
     }
 
+    std::cout << BLUE << "\nTesting deep copies..." << RESET << std::endl;
     // Test deep copy
     Dog originalDog;
     originalDog.getBrain()->ideas[0] = "Original idea";

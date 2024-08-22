@@ -6,14 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 08:13:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 08:23:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 09:39:48 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
 Brain::Brain() {
-    std::cout << "Brain default constructed" << std::endl;
+    std::cout << GREEN << "[Constructor]" << RESET << " Brain default constructed." << std::endl;
 }
 
 Brain::Brain (const Brain& other) {
@@ -31,5 +31,5 @@ Brain& Brain::operator=(const Brain& other) {
 }
 
 Brain::~Brain() {
-    std::cout << "Brain Class destructed" << std::endl;
+    std::cout << RED << "[Destructor]" << RESET << " Brain class destructed." << std::endl;
 }

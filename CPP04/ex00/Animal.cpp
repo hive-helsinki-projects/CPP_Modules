@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 08:03:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:08:35 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Animal& Animal::operator=(const Animal& other) {
 }
 
 Animal::~Animal() {
-    std::cout << "Animal class destructed." << std::endl;
+    std::cout << "Animal destructed." << std::endl;
 }
 
 void Animal::makeSound(void) const {

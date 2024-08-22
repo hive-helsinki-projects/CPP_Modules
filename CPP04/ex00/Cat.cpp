@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:41:09 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 11:34:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:08:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat() {
     type = "Cat";
-    std::cout << "Cat is constructed." << std::endl;
+    std::cout << "Cat default constructed." << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {}
@@ -27,7 +27,7 @@ Cat& Cat::operator=(const Cat& other) {
 }
 
 Cat::~Cat() {
-    std::cout << "Cat is destructed." << std::endl;
+    std::cout << "Cat destructed." << std::endl;
 }
 
 void Cat::makeSound() const {

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:19:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 09:49:31 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:05:47 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 #include <iostream>
 #include <string>
-
-#define GREEN "\033[0;32m"
-#define BLUE "\033[34m"
-#define RED "\033[31m"
-#define RESET "\033[0m"
 
 class Animal {
 protected:

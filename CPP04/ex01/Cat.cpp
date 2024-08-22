@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:41:09 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 11:57:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:07:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cat::Cat() {
     type = "Cat";
     brain = new Brain();
-    std::cout << GREEN << "[Constructor]" << RESET << " Cat default constructed." << std::endl;
+    std::cout << "Cat default constructed." << std::endl;
 }
 
 Cat::Cat(const Cat& other) : Animal(other) {
@@ -33,7 +33,7 @@ Cat& Cat::operator=(const Cat& other) {
 
 Cat::~Cat() {
     delete brain;
-    std::cout << RED << "[Destructor]" << RESET << " Cat class destructed." << std::endl;
+    std::cout << "Cat destructed." << std::endl;
 }
 
 void Cat::makeSound() const {

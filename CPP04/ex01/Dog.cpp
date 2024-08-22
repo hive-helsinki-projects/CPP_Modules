@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:44:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 11:43:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:07:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Dog::Dog() {
     type = "Dog";
     brain = new Brain();
-    std::cout << GREEN << "[Constructor] " <<  type << RESET << " default constructed" << std::endl;
+    std::cout << "Dog default constructed" << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other) {
@@ -33,7 +33,7 @@ Dog& Dog::operator=(const Dog& other) {
 
 Dog::~Dog() {
     delete brain;
-    std::cout << RED << "[Destructor]" << RESET << " Dog class destructed." << std::endl;
+    std::cout <<"Dog destructed." << std::endl;
 }
 
 void Dog::makeSound() const {

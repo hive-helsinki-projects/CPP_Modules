@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:11:10 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:17:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,29 @@
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
-int main()
-{
-    const int numAnimals = 10;
-    Animal* animals[numAnimals];
 
-    // Create half Dog and half Cat objects
-    for (int i = 0; i < numAnimals / 2; ++i) {
-        animals[i] = new Dog();
-    }
-    for (int i = numAnimals / 2; i < numAnimals; ++i) {
-        animals[i] = new Cat();
-    }
-
-    std::cout << BLUE << "\nTesting deep copies..." << RESET << std::endl;
-    // Test deep copy
+void testDogDeepCopy() {
+    std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
     Dog originalDog;
+    
+    std::cout << GREEN << "\n~Getting Copy..." << RESET << std::endl;
     originalDog.getBrain()->ideas[0] = "Original idea";
-    Dog copiedDog = originalDog;
-    copiedDog.getBrain()->ideas[0] = "Copied idea";
 
-    std::cout << "..." << std::endl;
-    std::cout << "Original Dog's idea: " << originalDog.getBrain()->ideas[0] << std::endl;
-    std::cout << "Copied Dog's idea: " << copiedDog.getBrain()->ideas[0] << std::endl;
-    std::cout << "..." << std::endl;
+    Dog copiedDog = originalDog; // Using copy constructor
 
-    // Delete all animals
-    for (int i = 0; i < numAnimals; ++i) {
-        delete animals[i];
+    // Modify the original Dog's Brain
+    originalDog.getBrain()->ideas[0] = "Modified idea";
+
+    // Check if the copied Dog's Brain is unaffected
+    if (copiedDog.getBrain()->ideas[0] == "Original idea") {
+        std::cout << "Dog deep copy test passed." << std::endl;
+    } else {
+        std::cout << "Dog deep copy test failed." << std::endl;
     }
-
-    // Check for memory leaks
-    return 0;
 }
 
 void testCatDeepCopy() {
+    std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
     Cat originalCat;
     originalCat.getBrain()->ideas[0] = "Original idea";
 
@@ -71,33 +59,44 @@ void testCatDeepCopy() {
     }
 }
 
-void testDogDeepCopy() {
-    Dog originalDog;
-    originalDog.getBrain()->ideas[0] = "Original idea";
-
-    Dog copiedDog = originalDog; // Using copy constructor
-
-    // Modify the original Dog's Brain
-    originalDog.getBrain()->ideas[0] = "Modified idea";
-
-    // Check if the copied Dog's Brain is unaffected
-    if (copiedDog.getBrain()->ideas[0] == "Original idea") {
-        std::cout << "Dog deep copy test passed." << std::endl;
-    } else {
-        std::cout << "Dog deep copy test failed." << std::endl;
-    }
-}
-
 void testDogCopyInScope() {
+    std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
     Dog basic;
     {
         Dog tmp = basic; // Using copy constructor
     } // tmp goes out of scope here
 }
 
-int main() {
+int main()
+{
+    std::cout << BLUE << "Creating and filling an array of Animal objects..." << RESET << std::endl;
+    const int numAnimals = 10;
+    Animal* animals[numAnimals];
+
+    // Create half Dog and half Cat objects
+    for (int i = 0; i < numAnimals / 2; ++i) {
+        animals[i] = new Dog();
+    }
+    for (int i = numAnimals / 2; i < numAnimals; ++i) {
+        animals[i] = new Cat();
+    }
+
+    std::cout << BLUE << "\nTesting Dog Deep Copy..." << RESET << std::endl;
+    testDogDeepCopy();
+
+    std::cout << BLUE << "\nTesting Cat Deep Copy..." << RESET << std::endl;
     testCatDeepCopy();
-    //testDogDeepCopy();
-    //testDogCopyInScope();
+
+    std::cout << BLUE << "\nTesting Dog Copy In Scope..." << RESET << std::endl;
+    testDogCopyInScope();
+    
+    std::cout << GREEN << "\n~Calling Destructor..." << RESET << std::endl;
+    // Delete all animals
+    for (int i = 0; i < numAnimals; ++i) {
+        delete animals[i];
+    }
+
+    // Check for memory leaks
     return 0;
 }
+

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:10:30 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:11:10 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "Brain.hpp"
+
+#define GREEN "\033[0;32m"
+#define BLUE "\033[34m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 int main()
 {

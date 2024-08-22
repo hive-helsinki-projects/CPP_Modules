@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:19:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:47:31 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 07:49:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ public:
     Animal(const Animal& other);
     Animal& operator=(const Animal& other);
     
-    ~Animal();
+    virtual ~Animal();
 
-    void makeSound(void);
+    virtual void makeSound() const;
 };
 
 #endif

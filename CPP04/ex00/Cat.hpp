@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:34:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:36:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 07:57:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ public:
     Cat& operator=(const Cat& other);
     
     ~Cat();
+
+    void makeSound() const override;
 };
 
 #endif

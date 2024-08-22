@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:47:39 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 07:50:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ Animal::Animal() : type("Default") {
     std::cout << "Animal default constructed." << std::endl;
 }
 
-Animal::Animal(const std::string& type) : type(type) {
-    std::cout  << "Animal " << type << " constructed." << std::endl;
+Animal::Animal(const std::string& type) : type("Unknown") {
+    std::cout  << "Animal of type " << type << " created." << std::endl;
 }
 
 Animal::Animal(const Animal& other) : type(other.type) {}
@@ -34,5 +34,5 @@ Animal::~Animal() {
 }
 
 void makeSound(void) {
-    
+    std::cout << "Animal sound" << std::endl;
 }

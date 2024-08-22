@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:34:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:57:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 08:06:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Cat : public Animal {
 public:
     Cat();
-    Cat(const std::string& type);
     Cat(const Cat& other);
     Cat& operator=(const Cat& other);
     

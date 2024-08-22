@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:50:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 08:03:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,10 @@ Animal::~Animal() {
     std::cout << "Animal class destructed." << std::endl;
 }
 
-void makeSound(void) {
+void Animal::makeSound(void) const {
     std::cout << "Animal sound" << std::endl;
+}
+
+std::string Animal::getType() const {
+    return type;
 }

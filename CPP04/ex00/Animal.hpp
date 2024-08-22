@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:19:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:49:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 08:03:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ public:
     virtual ~Animal();
 
     virtual void makeSound() const;
+
+    std::string getType() const; 
 };
 
 #endif

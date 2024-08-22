@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:41:09 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 07:56:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 08:07:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ Cat::Cat() {
     std::cout << "Cat created." << std::endl;
 }
 
-Cat::Cat(const std::string& type) : Animal(type) {}
 Cat::Cat(const Cat& other) : Animal(other) {}
+
 Cat& Cat::operator=(const Cat& other) {
     if (this != &other) {
         Animal::operator=(other);

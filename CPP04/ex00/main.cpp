@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 08:00:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 08:11:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
-    //...
+    
+    delete meta;
+    delete j;
+    delete i;
     return 0;
 }

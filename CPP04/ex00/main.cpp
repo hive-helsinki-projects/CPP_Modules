@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:02:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:03:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void testAnimalSound() {
     j->makeSound();
     meta->makeSound();
 
-    std::cout << GREEN << "\n~Calling Descontructor..." << RESET << std::endl;
+    std::cout << GREEN << "\n~Calling Decontructor..." << RESET << std::endl;
     delete meta;
     delete j;
     delete i;
@@ -48,7 +48,7 @@ void testWrongAnimal() {
     i->makeSound(); // will output the WrongAnimal sound!
     meta->makeSound();
 
-    std::cout << GREEN << "\n~Calling Descontructor..." << RESET << std::endl;
+    std::cout << GREEN << "\n~Calling Decontructor..." << RESET << std::endl;
     delete meta;
     delete i;
 }

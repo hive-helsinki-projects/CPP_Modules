@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 11:53:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/22 12:03:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,16 @@ void testDogDeepCopy() {
     }
 }
 
+void testDogCopyInScope() {
+    Dog basic;
+    {
+        Dog tmp = basic; // Using copy constructor
+    } // tmp goes out of scope here
+}
+
 int main() {
     testCatDeepCopy();
-    testDogDeepCopy();
+    //testDogDeepCopy();
+    //testDogCopyInScope();
     return 0;
 }

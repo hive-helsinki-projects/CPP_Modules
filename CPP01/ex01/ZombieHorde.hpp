@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #ifndef ZOMBIEHORDE_HPP
-#define ZOMEBIEHORDE_HPP
+#define ZOMBIEHORDE_HPP
 
 #include <iostream>
 

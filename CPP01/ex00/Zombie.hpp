@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 13:47:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/26 09:28:51 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/26 09:31:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
+#include <string>
 
 class Zombie {
 private:
@@ -25,7 +26,7 @@ public:
     void announce(void);
 };
 
-Zombie* newZombie( std::string name);
-void randomChump( std::string name );
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

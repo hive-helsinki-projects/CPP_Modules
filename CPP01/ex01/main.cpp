@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:44:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/19 11:23:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/08/26 12:15:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
     int N = 5;
-    std::string name = "Zombie";
+    std::string name = "ZombieHorde";
     Zombie* horde = zombieHorde(N, name);
     if (horde) {
     for (int i = 0; i < N; ++i) {

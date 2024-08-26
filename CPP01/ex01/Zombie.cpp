@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 19:36:17 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/26 09:31:48 by lkilpela         ###   ########.fr       */
+/*   Created: 2024/08/26 12:11:38 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/08/26 12:15:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie() : name("default") {}
-
-Zombie:: Zombie(std::string name) : name(name) {} 
+Zombie::Zombie() : name("default") {} // Default constructor
+Zombie::Zombie(std::string name) : name(name) {} // Initializer List 
 
 Zombie::~Zombie() {
-    std::cout << name << " is destroyed...\n";
+    std::cout << name << " is destroyed." << "\n";
 }
 void Zombie::announce(void) {
-    std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << "\n";
+}
+void Zombie::setName(std::string n) {
+    name = n;
 }

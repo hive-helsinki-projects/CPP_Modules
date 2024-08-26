@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 13:47:55 by lkilpela          #+#    #+#             */
+/*   Created: 2024/08/26 12:11:38 by lkilpela          #+#    #+#             */
 /*   Updated: 2024/08/26 12:15:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <iostream>
-#include <string>
+Zombie::Zombie() : name("default") {} // Default constructor
+Zombie::Zombie(std::string name) : name(name) {} // Initializer List 
 
-class Zombie {
-private:
-    std::string name;
-public:
-    Zombie();
-    Zombie(std::string name);
-    ~Zombie();
-    void announce(void);
-};
-
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-
-#endif
+Zombie::~Zombie() {
+    std::cout << name << " is destroyed." << "\n";
+}
+void Zombie::announce(void) {
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << "\n";
+}
+void Zombie::setName(std::string n) {
+    name = n;
+}

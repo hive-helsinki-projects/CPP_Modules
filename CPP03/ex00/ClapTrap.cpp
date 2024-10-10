@@ -6,25 +6,37 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:05:43 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/20 20:20:30 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:25:35 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
-    : name("Default"), hitPoints(10), energyPoints(10), attackDamage(0) {
+ClapTrap::ClapTrap() :  name("Default"),
+                        hitPoints(10),
+                        energyPoints(10),
+                        attackDamage(0)
+{
     std::cout << "ClapTrap " << name << " created by default constructor." << std::endl;
 }
 
 // Parameterized Constructor
-ClapTrap::ClapTrap(const std::string& name)
-    : name(name), hitPoints(10), energyPoints(10), attackDamage(0) {
+ClapTrap::ClapTrap(const std::string& name) :   name(name),
+                                                hitPoints(10),
+                                                energyPoints(10),
+                                                attackDamage(0)
+{
     std::cout << "ClapTrap " << name << " created." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other)
-    : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage) {}
+// 
+ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name),
+                                            hitPoints(other.hitPoints),
+                                            energyPoints(other.energyPoints),
+                                            attackDamage(other.attackDamage)
+{
+    std::cout << "Copy constructor called" << std::endl;
+}
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
     if (this != &other) {

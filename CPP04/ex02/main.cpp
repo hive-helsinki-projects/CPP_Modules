@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 19:08:47 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/09/20 11:30:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 void testAnimalSound() {
     std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
-    const AAnimal* meta = new AAnimal();
+    const AAnimal* meta = nullptr;
     const AAnimal* i = new Dog();
     const AAnimal* j = new Cat();
 

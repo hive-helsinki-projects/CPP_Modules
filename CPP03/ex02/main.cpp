@@ -6,13 +6,15 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 14:22:23 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:37:11 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-void print_obj(ClapTrap& clapTrap1, ClapTrap& clapTrap2)
+void print_clap(ClapTrap& clapTrap1, ClapTrap& clapTrap2)
 {
     // Print ClapTrap objects' infos
     std::cout << "--------------------------------" << std::endl;
@@ -29,26 +31,59 @@ void print_obj(ClapTrap& clapTrap1, ClapTrap& clapTrap2)
     std::cout << "--------------------------------" << std::endl;
 }
 
+void print_scav(ScavTrap& scavTrap1, ScavTrap& scavTrap2)
+{
+    // Print ScavTrap objects' infos
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "ScavTrap's infos: " << std::endl << RESET;
+    std::cout << "1. Name: " << scavTrap1.getName() << std::endl;
+    std::cout << "2. Health: " << scavTrap1.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << scavTrap1.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << scavTrap1.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << "1. Name: " << scavTrap2.getName() << std::endl;
+    std::cout << "2. Health: " << scavTrap2.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << scavTrap2.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << scavTrap2.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+}
+
+void print_frag(FragTrap& fragTrap1, FragTrap& fragTrap2)
+{
+    // Print FragTrap objects' infos
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "FragTrap's infos: " << std::endl << RESET;
+    std::cout << "1. Name: " << fragTrap1.getName() << std::endl;
+    std::cout << "2. Health: " << fragTrap1.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << fragTrap1.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << fragTrap1.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << "1. Name: " << fragTrap2.getName() << std::endl;
+    std::cout << "2. Health: " << fragTrap2.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << fragTrap2.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << fragTrap2.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+}
+
 int main() {
+    // ClapTrap objects
+    ClapTrap clapTrap1("C1");
+    ClapTrap clapTrap2("C2");
+    
+    // ScavTrap objects
+    ScavTrap scavTrap1("S1");
+    ScavTrap scavTrap2("S2");
+    
     // FragTrap objects
-    FragTrap FragTrap1("1");
-    FragTrap FragTrap2("2");
+    FragTrap FragTrap1("F1");
+    FragTrap FragTrap2("F2");
     
-    // Set Attack Damage
-    FragTrap1.setAttackDamage(5);
-    FragTrap2.setAttackDamage(10);
-    
-    print_obj(FragTrap1, FragTrap2);
+    print_clap(clapTrap1, clapTrap2);
+    print_scav(scavTrap1, scavTrap2);
+    print_frag(FragTrap1, FragTrap2);
 
-    // 1 attacks 2
-    std::string target = "FragTrap 2";
-    FragTrap1.attack(target);
-    FragTrap1.guardGate();
-
-    // 2 attacks 1
-    std::string target1 = "FragTrap 1";
-    FragTrap2.attack(target1);
-    FragTrap2.guardGate();
+    FragTrap1.highFivesGuys();
+    FragTrap2.highFivesGuys();
     
     return 0;
 }

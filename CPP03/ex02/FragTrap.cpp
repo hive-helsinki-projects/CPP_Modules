@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:18:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 14:16:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:38:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ FragTrap::~FragTrap() {
 }
 
 void FragTrap::highFivesGuys(void) {
+    std::cout << BLUE << "[HIGH_FIVES] " << RESET;
     std::cout << "FragTrap " << getName() << " requests high fives!" << std::endl;
 }

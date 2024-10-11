@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 15:42:47 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:52:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,23 @@ void testDogDeepCopy() {
     std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
     Dog originalDog;
     
+    std::cout << GREEN << "\n~Original idea..." << RESET << std::endl;
+    originalDog.getBrain()->ideas[0] = "I am a dog";
+    std::cout << "Dog's Brain: " << originalDog.getBrain()->ideas[0] << std::endl;
+
     std::cout << GREEN << "\n~Getting Copy..." << RESET << std::endl;
-    originalDog.getBrain()->ideas[0] = "Original idea";
-
     Dog copiedDog = originalDog; // Using copy constructor
-
+    std::cout << "Copied Dog's Brain Idea: " << copiedDog.getBrain()->ideas[0] << std::endl;
+    
     std::cout << GREEN << "~Modifying Original..." << RESET << std::endl;
     // Modify the original Dog's Brain
-    originalDog.getBrain()->ideas[0] = "Modified idea";
+    originalDog.getBrain()->ideas[0] = "I am a modified dog";
+    std::cout << "Modified Dog's Brain: " << originalDog.getBrain()->ideas[0] << std::endl;
 
     std::cout << GREEN << "~Checking Copy..." << RESET << std::endl;
     // Check if the copied Dog's Brain is unaffected
-    if (copiedDog.getBrain()->ideas[0] == "Original idea") {
+    std::cout << "Copied Dog's Brain Idea after Original Modification: " << copiedDog.getBrain()->ideas[0] << std::endl;
+    if (copiedDog.getBrain()->ideas[0] == "I am a dog") {
         std::cout << "Dog deep copy test passed." << std::endl;
     } else {
         std::cout << "Dog deep copy test failed." << std::endl;
@@ -101,7 +106,7 @@ void deleteAnimal(int numAnimals, Animal* animals[])
 }
 int main()
 {
-    const int   numAnimals = 10;
+    const int   numAnimals = 4;
     Animal*     animals[numAnimals];
     
     std::cout << BLUE << "\nCalling Constructor to Create and Fill the Array of Animal Objects..." << RESET << std::endl;

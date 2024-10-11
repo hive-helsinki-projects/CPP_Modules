@@ -6,11 +6,9 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 12:40:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 20:55:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ClapTrap.hpp"
 
 #include "ClapTrap.hpp"
 

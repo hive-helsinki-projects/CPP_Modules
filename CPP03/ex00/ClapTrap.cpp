@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:05:43 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 12:34:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:50:03 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(const std::string& name) :   name(name),
                                                 energyPoints(10),
                                                 attackDamage(0)
 {
-    std::cout << "ClapTrap " << this->getName() << " created." << std::endl;
+    std::cout << "ClapTrap " << name << " created by parameterized constructor." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name),
@@ -34,7 +34,7 @@ ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name),
                                             energyPoints(other.energyPoints),
                                             attackDamage(other.attackDamage)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "ClapTrap " << name << " created by copy constructor." << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
@@ -48,7 +48,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "ClapTrap " << name << " destroyed." << std::endl;
 }
 
 /* GETTERS AND SETTERS */

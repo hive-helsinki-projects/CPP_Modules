@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:00:58 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 10:40:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:33:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
     ClapTrap(const std::string& name);
     ClapTrap(const ClapTrap& other);
     ClapTrap& operator=(const ClapTrap& other);
-    ~ClapTrap();
+    virtual ~ClapTrap();
     
     // Getters and Setters
     void setName(const std::string& n);
@@ -47,7 +47,7 @@ public:
     unsigned int getAttackDamage() const;
     
     // Member functions
-    void attack(const std::string& target);
+    virtual void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 };

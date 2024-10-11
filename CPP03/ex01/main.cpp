@@ -6,45 +6,50 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:15:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:10:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
+void print_obj(ClapTrap& clapTrap1, ClapTrap& clapTrap2)
+{
+    // Print ClapTrap objects' infos
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "ScavTrap's infos: " << std::endl << RESET;
+    std::cout << "1. Name: " << clapTrap1.getName() << std::endl;
+    std::cout << "2. Health: " << clapTrap1.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << clapTrap1.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << clapTrap1.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << "1. Name: " << clapTrap2.getName() << std::endl;
+    std::cout << "2. Health: " << clapTrap2.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << clapTrap2.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << clapTrap2.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+}
+
 int main() {
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE << "Creating ClapTrap objects:" << std::endl << RESET;
-    ClapTrap claptrap1("ClapTrap1");
-    ClapTrap claptrap2("ClapTrap2");
-
-    claptrap2.beRepaired(3);
-
-    // Test copy constructor
-    ClapTrap claptrap3(claptrap1);
+    // ScavTrap objects
+    ScavTrap scavTrap1("1");
+    ScavTrap scavTrap2("2");
     
-    claptrap3.attack("2");
-
-    claptrap2.attack("1");
-
-    claptrap1.takeDamage(10);
-
-    // Test beRepaired function
-    claptrap1.beRepaired(5);
-
-    claptrap1.attack("2");
-
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE  << "\nCreating ScavTrap objects:" << std::endl << RESET;
-    ScavTrap scavtrap1("ScavTrap1");
-    scavtrap1.attack("target1");
-    scavtrap1.guardGate();
-
-    ScavTrap scavtrap2(scavtrap1);
-    scavtrap2.attack("target2");
+    // Set Attack Damage
+    scavTrap1.setAttackDamage(5);
+    scavTrap2.setAttackDamage(10);
     
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE << "\nEnd of main, destructors will be called:" << std::endl << RESET;
+    print_obj(scavTrap1, scavTrap2);
+
+    // 1 attacks 2
+    std::string target = "ScavTrap 2";
+    scavTrap1.attack(target);
+    scavTrap1.guardGate();
+
+    // 2 attacks 1
+    std::string target1 = "ScavTrap 1";
+    scavTrap2.attack(target1);
+    scavTrap2.guardGate();
+    
     return 0;
 }

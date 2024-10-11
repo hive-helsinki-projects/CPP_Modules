@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:54:19 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:38:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,16 @@ int main()
     const int numAnimals = 10;
     Animal* animals[numAnimals];
 
-    // Create half Dog and half Cat objects
-    for (int i = 0; i < numAnimals / 2; ++i) {
-        animals[i] = new Dog();
+    
+    for (int i = 0; i < numAnimals; ++i) {
+        if (i < numAnimals / 2) {
+            std::cout << GREEN << "[DOG] " << i << std::endl << RESET;
+            animals[i] = new Dog();
+        } else {
+            std::cout << GREEN << "[CAT] " << i << std::endl << RESET;
+            animals[i] = new Cat();
+        }
     }
-    std::cout << BLUE << "...Half Dog created..." << RESET << std::endl;
-    for (int i = numAnimals / 2; i < numAnimals; ++i) {
-        animals[i] = new Cat();
-    }
-    std::cout << BLUE << "...Half Cat created..." << RESET << std::endl;
 
     std::cout << BLUE << "\nTesting Dog Deep Copy..." << RESET << std::endl;
     testDogDeepCopy();
@@ -106,6 +107,7 @@ int main()
     std::cout << GREEN << "\n~Calling Destructor to Delete the Array of Animal Objects..." << RESET << std::endl;
     // Delete all animals
     for (int i = 0; i < numAnimals; ++i) {
+        std::cout << RED << "[DELETING] " << i << std::endl << RESET;
         delete animals[i];
     }
 

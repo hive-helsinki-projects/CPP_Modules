@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 15:38:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:42:47 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,8 @@ void testDogCopyInScope() {
     std::cout << GREEN << "~End of Dog Deep In Scope" << RESET << std::endl;
 }
 
-int main()
+void createAnimal(int numAnimals, Animal* animals[])
 {
-    std::cout << BLUE << "\nCalling Constructor to Create and Fill the Array of Animal Objects..." << RESET << std::endl;
-    const int numAnimals = 10;
-    Animal* animals[numAnimals];
-
-    
     for (int i = 0; i < numAnimals; ++i) {
         if (i < numAnimals / 2) {
             std::cout << GREEN << "[DOG] " << i << std::endl << RESET;
@@ -94,7 +89,24 @@ int main()
             animals[i] = new Cat();
         }
     }
+}
 
+void deleteAnimal(int numAnimals, Animal* animals[])
+{
+        // Delete all animals
+    for (int i = 0; i < numAnimals; ++i) {
+        std::cout << RED << "[DELETING] " << i << std::endl << RESET;
+        delete animals[i];
+    }
+}
+int main()
+{
+    const int   numAnimals = 10;
+    Animal*     animals[numAnimals];
+    
+    std::cout << BLUE << "\nCalling Constructor to Create and Fill the Array of Animal Objects..." << RESET << std::endl;
+    createAnimal(numAnimals, animals);
+    
     std::cout << BLUE << "\nTesting Dog Deep Copy..." << RESET << std::endl;
     testDogDeepCopy();
         
@@ -105,11 +117,7 @@ int main()
     testDogCopyInScope();
     
     std::cout << GREEN << "\n~Calling Destructor to Delete the Array of Animal Objects..." << RESET << std::endl;
-    // Delete all animals
-    for (int i = 0; i < numAnimals; ++i) {
-        std::cout << RED << "[DELETING] " << i << std::endl << RESET;
-        delete animals[i];
-    }
+    deleteAnimal(numAnimals, animals);
 
     // Check for memory leaks
     return 0;

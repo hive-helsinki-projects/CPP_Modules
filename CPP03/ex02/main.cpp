@@ -6,54 +6,49 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:41:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:22:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
+void print_obj(ClapTrap& clapTrap1, ClapTrap& clapTrap2)
+{
+    // Print ClapTrap objects' infos
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "ScavTrap's infos: " << std::endl << RESET;
+    std::cout << "1. Name: " << clapTrap1.getName() << std::endl;
+    std::cout << "2. Health: " << clapTrap1.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << clapTrap1.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << clapTrap1.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << "1. Name: " << clapTrap2.getName() << std::endl;
+    std::cout << "2. Health: " << clapTrap2.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << clapTrap2.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << clapTrap2.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+}
+
 int main() {
-    std::cout << BLUE << "\nCreating ClapTrap objects:" << std::endl << RESET;
-    ClapTrap claptrap1("ClapTrap1");
-    ClapTrap claptrap2("ClapTrap2");
-
-    claptrap2.beRepaired(3);
-
-    // Test copy constructor
-    ClapTrap claptrap3(claptrap1);
+    // FragTrap objects
+    FragTrap FragTrap1("1");
+    FragTrap FragTrap2("2");
     
-    claptrap3.attack("2");
-
-    claptrap2.attack("1");
-
-    claptrap1.takeDamage(10);
-
-    // Test beRepaired function
-    claptrap1.beRepaired(5);
-
-    claptrap1.attack("2");
-
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE  << "\nCreating ScavTrap objects:" << std::endl << RESET;
-    ScavTrap scavtrap1("ScavTrap1");
-    scavtrap1.attack("target1");
-    scavtrap1.guardGate();
-
-    ScavTrap scavtrap2(scavtrap1);
-    scavtrap2.attack("target2");
-
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE << "\nCreating FragTrap objects:" << std::endl << RESET;
-    FragTrap fragtrap1("FragTrap1");
-    fragtrap1.attack("target1");
-    fragtrap1.highFivesGuys();
-
-    FragTrap fragtrap2(fragtrap1);
-    fragtrap2.attack("target2");
+    // Set Attack Damage
+    FragTrap1.setAttackDamage(5);
+    FragTrap2.setAttackDamage(10);
     
-    std::cout << "----------------------------------------" << std::endl;
-    std::cout << BLUE << "\nEnd of main, destructors will be called:" << std::endl << RESET;
+    print_obj(FragTrap1, FragTrap2);
+
+    // 1 attacks 2
+    std::string target = "FragTrap 2";
+    FragTrap1.attack(target);
+    FragTrap1.guardGate();
+
+    // 2 attacks 1
+    std::string target1 = "FragTrap 1";
+    FragTrap2.attack(target1);
+    FragTrap2.guardGate();
+    
     return 0;
 }

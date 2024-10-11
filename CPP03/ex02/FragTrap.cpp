@@ -6,43 +6,39 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:18:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 12:46:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:16:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap() {
-    hitPoints = 100;
-    energyPoints = 100;
-    attackDamage = 30;
-    std::cout << "FragTrap default constructed." << std::endl;
+    std::cout << "FragTrap " << getName() << " created by default constructor." << std::endl;
 }
 
 FragTrap::FragTrap(const std::string& name)
     : ClapTrap(name) {
-        hitPoints = 100;
-        energyPoints = 100;
-        attackDamage = 30;
-        std::cout  << "FragTrap " << name << " constructed." << std::endl;
+    setHitPoints(100);
+    setEnergyPoints(100);
+    setAttackDamage(30);
+    std::cout  << "FragTrap " << name << " created by parameterized constructor." << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {}
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
+    std::cout << "FragTrap " << getName() << " created by copy constructor." << std::endl;
+}
     
 FragTrap& FragTrap::operator=(const FragTrap &other) {
     if (this != &other) {
         ClapTrap::operator=(other);
-            hitPoints = other.hitPoints;
-        energyPoints = other.energyPoints;
-        attackDamage = other.attackDamage;
     }
     return *this;
 }
 
 FragTrap::~FragTrap() {
-    std::cout << "FragTrap " << name << " destructed." << std::endl; 
+    std::cout << "FragTrap " << getName() << " destroyed." << std::endl; 
 }
 
 void FragTrap::highFivesGuys(void) {
-    std::cout << "FragTrap " << name << " requests high fives!" << std::endl;
+    std::cout << "FragTrap " << getName() << " requests high fives!" << std::endl;
 }

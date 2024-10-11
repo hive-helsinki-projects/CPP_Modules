@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 14:37:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:51:09 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,13 @@ int main() {
     print_scav(scavTrap1, scavTrap2);
     print_frag(FragTrap1, FragTrap2);
 
+    // F1 attacks F2
+    FragTrap1.attack("F2");
+    FragTrap2.takeDamage(FragTrap1.getAttackDamage());
+
+    // F2 attacks F1
+    FragTrap2.attack("F1");
+    
     FragTrap1.highFivesGuys();
     FragTrap2.highFivesGuys();
     

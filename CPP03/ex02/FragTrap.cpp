@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:18:02 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 14:38:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:49:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ FragTrap& FragTrap::operator=(const FragTrap &other) {
 
 FragTrap::~FragTrap() {
     std::cout << "FragTrap " << getName() << " destroyed." << std::endl; 
+}
+
+void FragTrap::attack(const std::string& target) {
+    std::cout << RED << "[ATTACK] " << RESET;
+    std::cout << "FragTrap " << getName() << " attacks " << target
+            << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 12:23:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:26:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int main() {
     clapTrap2.attack(target1);
     clapTrap1.takeDamage(10);
     clapTrap1.beRepaired(5);
+
+    // 1 attacks 2
     clapTrap1.attack("2");
 
     return 0;

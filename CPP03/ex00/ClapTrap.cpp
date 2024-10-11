@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:05:43 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 09:50:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:00:22 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@ ClapTrap::ClapTrap() :  name("Default"),
     std::cout << "ClapTrap " << name << " created by default constructor." << std::endl;
 }
 
-// Parameterized Constructor
 ClapTrap::ClapTrap(const std::string& name) :   name(name),
                                                 hitPoints(10),
                                                 energyPoints(10),
                                                 attackDamage(0)
 {
-    std::cout << "ClapTrap " << name << " created." << std::endl;
+    std::cout << "ClapTrap " << this->getName() << " created." << std::endl;
 }
 
-// 
 ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name),
                                             hitPoints(other.hitPoints),
                                             energyPoints(other.energyPoints),
@@ -90,26 +88,39 @@ unsigned int ClapTrap::getAttackDamage() const {
 /* MEMBER FUNCTIONS */
 
 void ClapTrap::attack(const std::string& target) {
+    std::cout << RED << "[ATTACK] " << RESET;
     if (energyPoints > 0 && hitPoints > 0) {
-        std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+        std::cout << "ClapTrap " << name
+                << " attacks " << target
+                << ", causing " 
+                << attackDamage << " points of damage!" << std::endl;
         --energyPoints;
     } else {
-        std::cout << "ClapTrap " << name << " cannot attack." << std::endl;
-    }    
-}
-void ClapTrap::takeDamage(unsigned int amount) {
-    if (hitPoints > 0) {
-        hitPoints = (amount >= hitPoints) ? 0 : (hitPoints - amount);
-        std::cout << "ClapTrap " << name << " takes " << amount << " points of damage! Remaining hit points: " << hitPoints << std::endl;
-    } else {
-        std::cout << "ClapTrap " << name << " is already destroyed." << std::endl;
+        std::cout << "ClapTrap " << name << " cannot attack." << std::endl << RESET;
     }
 }
+
+void ClapTrap::takeDamage(unsigned int amount) {
+    std::cout << BLUE << "[DAMAGE] " << RESET;
+    if (energyPoints > 0 && hitPoints > 0) {
+        hitPoints -= amount;
+        --energyPoints;
+        std::cout << "ClapTrap " << name
+                  << " takes " << amount << " points of damage!\n" << RESET
+                  << "          [Current health points] " << hitPoints << std::endl;
+    } else {
+        std::cout << "ClapTrap " << name << " cannot take damage." << std::endl;
+    }
+}
+
 void ClapTrap::beRepaired(unsigned int amount) {
+    std::cout << GREEN << "[REPAIR] " << RESET;
     if (energyPoints > 0 && hitPoints > 0) {
         hitPoints += amount;
         --energyPoints;
-        std::cout << "ClapTrap " << name << " is repaired by " << amount << " points! Current hit points: " << hitPoints << std::endl;
+        std::cout << "ClapTrap " << name
+                  << " is repaired by " << amount << " points!\n"
+                  << "          [Current health points] " << hitPoints << std::endl;
     } else {
         std::cout << "ClapTrap " << name << " cannot be repaired." << std::endl;
     }

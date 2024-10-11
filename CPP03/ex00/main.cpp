@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/21 09:24:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:23:05 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,39 @@
 
 int main() {
     // Create ClapTrap objects
-    ClapTrap claptrap1("1");
-    ClapTrap claptrap2("2");
+    ClapTrap clapTrap1("1");
+    ClapTrap clapTrap2("2");
 
-    // Test attack function
-    claptrap1.attack("2");
+    // Set Attack Damage
+    clapTrap1.setAttackDamage(5);
+    clapTrap2.setAttackDamage(10);
 
-    // Test takeDamage function
-    claptrap2.takeDamage(5);
-
-    // Test beRepaired function
-    claptrap2.beRepaired(3);
-
-    // Test copy constructor
-    ClapTrap claptrap3(claptrap1);
+    // Print ClapTrap objects' infos
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "ClapTrap's infos: " << std::endl << RESET;
+    std::cout << "1. Name: " << clapTrap1.getName() << std::endl;
+    std::cout << "2. Health: " << clapTrap1.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << clapTrap1.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << clapTrap1.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << "1. Name: " << clapTrap2.getName() << std::endl;
+    std::cout << "2. Health: " << clapTrap2.getHitPoints() << std::endl;
+    std::cout << "3. Energy points: " << clapTrap2.getEnergyPoints() << std::endl;
+    std::cout << "4. Attack damage: " << clapTrap2.getAttackDamage() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
     
-    claptrap3.attack("2");
+    // 1 attacks 2
+    std::string target = "ClapTrap 2";
+    clapTrap1.attack(target);
+    clapTrap2.takeDamage(5);
+    clapTrap2.beRepaired(3);
 
-    claptrap2.attack("1");
-
-    claptrap1.takeDamage(10);
-
-    // Test beRepaired function
-    claptrap1.beRepaired(5);
-
-    claptrap1.attack("2");
+    // 2 attacks 1
+    std::string target1 = "ClapTrap 1";
+    clapTrap2.attack(target1);
+    clapTrap1.takeDamage(10);
+    clapTrap1.beRepaired(5);
+    clapTrap1.attack("2");
 
     return 0;
 }

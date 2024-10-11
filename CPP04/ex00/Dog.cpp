@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:44:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:09:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:05:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ Dog::Dog() {
     std::cout << "Dog default constructed." << std::endl;
 }
 
-//Dog::Dog(const std::string& type) : Animal(type) {}
 Dog::Dog(const Dog& other) : Animal(other) {}
+
 Dog& Dog::operator=(const Dog& other) {
     if (this != &other) {
         Animal::operator=(other);

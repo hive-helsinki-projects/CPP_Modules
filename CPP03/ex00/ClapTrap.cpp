@@ -6,12 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:05:43 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/10 13:25:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 09:50:22 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+/* CONSTRUCTORS AND DESTRUCTORS */
 ClapTrap::ClapTrap() :  name("Default"),
                         hitPoints(10),
                         energyPoints(10),
@@ -51,6 +52,42 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 ClapTrap::~ClapTrap() {
     std::cout << "Destructor called" << std::endl;
 }
+
+/* GETTERS AND SETTERS */
+
+void ClapTrap::setName(const std::string& n) {
+    name = n;
+}
+
+std::string ClapTrap::getName() const {
+    return name;
+}
+
+void ClapTrap::setHitPoints(unsigned int hp) {
+    hitPoints = hp;
+}
+
+unsigned int ClapTrap::getHitPoints() const {
+    return hitPoints;
+}
+
+void ClapTrap::setEnergyPoints(unsigned int ep) {
+    energyPoints = ep;
+}
+
+unsigned int ClapTrap::getEnergyPoints() const {
+    return energyPoints;
+}
+
+void ClapTrap::setAttackDamage(unsigned int ad) {
+    attackDamage = ad;
+}
+
+unsigned int ClapTrap::getAttackDamage() const {
+    return attackDamage;
+}
+
+/* MEMBER FUNCTIONS */
 
 void ClapTrap::attack(const std::string& target) {
     if (energyPoints > 0 && hitPoints > 0) {

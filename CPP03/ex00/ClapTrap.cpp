@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:05:43 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 12:00:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:34:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void ClapTrap::takeDamage(unsigned int amount) {
     std::cout << BLUE << "[DAMAGE] " << RESET;
     if (energyPoints > 0 && hitPoints > 0) {
         hitPoints -= amount;
-        --energyPoints;
         std::cout << "ClapTrap " << name
                   << " takes " << amount << " points of damage!\n" << RESET
                   << "          [Current health points] " << hitPoints << std::endl;

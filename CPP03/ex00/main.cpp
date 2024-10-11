@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 12:26:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:35:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,20 @@ int main() {
     clapTrap1.attack(target);
     clapTrap2.takeDamage(5);
     clapTrap2.beRepaired(3);
-
+    std::cout << "[ENERGY]" << std::endl;
+    std::cout << "1. ClapTrap1's point: " << clapTrap1.getEnergyPoints() << std::endl;
+    std::cout << "2. ClapTrap2's point: " << clapTrap2.getEnergyPoints() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    
     // 2 attacks 1
     std::string target1 = "ClapTrap 1";
     clapTrap2.attack(target1);
     clapTrap1.takeDamage(10);
     clapTrap1.beRepaired(5);
+    std::cout << "[ENERGY]" << std::endl;
+    std::cout << "1. ClapTrap1's point: " << clapTrap1.getEnergyPoints() << std::endl;
+    std::cout << "2. ClapTrap2's point: " << clapTrap2.getEnergyPoints() << std::endl;
+    std::cout << "--------------------------------" << std::endl;
 
     // 1 attacks 2
     clapTrap1.attack(target);

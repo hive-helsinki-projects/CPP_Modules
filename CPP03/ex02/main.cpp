@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:19:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 14:51:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:53:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ int main() {
 
     // F1 attacks F2
     FragTrap1.attack("F2");
-    FragTrap2.takeDamage(FragTrap1.getAttackDamage());
-
+    FragTrap2.takeDamage(FragTrap1.getAttackDamage()); // The derived class DON'T inherit takeDamage for base class
     // F2 attacks F1
     FragTrap2.attack("F1");
     

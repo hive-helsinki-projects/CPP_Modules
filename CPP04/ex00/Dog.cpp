@@ -6,14 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:44:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/11 15:05:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/12 17:07:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() {
-    type = "Dog";
+Dog::Dog() : Animal("Dog") {
     std::cout << "Dog default constructed." << std::endl;
 }
 

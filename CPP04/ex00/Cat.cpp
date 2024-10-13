@@ -6,14 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:41:09 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:08:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/12 17:06:00 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() {
-    type = "Cat";
+Cat::Cat(): Animal("Cat") {
     std::cout << "Cat default constructed." << std::endl;
 }
 

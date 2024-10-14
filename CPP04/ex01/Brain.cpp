@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 08:13:07 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:07:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:29:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Brain::Brain (const Brain& other) {
     for (int i = 0; i < 100; i++) {
         ideas[i] = other.ideas[i];
     }
+    std::cout << "Brain copied." << std::endl;
 }
 Brain& Brain::operator=(const Brain& other) {
     if (this != &other) {

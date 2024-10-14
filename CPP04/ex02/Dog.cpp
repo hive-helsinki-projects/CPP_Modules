@@ -6,27 +6,29 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:44:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 19:02:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:11:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() {
-    type = "Dog";
-    brain = new Brain();
+Dog::Dog() : AAnimal("Dog"),
+            brain(new Brain())
+{
     std::cout << "Dog default constructed" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : AAnimal(other) {
-    brain = new Brain(*other.brain);
+Dog::Dog(const Dog& other) : AAnimal(other),
+                            brain(new Brain(*other.brain))
+{
+    std::cout << "Dog copy constructed" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
     if (this != &other) {
         AAnimal::operator=(other);
         delete brain; // Ensure no memory leak
-        brain = new Brain(*other.brain);
+        brain = new Brain(*other.brain); // Ensure a deep copy
     }
     return *this;
 }

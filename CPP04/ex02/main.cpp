@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/09/20 11:30:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:24:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,9 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-#define GREEN "\033[0;32m"
-#define BLUE "\033[34m"
-#define RED "\033[31m"
-#define RESET "\033[0m"
-
 void testAnimalSound() {
     std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
-    const AAnimal* meta = nullptr;
+    //const AAnimal* meta = new AAnimal();
     const AAnimal* i = new Dog();
     const AAnimal* j = new Cat();
 
@@ -32,10 +27,9 @@ void testAnimalSound() {
     std::cout << GREEN << "\n~Getting Animal Sound..." << RESET << std::endl;
     i->makeSound(); //will output the dog sound!
     j->makeSound();
-    meta->makeSound();
+    //meta->makeSound();
 
     std::cout << GREEN << "\n~Calling Destructor..." << RESET << std::endl;
-    delete meta;
     delete j;
     delete i;
 }

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 22:43:54 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 23:00:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main() {
         // This will throw an exception
         Bureaucrat b3("Charlie", 151);
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Exception " << e.what() << std::endl;
     }
 
     try {
@@ -39,7 +39,7 @@ int main() {
         Bureaucrat b4("Dave", 1);
         b4.incrementGrade(); // This will throw an exception
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Exception " << e.what() << std::endl;
     }
 
     try {
@@ -47,7 +47,7 @@ int main() {
         Bureaucrat b5("Eve", 150);
         b5.decrementGrade(); // This will throw an exception
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "Exception " << e.what() << std::endl;
     }
 
     return 0;

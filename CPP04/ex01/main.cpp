@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 13:40:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:36:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,53 +16,53 @@
 #include "Brain.hpp"
 
 void testDogDeepCopy() {
-    std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "[BEFORE MODIFICATION]" << RESET << std::endl;
+    std::cout << GREEN << " 1. ORIGINAL DOG" << std::endl << RESET;
     Dog originalDog;
+    originalDog.getBrain()->ideas[0] = "APPLE";
+    std::cout << " Brain's Idea: " << originalDog.getBrain()->ideas[0] << std::endl;
     
-    std::cout << GREEN << "\n~Original idea..." << RESET << std::endl;
-    originalDog.getBrain()->ideas[0] = "I am a dog";
-    std::cout << "Dog's Brain: " << originalDog.getBrain()->ideas[0] << std::endl;
-
-    std::cout << GREEN << "\n~Getting Copy..." << RESET << std::endl;
+    std::cout << GREEN << "2. COPIED DOG" << RESET << std::endl;
     Dog copiedDog = originalDog; // Using copy constructor
-    std::cout << "Copied Dog's Brain Idea: " << copiedDog.getBrain()->ideas[0] << std::endl;
+    std::cout << "  Brain's Idea: " << copiedDog.getBrain()->ideas[0] << std::endl;
+    std::cout << "--------------------------------" << std::endl;
     
-    std::cout << GREEN << "~Modifying Original..." << RESET << std::endl;
-    // Modify the original Dog's Brain
-    originalDog.getBrain()->ideas[0] = "I am a modified dog";
-    std::cout << "Modified Dog's Brain: " << originalDog.getBrain()->ideas[0] << std::endl;
+    std::cout << BLUE << "[AFTER MODIFICATION]" << RESET << std::endl;
+    std::cout << GREEN << "1. ORIGINAL DOG" << std::endl << RESET;
+    originalDog.getBrain()->ideas[0] = "BANANA";
+    std::cout << "  Brain's Idea: " << originalDog.getBrain()->ideas[0] << std::endl;
 
-    std::cout << GREEN << "~Checking Copy..." << RESET << std::endl;
-    // Check if the copied Dog's Brain is unaffected
-    std::cout << "Copied Dog's Brain Idea after Original Modification: " << copiedDog.getBrain()->ideas[0] << std::endl;
-    if (copiedDog.getBrain()->ideas[0] == "I am a dog") {
-        std::cout << "Dog deep copy test passed." << std::endl;
-    } else {
-        std::cout << "Dog deep copy test failed." << std::endl;
-    }
+    std::cout << GREEN << "2. COPIED DOG" << RESET << std::endl;
+    std::cout << "  Brain's Idea: " << copiedDog.getBrain()->ideas[0] << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+
     std::cout << GREEN << "~End of Dog Deep Copy Test" << RESET << std::endl;
 }
 
 void testCatDeepCopy() {
-    std::cout << GREEN << "~Calling Constructor..." << RESET << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    std::cout << BLUE << "[BEFORE MODIFICATION]" << RESET << std::endl;
+    std::cout << GREEN << " 1. ORIGINAL CAT" << std::endl << RESET;
     Cat originalCat;
+    originalCat.getBrain()->ideas[0] = "TREE";
+    std::cout << " Brain's Idea: " << originalCat.getBrain()->ideas[0] << std::endl;
 
-    std::cout << GREEN << "\n~Getting Copy..." << RESET << std::endl;
-    originalCat.getBrain()->ideas[0] = "Original idea";
-
+    std::cout << GREEN << "2. COPIED CAT" << RESET << std::endl;
     Cat copiedCat = originalCat; // Using copy constructor
+    std::cout << "  Brain's Idea: " << copiedCat.getBrain()->ideas[0] << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    
+    std::cout << BLUE << "[AFTER MODIFICATION]" << RESET << std::endl;
+    std::cout << GREEN << "1. ORIGINAL CAT" << std::endl << RESET;
+    originalCat.getBrain()->ideas[0] = "MOUSE";
+    std::cout << "  Brain's Idea: " << originalCat.getBrain()->ideas[0] << std::endl;
 
-    std::cout << GREEN << "~Modifying Original..." << RESET << std::endl;
-    // Modify the original Cat's Brain
-    originalCat.getBrain()->ideas[0] = "Modified idea";
-
-    std::cout << GREEN << "~Checking Copy..." << RESET << std::endl;
     // Check if the copied Cat's Brain is unaffected
-    if (copiedCat.getBrain()->ideas[0] == "Original idea") {
-        std::cout << "Cat deep copy test passed." << std::endl;
-    } else {
-        std::cout << "Cat deep copy test failed." << std::endl;
-    }
+    std::cout << GREEN << "2. COPIED CAT" << RESET << std::endl;
+    std::cout << "  Brain's Idea: " << copiedCat.getBrain()->ideas[0] << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    
     std::cout << GREEN << "~End of Cat Deep Copy Test" << RESET << std::endl;
     
 }

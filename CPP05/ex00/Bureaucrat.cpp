@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 22:17:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 22:42:05 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Bureaucrat::Bureaucrat(const std::string& n, int grade)
 : name(n)
 , grade(grade)
 {
+    std::cout << "Parameterized constructor called" << std::endl;
     if (grade < 1) throw GradeTooHighException();
     if (grade > 150) throw GradeTooLowException();
-    std::cout << "Parameterized constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const& other)
@@ -73,15 +73,15 @@ void Bureaucrat::decrementGrade() {
 
 /* EXCEPTION CLASSES */
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    return "Grade is too high!";
+    return (RED "Grade is too high!" RESET);
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    return "Grade is too low!";
+    return (RED "Grade is too low!" RESET);
 }
 
 /* OVERLOAD << OPERATOR */
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj) {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return os;
 }

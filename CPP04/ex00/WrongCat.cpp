@@ -6,15 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:29:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 15:34:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:03:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
 // WrongCat implementation
-WrongCat::WrongCat() {
-    type = "WrongCat";
+WrongCat::WrongCat() : WrongAnimal("WrongCat") {
     std::cout << "WrongCat default constructed." << std::endl;
 }
 

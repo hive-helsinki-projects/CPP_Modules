@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 15:38:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:02:49 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ void testAnimalSound() {
     const Animal* j = new Cat();
 
     std::cout << GREEN << "\n~Getting Animal Type..." << RESET << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << j->getType() << " " << std::endl;
+    std::cout << meta->getType() << std::endl;
+    std::cout << i->getType() << std::endl;
+    std::cout << j->getType() << std::endl;
     
     std::cout << GREEN << "\n~Getting Animal Sound..." << RESET << std::endl;
-    i->makeSound(); //will output the dog sound!
-    j->makeSound();
     meta->makeSound();
+    i->makeSound();
+    j->makeSound();
 
     std::cout << GREEN << "\n~Calling Destructor..." << RESET << std::endl;
     delete meta;
@@ -43,7 +44,8 @@ void testWrongAnimal() {
     const WrongAnimal* i = new WrongCat();
 
     std::cout << GREEN << "\n~Getting Animal Type..." << RESET << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+    std::cout << meta->getType() << std::endl;
+    std::cout << i->getType() << std::endl;
 
     std::cout << GREEN << "\n~Getting Animal Sound..." << RESET << std::endl;
     i->makeSound(); // will output the WrongAnimal sound!

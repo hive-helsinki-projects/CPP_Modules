@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 12:23:32 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 15:31:24 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:04:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 // WronngAnimal implementation
 WrongAnimal::WrongAnimal() : type("Default") {
     std::cout << "WrongAnimal default constructed." << std::endl;
+}
+
+WrongAnimal::WrongAnimal(const std::string& type) : type(type) {
+    std::cout << "WrongAnimal of type " << type << " created." << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.type) {

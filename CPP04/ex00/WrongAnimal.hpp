@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 12:23:51 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 15:30:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:08:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ protected:
 
 public:
     WrongAnimal();
+    WrongAnimal(const std::string& type);
     WrongAnimal(const WrongAnimal& other);
     WrongAnimal& operator=(const WrongAnimal& other);
     ~WrongAnimal();

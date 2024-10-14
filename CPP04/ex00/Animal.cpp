@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 15:31:44 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:55:22 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Animal::Animal() : type("Default") {
     std::cout << "Animal default constructed." << std::endl;
 }
 
-Animal::Animal(const std::string& type) : type("Unknown") {
+Animal::Animal(const std::string& type) : type(type) {
     std::cout  << "Animal of type " << type << " created." << std::endl;
 }
 

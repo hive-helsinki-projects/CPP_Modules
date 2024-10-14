@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/08/22 18:08:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:31:44 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ Animal::Animal(const std::string& type) : type("Unknown") {
     std::cout  << "Animal of type " << type << " created." << std::endl;
 }
 
-Animal::Animal(const Animal& other) : type(other.type) {}
+Animal::Animal(const Animal& other) : type(other.type) {
+    std::cout << "Animal copied." << std::endl;
+}
 
 Animal& Animal::operator=(const Animal& other) {
     if (this != &other) {

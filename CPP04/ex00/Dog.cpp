@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:44:16 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/12 17:07:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:32:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ Dog::Dog() : Animal("Dog") {
     std::cout << "Dog default constructed." << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal(other) {}
+Dog::Dog(const Dog& other) : Animal(other) {
+    std::cout << "Dog copied." << std::endl;
+}
 
 Dog& Dog::operator=(const Dog& other) {
     if (this != &other) {

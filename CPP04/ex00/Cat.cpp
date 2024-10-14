@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:41:09 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/12 17:06:00 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:32:03 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ Cat::Cat(): Animal("Cat") {
     std::cout << "Cat default constructed." << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {}
+Cat::Cat(const Cat& other) : Animal(other) {
+    std::cout << "Cat copied." << std::endl;
+}
 
 Cat& Cat::operator=(const Cat& other) {
     if (this != &other) {

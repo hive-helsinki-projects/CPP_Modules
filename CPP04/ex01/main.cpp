@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 07:18:37 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 15:36:52 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:47:03 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void testDogCopyInScope() {
         Dog tmp = basic; // Using copy constructor
         std::cout << GREEN << "~Scope Ends for tmp" << RESET << std::endl;
     } // tmp goes out of scope here
-    std::cout << GREEN << "~End of Dog Deep In Scope" << RESET << std::endl;
+    std::cout << GREEN << "~End of Dog Copy In Scope" << RESET << std::endl;
 }
 
 void createAnimal(int numAnimals, Animal* animals[])

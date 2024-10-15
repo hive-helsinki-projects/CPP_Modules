@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 22:09:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:26:48 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ int Bureaucrat::getGrade() const {
 
 /* INCREMENT AND DECREMENT GRADE */
 void Bureaucrat::incrementGrade() {
-    if (grade < HIGHEST) {
+    if (grade - 1 < HIGHEST) {
         throw Bureaucrat::GradeTooHighException();
     }
     grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    if (grade > LOWEST) {
+    if (grade + 1 > LOWEST) {
         throw Bureaucrat::GradeTooLowException();
     }
     grade++;

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 22:04:54 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:24:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ public:
             // option 1
             const char* what() const throw();
             // option 2
-            const char* what() const noexcept override;
+            //const char* what() const noexcept override;
     };
     class GradeTooLowException : public std::exception {
         public:        

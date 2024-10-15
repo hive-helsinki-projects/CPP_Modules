@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 10:35:19 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:25:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main() {
         std::cout << BLUE << "\n[BUREAUCRAT CHARLIE]" << RESET << std::endl;
         // This will throw an exception
         Bureaucrat b3("Charlie", 151);
-    } catch (const GradeTooLowException& e) {
+    } catch (Bureaucrat::GradeTooLowException& e) {
         std::cerr << "Exception " << e.what() << std::endl;
     }
 
@@ -38,7 +38,7 @@ int main() {
         std::cout << BLUE << "\n[BUREAUCRAT DAVE]" << RESET << std::endl;
         Bureaucrat b4("Dave", 1);
         b4.incrementGrade(); // This will throw an exception
-    } catch (std::exception& e) {
+    } catch (Bureaucrat::GradeTooHighException& e) {
         std::cerr << "Exception " << e.what() << std::endl;
     }
 

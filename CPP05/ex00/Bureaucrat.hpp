@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 10:32:45 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:04:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
+
+#define LOWEST 150
+#define HIGHEST 1
 
 class Bureaucrat {
 private:

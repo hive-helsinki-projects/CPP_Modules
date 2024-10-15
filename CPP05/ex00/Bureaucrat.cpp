@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/14 22:42:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/15 22:09:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* CONSTRUCTORS AND DESTRUCTOR */
 Bureaucrat::Bureaucrat()
 : name("Default")
-, grade(150)
+, grade(LOWEST)
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -25,8 +25,8 @@ Bureaucrat::Bureaucrat(const std::string& n, int grade)
 , grade(grade)
 {
     std::cout << "Parameterized constructor called" << std::endl;
-    if (grade < 1) throw GradeTooHighException();
-    if (grade > 150) throw GradeTooLowException();
+    if (grade < HIGHEST) throw GradeTooHighException();
+    if (grade > LOWEST) throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const& other)
@@ -37,9 +37,8 @@ Bureaucrat::Bureaucrat(Bureaucrat const& other)
 }
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
-    if (this != &other) {
-        grade = other.grade;
-    }
+    if (other.grade < HIGHEST) throw GradeTooHighException();
+    if (other.grade > LOWEST) throw GradeTooLowException();
     return *this;
 }
 
@@ -58,14 +57,14 @@ int Bureaucrat::getGrade() const {
 
 /* INCREMENT AND DECREMENT GRADE */
 void Bureaucrat::incrementGrade() {
-    if (grade <= 1) {
+    if (grade < HIGHEST) {
         throw Bureaucrat::GradeTooHighException();
     }
     grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    if (grade >= 150) {
+    if (grade > LOWEST) {
         throw Bureaucrat::GradeTooLowException();
     }
     grade++;

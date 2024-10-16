@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 13:45:24 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:20:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main() {
         
         Bureaucrat alice("Alice", 2);
         Bureaucrat bob("Bob", 149);
-        Form formA("FormA", 1, 50);
-        Form formB("FormB", 150, 50);
+        Form formA("House Loan Contract", 2, 50);
+        Form formB("Work Contract", 150, 50);
 
         std::cout << BLUE << "\n[BUREAUCRAT ALICE]" << RESET << std::endl;
         alice.signForm(formA); // Should succeed
@@ -27,12 +27,14 @@ int main() {
         bob.signForm(formA);   // Should fail
         bob.signForm(formB);   // Should succeed
 
-        std::cout << BLUE << "\nSTATUS OF FORMS" << std::endl << RESET;
+        std::cout << BLUE << "\n[STATUS OF FORMS]" << std::endl << RESET;
         std::cout << formA << std::endl;
         std::cout << formB << std::endl;
+           std::cout << BLUE << "\nCalling destructor" << RESET << std::endl;
     } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
+        std::cerr << "An unexpected error occurred: " << e.what() << std::endl;
     }
 
+ 
     return 0;
 }

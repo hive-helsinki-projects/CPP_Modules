@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 14:28:10 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:12:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,17 @@ void Form::beSigned(const Bureaucrat& b)
 /* EXCEPTIONS */
 const char* Form::GradeTooHighException::what() const noexcept
 {
-    return "Grade is too high";
+    return (RED "Grade is too high" RESET);
 }
 
 const char* Form::GradeTooLowException::what() const noexcept
 {
-    return "Grade is too low";
+    return (RED "Grade is too low" RESET);
 }
 
 /* OVERLOADS */
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << "Form " << form.getName() << ", signed: " << (form.getIsSigned() ? "yes" : "no")
+    os << "Form: " << form.getName() << ", signed: " << (form.getIsSigned() ? "yes" : "no")
        << ", grade to sign: " << form.getGradeToSign()
        << ", grade to execute: " << form.getGradeToExecute();
     return os;

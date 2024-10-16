@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 16:00:51 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:44:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,29 +57,45 @@ int Bureaucrat::getGrade() const {
 
 /* INCREMENT AND DECREMENT GRADE */
 void Bureaucrat::incrementGrade() {
-    std::cout << GREEN << "Current grade: " << grade << RESET << std::endl;
-    std::cout << GREEN << "++Incrementing one grade ... " << RESET << std::endl;
-    if (grade <= HIGHEST) {
+    if (grade - 1 < HIGHEST) {
         throw Bureaucrat::GradeTooHighException();
     }
     grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    std::cout << GREEN << "Current grade: " << grade << RESET << std::endl;
-    std::cout << GREEN << "--Decrementing one grade ... " << RESET << std::endl;
-    if (grade >= LOWEST) {
+    if (grade + 1 > LOWEST) {
         throw Bureaucrat::GradeTooLowException();
     }
     grade++;
 }
 
+/* METHOD TO SIGN FORM */
+void Bureaucrat::signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << name << " signed " << form.getName() << std::endl;
+    } catch (const Bureaucrat::GradeTooLowException& e) {
+        std::cout << name << " couldn't sign "
+                << form.getName()
+                << " because " << e.what() << std::endl;
+    } catch (const Bureaucrat::GradeTooHighException& e) {
+        std::cout << name << " couldn't sign "
+                << form.getName()
+                << " because " << e.what() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << name << " couldn't sign "
+                << form.getName()
+                << " because " << e.what() << std::endl;
+    }
+}
+
 /* EXCEPTION CLASSES */
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
+const char* Bureaucrat::GradeTooHighException::what() const noexcept {
     return (RED "Grade is too high!" RESET);
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
+const char* Bureaucrat::GradeTooLowException::what() const noexcept {
     return (RED "Grade is too low!" RESET);
 }
 

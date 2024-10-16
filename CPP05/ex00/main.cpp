@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 15:16:25 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:47:51 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main() {
             
         std::cout << BLUE << "\n[BUREAUCRAT BOB]" << RESET << std::endl;
         Bureaucrat b2("Bob", 149);
+        std::cout << b2 << std::endl;
+        b2.decrementGrade();
         std::cout << b2 << std::endl;
         b2.decrementGrade();
         std::cout << b2 << std::endl;

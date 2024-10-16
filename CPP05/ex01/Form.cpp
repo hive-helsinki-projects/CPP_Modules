@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 22:46:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 09:41:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,32 +86,21 @@ void Form::beSigned(const Bureaucrat& b)
     isSigned = true;
 }
 
-void Form::signForm(const Bureaucrat& b)
-{
-    try
-    {
-        beSigned(b);
-    }
-    catch (std::exception& e)
-    {
-        std::cout << b.getName() << " cannot sign " << name << " because " << e.what() << std::endl;
-    }
-}
-
 /* EXCEPTIONS */
-const char* Form::GradeTooHighException::what() const throw()
+const char* Form::GradeTooHighException::what() const noexcept
 {
-    return "grade is too high";
+    return "Grade is too high";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* Form::GradeTooLowException::what() const noexcept
 {
-    return "grade is too low";
+    return "Grade is too low";
 }
 
 /* OVERLOADS */
-std::ostream& operator<<(std::ostream& os, Form const& form)
-{
-    os << "Form: " << form.getName() << ", signed: " << form.getIsSigned() << ", grade to sign: " << form.getGradeToSign() << ", grade to execute: " << form.getGradeToExecute();
+std::ostream& operator<<(std::ostream& os, const Form& form) {
+    os << "Form " << form.getName() << ", signed: " << (form.getIsSigned() ? "yes" : "no")
+       << ", grade to sign: " << form.getGradeToSign()
+       << ", grade to execute: " << form.getGradeToExecute();
     return os;
 }

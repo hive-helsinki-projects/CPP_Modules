@@ -6,16 +6,19 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 22:24:12 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 09:42:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
+
 
 #define BLUE "\033[34m"
 #define GREEN "\033[0;32m"
@@ -24,6 +27,8 @@
 
 #define LOWEST 150
 #define HIGHEST 1
+
+class Form;
 
 class Bureaucrat {
 private:
@@ -43,18 +48,18 @@ public:
     // Increment and decrement grade
     void incrementGrade();
     void decrementGrade();
+
+    // Method to sign form
+    void signForm(Form& form);
     
     // Exception classes
     class GradeTooHighException : public std::exception {
-        public:
-            // option 1
-            const char* what() const throw();
-            // option 2
-            //const char* what() const noexcept override;
+    public:
+        const char* what() const noexcept override;
     };
     class GradeTooLowException : public std::exception {
-        public:        
-            const char* what() const throw();
+    public:        
+        const char* what() const noexcept override;
     };
 };
 

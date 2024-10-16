@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/15 22:26:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 09:41:51 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ Bureaucrat::Bureaucrat()
 : name("Default")
 , grade(LOWEST)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string& n, int grade)
 : name(n)
 , grade(grade)
 {
-    std::cout << "Parameterized constructor called" << std::endl;
+    std::cout << "Bureaucrat parameterized constructor called" << std::endl;
     if (grade < HIGHEST) throw GradeTooHighException();
     if (grade > LOWEST) throw GradeTooLowException();
 }
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& other)
 : name(other.name)
 , grade(other.grade)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
@@ -43,7 +43,7 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
 }
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 /* GETTERS */
@@ -70,12 +70,25 @@ void Bureaucrat::decrementGrade() {
     grade++;
 }
 
+
+/* METHOD TO SIGN FORM */
+void Bureaucrat::signForm(Form& form) {
+    try {
+        form.beSigned(*this);
+        std::cout << name << " signed " << form.getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cout << name << " couldn't sign "
+                << form.getName()
+                << " because " << e.what() << std::endl;
+    }
+}
+
 /* EXCEPTION CLASSES */
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
+const char* Bureaucrat::GradeTooHighException::what() const noexcept {
     return (RED "Grade is too high!" RESET);
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
+const char* Bureaucrat::GradeTooLowException::what() const noexcept {
     return (RED "Grade is too low!" RESET);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 09:41:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:28:10 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ Form::Form(const std::string& n, int gradeToSign, int gradeToExecute)
 , gradeToSign(gradeToSign)
 , gradeToExecute(gradeToExecute)
 {
-    std::cout << "Form constructor called" << std::endl;
+    if (gradeToSign < HIGHEST || gradeToExecute < HIGHEST)
+    {
+        throw GradeTooHighException();
+    }
+    if (gradeToSign > LOWEST || gradeToExecute > LOWEST)
+    {
+        throw GradeTooLowException();
+    }
+    std::cout << "Form parameterized constructor called" << std::endl;
 }
 
 Form::Form(Form const& other)

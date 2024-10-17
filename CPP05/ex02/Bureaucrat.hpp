@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:38:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:38:05 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <string>
 #include <exception>
 #include "AForm.hpp"
-
 
 #define BLUE "\033[34m"
 #define GREEN "\033[0;32m"
@@ -51,7 +50,7 @@ public:
 
     // Method to sign form
     void signForm(AForm& form);
-    void executeForm(AForm const& form);
+    void executeForm(AForm const& form) const;
     
     // Exception classes
     class GradeTooHighException : public std::exception {

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:31:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:38:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void Bureaucrat::signForm(AForm& form) {
     }
 }
 
-void Bureaucrat::executeForm(AForm const& form) {
+void Bureaucrat::executeForm(AForm const& form) const {
     try {
         form.execute(*this);
         std::cout << name << " executed " << form.getName() << std::endl;

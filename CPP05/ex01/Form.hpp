@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 21:55:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:27:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ private:
     int const gradeToSign;
     int const gradeToExecute;
 public:
-    Form();
+    Form() = delete; // No implementation bc of const members
     Form(const std::string& n, int gradeToSign, int gradeToExecute);
-    Form(Form const& other);
+    Form(Form const& other) = delete; // No implementation bc of const members
     Form& operator=(Form const& other); // No implementation bc of const members
     ~Form();
 

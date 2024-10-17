@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 21:52:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:27:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,6 @@ const int LOWEST = 150;
 const int HIGHEST = 1;
 
 /* CONSTRUCTORS, DESTRUCTORS, OPERATORS */
-Form::Form()
-: name("default")
-, isSigned(false)
-, gradeToSign(LOWEST)
-, gradeToExecute(LOWEST)
-{
-    std::cout << "Form default constructor called" << std::endl;
-}
-
 Form::Form(const std::string& n, int gradeToSign, int gradeToExecute)
 : name(n)
 , isSigned(false)
@@ -41,15 +32,6 @@ Form::Form(const std::string& n, int gradeToSign, int gradeToExecute)
         throw GradeTooLowException();
     }
     std::cout << "Form parameterized constructor called" << std::endl;
-}
-
-Form::Form(Form const& other)
-: name(other.name)
-, isSigned(other.isSigned)
-, gradeToSign(other.gradeToSign)
-, gradeToExecute(other.gradeToExecute)
-{
-    std::cout << "Form copy constructor called" << std::endl;
 }
 
 Form::~Form()

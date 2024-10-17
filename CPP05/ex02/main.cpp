@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 15:20:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 09:36:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,37 @@
 
 int main() {
     try {
-        
-        Bureaucrat alice("Alice", 2);
-        Bureaucrat bob("Bob", 149);
-        Form formA("House Loan Contract", 2, 50);
-        Form formB("Work Contract", 150, 50);
-
+        std::cout << BLUE << "\n[STATUS OF FORMS]" << std::endl << RESET;
+        // Create forms and print status
+        Form formA("FORM A", 2, 50);
+        Form formB("FORM B", 150, 50);
+        std::cout << formA << std::endl;
+        std::cout << formB << std::endl;
+    
         std::cout << BLUE << "\n[BUREAUCRAT ALICE]" << RESET << std::endl;
-        alice.signForm(formA); // Should succeed
+        Bureaucrat b1("Alice", 2);
+        std::cout << b1 << std::endl;
+        b1.incrementGrade();
+        std::cout << b1 << std::endl;
+        // Alice sign sign Form A        
+        b1.signForm(formA); // Should succeed
+            
         std::cout << BLUE << "\n[BUREAUCRAT BOB]" << RESET << std::endl;
-        bob.signForm(formA);   // Should fail
-        bob.signForm(formB);   // Should succeed
+        Bureaucrat b2("Bob", 149);
+        std::cout << b2 << std::endl;
+        b2.decrementGrade();
+        std::cout << b2 << std::endl;
+        // Bob sign Form A & B
+        b2.signForm(formA); // Should fail
+        b2.signForm(formB); // Should succeed
 
         std::cout << BLUE << "\n[STATUS OF FORMS]" << std::endl << RESET;
         std::cout << formA << std::endl;
         std::cout << formB << std::endl;
-           std::cout << BLUE << "\nCalling destructor" << RESET << std::endl;
+        std::cout << BLUE << "\n[DESTRUCTOR]" << RESET << std::endl;
     } catch (std::exception& e) {
         std::cerr << "An unexpected error occurred: " << e.what() << std::endl;
     }
-
  
     return 0;
 }

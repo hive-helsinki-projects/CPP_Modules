@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 14:44:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 09:20:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@ int Bureaucrat::getGrade() const {
 
 /* INCREMENT AND DECREMENT GRADE */
 void Bureaucrat::incrementGrade() {
-    if (grade - 1 < HIGHEST) {
+    std::cout << GREEN << "++Incrementing one grade ... " << RESET << std::endl;
+    if (grade <= HIGHEST) {
         throw Bureaucrat::GradeTooHighException();
     }
     grade--;
 }
 
 void Bureaucrat::decrementGrade() {
-    if (grade + 1 > LOWEST) {
+    std::cout << GREEN << "--Decrementing one grade ... " << RESET << std::endl;
+    if (grade >= LOWEST) {
         throw Bureaucrat::GradeTooLowException();
     }
     grade++;
@@ -101,6 +103,6 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept {
 
 /* OVERLOAD << OPERATOR */
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj) {
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << BLUE << obj.getGrade() << RESET;
     return os;
 }

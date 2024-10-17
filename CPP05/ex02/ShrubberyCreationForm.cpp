@@ -6,48 +6,32 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:07:00 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:32:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-: AForm("default", 145, 137)
-{
-    std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
-}
-
+/* CONSTRUCTOR AND DESTRUCTOR */
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
 : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
     std::cout << "ShrubberyCreationForm parameter constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const& other)
-: target(other.target)
-{
-    std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
-}
-
-/* ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const& other)
-{
-    AForm::operator=(other);
-    target = other.target;
-    return *this;
-} */
-
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
     std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
+/* GETTERS */
 std::string ShrubberyCreationForm::getTarget() const
 {
     return target;
 }
 
+/* METHOD EXECUTE */
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
     // Check if the form is signed

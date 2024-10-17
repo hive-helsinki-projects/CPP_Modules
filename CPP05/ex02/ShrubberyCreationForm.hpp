@@ -6,11 +6,10 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:43:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:07:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:30:25 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
@@ -25,9 +24,9 @@ class ShrubberyCreationForm: public AForm {
 private:
     std::string target;
 public:
-    ShrubberyCreationForm();
+    ShrubberyCreationForm() = delete;
     ShrubberyCreationForm(std::string const& target);
-    ShrubberyCreationForm(ShrubberyCreationForm const& other);
+    ShrubberyCreationForm(ShrubberyCreationForm const& other) = delete;
     ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other) = delete;
     ~ShrubberyCreationForm();
 

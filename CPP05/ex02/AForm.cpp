@@ -6,14 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:22:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:31:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-/* CONSTRUCTORS, DESTRUCTORS, OPERATORS */
+/* CONSTRUCTOR, DESTRUCTOR*/
 AForm::AForm(std::string const& n, int gradeToSign, int gradeToExecute)
 : name(n)
 , isSigned(false)

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:37:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:05:42 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:28:49 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class PresidentialPardonForm : public AForm
 private:
     std::string target;
 public:
-    PresidentialPardonForm();
+    PresidentialPardonForm() = delete;
     PresidentialPardonForm(std::string const& target);
-    PresidentialPardonForm(PresidentialPardonForm const& other);
+    PresidentialPardonForm(PresidentialPardonForm const& other) = delete;
     PresidentialPardonForm& operator=(PresidentialPardonForm const& other) = delete;
     ~PresidentialPardonForm();
 

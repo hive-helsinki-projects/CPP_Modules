@@ -6,21 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:20:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:32:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-/* CONSTRUCTORS AND DESTRUCTOR */
-Bureaucrat::Bureaucrat()
-: name("Default")
-, grade(LOWEST)
-{
-    std::cout << "Bureaucrat default constructor called" << std::endl;
-}
-
+/* CONSTRUCTOR AND DESTRUCTOR */
 Bureaucrat::Bureaucrat(std::string const& n, int grade)
 : name(n)
 , grade(grade)
@@ -28,19 +21,6 @@ Bureaucrat::Bureaucrat(std::string const& n, int grade)
     std::cout << "Bureaucrat parameterized constructor called" << std::endl;
     if (grade < HIGHEST) throw GradeTooHighException();
     if (grade > LOWEST) throw GradeTooLowException();
-}
-
-Bureaucrat::Bureaucrat(Bureaucrat const& other)
-: name(other.name)
-, grade(other.grade)
-{
-    std::cout << "Bureaucrat copy constructor called" << std::endl;
-}
-
-Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
-    if (other.grade < HIGHEST) throw GradeTooHighException();
-    if (other.grade > LOWEST) throw GradeTooLowException();
-    return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
@@ -95,6 +75,7 @@ void Bureaucrat::signForm(AForm& form) {
     }
 }
 
+/* METHOD TO EXECUTE FORM */
 void Bureaucrat::executeForm(AForm const& form) const {
     try {
         form.execute(*this);

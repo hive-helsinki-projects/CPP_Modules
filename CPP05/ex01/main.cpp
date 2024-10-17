@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:36:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:45:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main() {
         std::cout << b1 << std::endl;
         b1.incrementGrade();
         std::cout << b1 << std::endl;
-        // Alice sign sign Form A        
+        // Alice sign Form A        
         b1.signForm(formA); // Should succeed
             
         std::cout << BLUE << "\n[BUREAUCRAT BOB]" << RESET << std::endl;

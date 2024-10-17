@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:57:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:23:03 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:06:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const& target)
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& other)
-: AForm(other)
-, target(other.target)
+: target(other.target)
 {
     std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const& other)
+/* RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm const& other)
 {
     AForm::operator=(other);
     target = other.target;
     return *this;
-}
+} */
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {

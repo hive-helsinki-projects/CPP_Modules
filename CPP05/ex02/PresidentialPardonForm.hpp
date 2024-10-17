@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:37:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:21:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:05:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
     PresidentialPardonForm();
     PresidentialPardonForm(std::string const& target);
     PresidentialPardonForm(PresidentialPardonForm const& other);
-    PresidentialPardonForm& operator=(PresidentialPardonForm const& other);
+    PresidentialPardonForm& operator=(PresidentialPardonForm const& other) = delete;
     ~PresidentialPardonForm();
 
     void execute(Bureaucrat const& executor) const override;

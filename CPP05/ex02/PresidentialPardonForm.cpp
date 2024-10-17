@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:38:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:21:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:06:30 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const& oth
     std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
 }
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm const& other)
+/* PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm const& other)
 {
     AForm::operator=(other);
     target = other.target;
     return *this;
-}
+} */
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {

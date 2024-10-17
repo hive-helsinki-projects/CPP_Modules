@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:56:17 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:22:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:06:47 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "AForm.hpp"
 
 class Bureaucrat;
+
 class RobotomyRequestForm: public AForm {
 private:
     std::string target;
@@ -26,7 +27,7 @@ public:
     RobotomyRequestForm();
     RobotomyRequestForm(const std::string& target);
     RobotomyRequestForm(RobotomyRequestForm const& other);
-    RobotomyRequestForm& operator=(RobotomyRequestForm const& other);
+    RobotomyRequestForm& operator=(RobotomyRequestForm const& other) = delete;
     ~RobotomyRequestForm();
 
     void execute(const Bureaucrat& executor) const override;

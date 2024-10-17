@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:43:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:23:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:07:05 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
     ShrubberyCreationForm();
     ShrubberyCreationForm(std::string const& target);
     ShrubberyCreationForm(ShrubberyCreationForm const& other);
-    ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other);
+    ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other) = delete;
     ~ShrubberyCreationForm();
 
     std::string getTarget() const;

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:23:39 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:07:00 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,17 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const& other)
-: AForm(other)
-, target(other.target)
+: target(other.target)
 {
     std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const& other)
+/* ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm const& other)
 {
     AForm::operator=(other);
     target = other.target;
     return *this;
-}
+} */
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {

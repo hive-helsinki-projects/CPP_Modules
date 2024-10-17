@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:54:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:07:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void test1()
 {
     try {
         // Status of forms
-        std::cout << BLUE << "\n[1STATUS OF FORMS]" << RESET << std::endl;
+        std::cout << BLUE << "\n[1. STATUS OF FORMS]" << RESET << std::endl;
         ShrubberyCreationForm form("Shrubbery");
         RobotomyRequestForm form1("Robotomy");
         PresidentialPardonForm form2("Presidential");

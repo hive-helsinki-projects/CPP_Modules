@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:31:39 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:38:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #define LOWEST 150
 #define HIGHEST 1
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:

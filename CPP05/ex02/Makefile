@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/15 22:47:27 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/10/17 11:36:36 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME		=	a.out
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
-SRCS		=	main.cpp Bureaucrat.cpp Form.cpp
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp \
+				ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 all: $(NAME)

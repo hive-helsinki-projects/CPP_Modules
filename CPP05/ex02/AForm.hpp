@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:18:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:20:00 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ private:
     int const gradeToSign;
     int const gradeToExecute;
 public:
-    AForm();
+    AForm() = delete; // No implementation bc of const members
     AForm(std::string const& n, int gradeToSign, int gradeToExecute);
-    AForm(AForm const& other);
-    AForm& operator=(AForm const& other); // No implementation bc of const members
+    AForm(AForm const& other) = delete; // No implementation bc of const members
+    AForm& operator=(AForm const& other) = delete; // No implementation bc of const members
     virtual ~AForm();
 
     // Getters
@@ -38,7 +38,7 @@ public:
     int getGradeToSign() const;
     int getGradeToExecute() const;
     
-    // Sign and execute AForm
+    // Sign AForm
     void beSigned(Bureaucrat const& b);
 
     // Pure virtual method

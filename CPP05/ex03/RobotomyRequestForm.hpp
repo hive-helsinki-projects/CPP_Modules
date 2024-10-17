@@ -6,11 +6,10 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:56:17 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:50:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:38:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
@@ -29,7 +28,7 @@ public:
     RobotomyRequestForm& operator=(RobotomyRequestForm const& other);
     ~RobotomyRequestForm();
 
-    void execute(const Bureaucrat& executor) const;
+    void execute(const Bureaucrat& executor) const override;
 };
 
 #endif

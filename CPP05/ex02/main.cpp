@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:56:00 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:06:58 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,34 @@ void printFormStatus(const AForm& form, const AForm& form1, const AForm& form2) 
     std::cout << form2 << std::endl;
 }
 
-int main() {
-    srand(time(0)); // Seed the random number generator
-
+void test1()
+{
     try {
-      
-        std::cout << BLUE << "\n[1. STATUS OF FORMS]" << RESET << std::endl;
+        // Status of forms
+        std::cout << BLUE << "\n[1STATUS OF FORMS]" << RESET << std::endl;
         ShrubberyCreationForm form("Shrubbery");
         RobotomyRequestForm form1("Robotomy");
         PresidentialPardonForm form2("Presidential");
         printFormStatus(form, form1, form2);
 
+        // Bureaucrat Alice
         std::cout << BLUE << "\n[1.BUREAUCRAT ALICE]" << RESET << std::endl;
-        Bureaucrat alice("Alice", 1); // Grade 1 (highest), grade 150 (lowest)
+        Bureaucrat alice("Alice", 1); // Grade 1 (highest)
         std::cout << alice << std::endl;
-        
         std::cout << GREEN << alice.getName() << " is signning the form..." << std::endl << RESET;        
-        //alice.signForm(form); // Form is not signed, throws exception
-        alice.executeForm(form);  // Should fail      
-
-        alice.signForm(form1); // Form is signed
-        alice.executeForm(form1); // Should succeed & a file should be created
         
+        // Form Shrubbery
+        //alice.signForm(form); // Form is not signed, throws exception & execution fails
+        alice.signForm(form); // Form is signed
+        alice.executeForm(form);  // Should succeed & a file should be created    
+        // Form Robotomy
+        alice.signForm(form1); // Form is signed
+        alice.executeForm(form1); // Should succeed
+        // Form Presidential
         alice.signForm(form2); // Form is signed
         alice.executeForm(form2); // Should succeed
 
+        // Print status of forms
         std::cout << std::endl;
         printFormStatus(form, form1, form2);
 
@@ -54,29 +57,35 @@ int main() {
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+}
 
+void test2()
+{
     try {
-        
+        // Status of forms
         std::cout << BLUE << "\n[2. STATUS OF FORMS]" << RESET << std::endl;
         ShrubberyCreationForm form("Shrubbery");
         RobotomyRequestForm form1("Robotomy");
         PresidentialPardonForm form2("Presidential");
         printFormStatus(form, form1, form2);
 
+        // Bureaucrat Bob
         std::cout << BLUE << "\n[2. BUREAUCRAT BOB]" << RESET << std::endl;
-        Bureaucrat bob("Bob", 149); // Grade 1 (highest), grade 150 (lowest)
+        Bureaucrat bob("Bob", 137); // Grade 150 (lowest)
         std::cout << bob << std::endl;
-        
         std::cout << GREEN << bob.getName() << " is signning the form..." << std::endl << RESET;        
+        
+        // Form Shrubbery
         bob.signForm(form); // Should fail, throws exception
         bob.executeForm(form);  // Should fail, throws exception      
-
+        // Form Robotomy
         bob.signForm(form1); // Should fail, throws exception
         bob.executeForm(form1); // Should fail, throws exception
-        
+        // Form Presidential
         bob.signForm(form2); // Should fail, throws exception
         bob.executeForm(form2); // Should fail, throws exception
 
+        // Print status of forms
         std::cout << std::endl;
         printFormStatus(form, form1, form2);
 
@@ -84,6 +93,11 @@ int main() {
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+}
+int main() {
+    srand(time(0)); // Seed the random number generator
 
+    //test1();
+    test2();
     return 0;
 }

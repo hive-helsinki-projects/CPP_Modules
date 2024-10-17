@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:48:21 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:08:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ void Bureaucrat::decrementGrade() {
 
 /* METHOD TO SIGN FORM */
 void Bureaucrat::signForm(AForm& form) {
+    std::cout << GREEN << "\n[" << form.getName() << "]" << std::endl << RESET;
+    std::cout << "---------------------------------" << std::endl;
     try {
         form.beSigned(*this);
-        std::cout << GREEN << "\n[" << form.getName() << "]" << std::endl << RESET;
-        std::cout << "---------------------------------" << std::endl;
         std::cout << name << " signed " << form.getName() << std::endl;
     } catch (const Bureaucrat::GradeTooLowException& e) {
         std::cout << name << " couldn't sign "

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 09:42:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:31:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
 #define BLUE "\033[34m"
@@ -50,7 +50,8 @@ public:
     void decrementGrade();
 
     // Method to sign form
-    void signForm(Form& form);
+    void signForm(AForm& form);
+    void executeForm(AForm const& form);
     
     // Exception classes
     class GradeTooHighException : public std::exception {

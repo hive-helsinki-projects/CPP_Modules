@@ -6,11 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:47:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:17:24 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 : AForm("default", 145, 137)

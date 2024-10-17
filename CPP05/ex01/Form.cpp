@@ -6,11 +6,15 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 16:09:01 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:11:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+const int LOWEST = 150;
+const int HIGHEST = 1;
 
 /* CONSTRUCTORS, DESTRUCTORS, OPERATORS */
 Form::Form()
@@ -46,16 +50,6 @@ Form::Form(Form const& other)
 , gradeToExecute(other.gradeToExecute)
 {
     std::cout << "Form copy constructor called" << std::endl;
-}
-
-Form& Form::operator=(Form const& other)
-{
-    std::cout << "Form assignment operator called" << std::endl;
-    if (this != &other)
-    {
-        isSigned = other.isSigned;
-    }
-    return *this;
 }
 
 Form::~Form()

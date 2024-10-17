@@ -6,27 +6,21 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 09:42:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:59:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
-
 
 #define BLUE "\033[34m"
 #define GREEN "\033[0;32m"
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
-
-#define LOWEST 150
-#define HIGHEST 1
 
 class Form;
 

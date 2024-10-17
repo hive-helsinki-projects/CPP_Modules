@@ -6,11 +6,15 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:20:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:59:50 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+const int LOWEST = 150;
+const int HIGHEST = 1;
 
 /* CONSTRUCTORS AND DESTRUCTOR */
 Bureaucrat::Bureaucrat()

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:45:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:54:49 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main() {
         std::cout << formA << std::endl;
         std::cout << formB << std::endl;
         std::cout << BLUE << "\n[DESTRUCTOR]" << RESET << std::endl;
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         std::cerr << "An unexpected error occurred: " << e.what() << std::endl;
     }
  

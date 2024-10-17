@@ -6,11 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:57:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 16:05:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:17:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
 : AForm("RobotomyRequestForm", 72, 45)

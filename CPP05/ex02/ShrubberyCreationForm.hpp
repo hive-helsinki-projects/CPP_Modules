@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:43:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:40:19 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:17:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <string>
 #include <fstream>
 #include "AForm.hpp"
+
+class Bureaucrat;
 
 class ShrubberyCreationForm: public AForm {
 private:

@@ -6,11 +6,10 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:56:17 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:50:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:17:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
@@ -19,6 +18,7 @@
 #include <cstdlib>
 #include "AForm.hpp"
 
+class Bureaucrat;
 class RobotomyRequestForm: public AForm {
 private:
     std::string target;

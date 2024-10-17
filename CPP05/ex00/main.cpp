@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:15:27 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:52:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main() {
         std::cout << BLUE << "\n[BUREAUCRAT CHARLIE]" << RESET << std::endl;
         // This will throw an exception
         Bureaucrat b3("Charlie", 151);
-    } catch (Bureaucrat::GradeTooLowException& e) {
+    } catch (const Bureaucrat::GradeTooLowException& e) {
         std::cerr << "Exception " << e.what() << std::endl;
     }
 
@@ -38,7 +38,7 @@ int main() {
         std::cout << BLUE << "\n[BUREAUCRAT DAVE]" << RESET << std::endl;
         Bureaucrat b4("Dave", 1);
         b4.incrementGrade(); // This will throw an exception
-    } catch (Bureaucrat::GradeTooHighException& e) {
+    } catch (const Bureaucrat::GradeTooHighException& e) {
         std::cerr << "Exception " << e.what() << std::endl;
     }
 
@@ -46,7 +46,7 @@ int main() {
         std::cout << BLUE << "\n[BUREAUCRAT EVE]" << RESET << std::endl;
         Bureaucrat b5("Eve", 150);
         b5.decrementGrade(); // This will throw an exception
-    } catch (Bureaucrat::GradeTooLowException& e) {
+    } catch (const Bureaucrat::GradeTooLowException& e) {
         std::cerr << "Exception " << e.what() << std::endl;
     }
 

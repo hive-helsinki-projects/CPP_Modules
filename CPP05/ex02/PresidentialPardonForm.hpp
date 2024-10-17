@@ -6,11 +6,10 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:37:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:51:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:21:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
@@ -19,18 +18,19 @@
 # include <string>
 # include <cstdlib>
 
+class Bureaucrat;
 class PresidentialPardonForm : public AForm
 {
 private:
     std::string target;
 public:
     PresidentialPardonForm();
-    PresidentialPardonForm(const std::string& target);
+    PresidentialPardonForm(std::string const& target);
     PresidentialPardonForm(PresidentialPardonForm const& other);
     PresidentialPardonForm& operator=(PresidentialPardonForm const& other);
     ~PresidentialPardonForm();
 
-    void execute(const Bureaucrat& executor) const;
+    void execute(Bureaucrat const& executor) const override;
 };
 
 #endif

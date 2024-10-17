@@ -6,11 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:08:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:20:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 /* CONSTRUCTORS AND DESTRUCTOR */
 Bureaucrat::Bureaucrat()
@@ -20,7 +21,7 @@ Bureaucrat::Bureaucrat()
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& n, int grade)
+Bureaucrat::Bureaucrat(std::string const& n, int grade)
 : name(n)
 , grade(grade)
 {

@@ -6,15 +6,15 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/08/22 19:06:22 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/10/17 19:46:40 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	a.out
+NAME		=	convert
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
-SRCS		=	main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRCS		=	main.cpp ScalarConverter.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 all: $(NAME)

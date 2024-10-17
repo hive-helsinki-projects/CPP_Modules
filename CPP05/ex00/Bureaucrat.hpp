@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 15:33:31 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:59:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
 
-#define LOWEST 150
-#define HIGHEST 1
-
 class Bureaucrat {
 private:
     std::string const name;
     int grade;
 public:
     Bureaucrat();
-    Bureaucrat(const std::string& n, int grade);
+    Bureaucrat(std::string const& n, int grade);
     Bureaucrat(Bureaucrat const& other);
     Bureaucrat& operator=(Bureaucrat const& other);
     ~Bureaucrat();

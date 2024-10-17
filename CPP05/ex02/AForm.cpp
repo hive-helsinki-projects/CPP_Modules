@@ -6,11 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:51:21 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:19:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 /* CONSTRUCTORS, DESTRUCTORS, OPERATORS */
 AForm::AForm()
@@ -22,7 +23,7 @@ AForm::AForm()
     std::cout << "AForm default constructor called" << std::endl;
 }
 
-AForm::AForm(const std::string& n, int gradeToSign, int gradeToExecute)
+AForm::AForm(std::string const& n, int gradeToSign, int gradeToExecute)
 : name(n)
 , isSigned(false)
 , gradeToSign(gradeToSign)
@@ -46,16 +47,6 @@ AForm::AForm(AForm const& other)
 , gradeToExecute(other.gradeToExecute)
 {
     std::cout << "AForm copy constructor called" << std::endl;
-}
-
-AForm& AForm::operator=(AForm const& other)
-{
-    std::cout << "AForm assignment operator called" << std::endl;
-    if (this != &other)
-    {
-        isSigned = other.isSigned;
-    }
-    return *this;
 }
 
 AForm::~AForm()
@@ -85,7 +76,7 @@ int AForm::getGradeToExecute() const
 }
 
 /* METHODS */
-void AForm::beSigned(const Bureaucrat& b)
+void AForm::beSigned(Bureaucrat const& b)
 {
     if (b.getGrade() > gradeToSign)
     {
@@ -111,7 +102,7 @@ const char* AForm::FormNotSignedException::what() const noexcept
 }
 
 /* OVERLOADS */
-std::ostream& operator<<(std::ostream& os, const AForm& form) {
+std::ostream& operator<<(std::ostream& os, AForm const& form) {
     os << "AForm: " << GREEN << form.getName() << RESET
        << ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
        << ", grade to sign: " << GREEN << form.getGradeToSign() << RESET

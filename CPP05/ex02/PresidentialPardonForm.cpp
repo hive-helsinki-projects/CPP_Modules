@@ -6,11 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:38:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:47:26 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:21:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
+#include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
 : AForm("PresidentialPardonForm", 25, 5)
@@ -18,7 +19,7 @@ PresidentialPardonForm::PresidentialPardonForm()
     std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const& target)
 : AForm("PresidentialPardonForm", 25, 5), target(target)
 {
     std::cout << "PresidentialPardonForm parameter constructor called" << std::endl;
@@ -43,7 +44,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const
+void PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {
     // Check if the form is signed
     if (!getIsSigned()) {

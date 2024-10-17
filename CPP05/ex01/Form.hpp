@@ -6,21 +6,16 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/16 09:45:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:12:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef FORM_HPP
 # define FORM_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Bureaucrat.hpp"
-
-#define LOWEST 150
-#define HIGHEST 1
 
 class Bureaucrat;
 
@@ -34,7 +29,7 @@ public:
     Form();
     Form(const std::string& n, int gradeToSign, int gradeToExecute);
     Form(Form const& other);
-    Form& operator=(Form const& other);
+    Form& operator=(Form const& other); // No implementation bc of const members
     ~Form();
 
     // Getters

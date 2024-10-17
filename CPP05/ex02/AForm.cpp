@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:38:50 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:23:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /* CONSTRUCTORS, DESTRUCTORS, OPERATORS */
-Form::Form()
+AForm::AForm()
 : name("default")
 , isSigned(false)
 , gradeToSign(LOWEST)
 , gradeToExecute(LOWEST)
 {
-    std::cout << "Form default constructor called" << std::endl;
+    std::cout << "AForm default constructor called" << std::endl;
 }
 
-Form::Form(const std::string& n, int gradeToSign, int gradeToExecute)
+AForm::AForm(const std::string& n, int gradeToSign, int gradeToExecute)
 : name(n)
 , isSigned(false)
 , gradeToSign(gradeToSign)
@@ -36,21 +36,21 @@ Form::Form(const std::string& n, int gradeToSign, int gradeToExecute)
     {
         throw GradeTooLowException();
     }
-    std::cout << "Form parameterized constructor called" << std::endl;
+    std::cout << "AForm parameterized constructor called" << std::endl;
 }
 
-Form::Form(Form const& other)
+AForm::AForm(AForm const& other)
 : name(other.name)
 , isSigned(other.isSigned)
 , gradeToSign(other.gradeToSign)
 , gradeToExecute(other.gradeToExecute)
 {
-    std::cout << "Form copy constructor called" << std::endl;
+    std::cout << "AForm copy constructor called" << std::endl;
 }
 
-Form& Form::operator=(Form const& other)
+AForm& AForm::operator=(AForm const& other)
 {
-    std::cout << "Form assignment operator called" << std::endl;
+    std::cout << "AForm assignment operator called" << std::endl;
     if (this != &other)
     {
         isSigned = other.isSigned;
@@ -58,34 +58,34 @@ Form& Form::operator=(Form const& other)
     return *this;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
-    std::cout << "Form destructor called" << std::endl;
+    std::cout << "AForm destructor called" << std::endl;
 }
 
 /* GETTERS */
-std::string Form::getName() const
+std::string AForm::getName() const
 {
     return name;
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
     return isSigned;
 }
 
-int Form::getGradeToSign() const
+int AForm::getGradeToSign() const
 {
     return gradeToSign;
 }
 
-int Form::getGradeToExecute() const
+int AForm::getGradeToExecute() const
 {
     return gradeToExecute;
 }
 
 /* METHODS */
-void Form::beSigned(const Bureaucrat& b)
+void AForm::beSigned(const Bureaucrat& b)
 {
     if (b.getGrade() > gradeToSign)
     {
@@ -94,20 +94,38 @@ void Form::beSigned(const Bureaucrat& b)
     isSigned = true;
 }
 
+void AForm::execute(const Bureaucrat& executor) const
+{
+    if (!isSigned)
+    {
+        throw FormNotSignedException();
+    }
+    if (executor.getGrade() > gradeToExecute)
+    {
+        throw GradeTooLowException();
+    }
+    action();
+}
+
 /* EXCEPTIONS */
-const char* Form::GradeTooHighException::what() const noexcept
+const char* AForm::GradeTooHighException::what() const noexcept
 {
     return (RED "Grade is too high" RESET);
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* AForm::GradeTooLowException::what() const noexcept
 {
     return (RED "Grade is too low" RESET);
 }
 
+const char* AForm::FormNotSignedException::what() const noexcept
+{
+    return (RED "Form is not signed" RESET);
+}
+
 /* OVERLOADS */
-std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << "Form: " << form.getName() << ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
+std::ostream& operator<<(std::ostream& os, const AForm& form) {
+    os << "AForm: " << form.getName() << ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
        << ", grade to sign: " << GREEN << form.getGradeToSign() << RESET
        << ", grade to execute: " << GREEN << form.getGradeToExecute() << RESET;
     return os;

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:29:49 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:33:57 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ const Intern::FormType Intern::formTypes[3] = {
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target)
 {
+    std::cout << GREEN << "\n[Form name: " << formName << "]" << std::endl << RESET;
+    std::cout << "---------------------------------" << std::endl;
     for (int i = 0; i < 3; i++)
     {
         if (formName == formTypes[i].name)

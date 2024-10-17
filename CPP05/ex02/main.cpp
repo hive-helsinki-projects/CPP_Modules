@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:54:59 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:17:03 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main() {
         std::cout << BLUE << "\n[FORM. SHRUBBERY]" << std::endl << RESET;
         ShrubberyCreationForm form2("Shrubbery");
         std::cout << form2 << std::endl;
-        //alice.signForm(form2);
+        alice.signForm(form2);
         alice.executeForm(form2);  // Perform the action
         
         std::cout << BLUE << "\n[FORM. PRESIDENTIAL]" << std::endl << RESET;

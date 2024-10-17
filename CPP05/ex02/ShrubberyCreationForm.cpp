@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:11:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:16:49 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
         throw GradeTooLowException();
     }
     std::string filename = getTarget() + "_shrubbery";
-    std::ofstream file;
-    file.open(filename);
+    std::ofstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Error: could not open file" << filename << std::endl;
+        return;
+    }
     file << "              ,@@@@@@@,\n";
     file << "      ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
     file << "   ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
@@ -72,4 +75,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     file << "       |.|        | |         | |\n";
     file << "   \\\\/ ._\\//_/__/  ,\\\\_//__\\\\/.  \\_//__/_\n";
     file.close();
+    // Debugging statement to confirm file writing
+    std::cout << "File " << filename << " written successfully." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:56:17 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:57:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:50:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     RobotomyRequestForm& operator=(RobotomyRequestForm const& other);
     ~RobotomyRequestForm();
 
-    void action() const;
+    void execute(const Bureaucrat& executor) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:38:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 10:39:11 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:51:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,12 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-void PresidentialPardonForm::action() const
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
+    // Check if executor has the right grade to execute the form &
+    // Check if the form is signed
+    if (executor.getGrade() > getGradeToExecute() && getIsSigned()) {
+        throw GradeTooLowException();
+    }
     std::cout << target << " has been pardoned by Zafod Beeblebrox" << std::endl;
 }

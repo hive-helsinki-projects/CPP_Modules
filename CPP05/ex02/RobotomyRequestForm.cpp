@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:57:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 10:01:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:51:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ RobotomyRequestForm::~RobotomyRequestForm()
     std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::action() const
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
+    // Check if executor has the right grade to execute the form &
+    // Check if the form is signed
+    if (executor.getGrade() > getGradeToExecute() && getIsSigned()) {
+        throw GradeTooLowException();
+    }
     std::cout << "*drilling noises*" << std::endl;
     if (rand() % 2)
         std::cout << target << " has been robotomized successfully" << std::endl;

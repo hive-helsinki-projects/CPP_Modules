@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:12:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:55:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <iostream>
 #include <string>
 #include <exception>
+
+#define BLUE "\033[34m"
+#define GREEN "\033[0;32m"
+#define RED "\033[0;31m"
+#define RESET "\033[0m"
 
 class Bureaucrat;
 

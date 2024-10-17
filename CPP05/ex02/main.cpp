@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 12:38:17 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:54:59 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,23 @@ int main() {
         std::cout << BLUE << "\n[FORM. ROBOTOMY]" << std::endl << RESET;
         RobotomyRequestForm form("Robotomy");
         std::cout << form << std::endl;
-        alice.signForm(form); // Should succeed
+        //alice.signForm(form); // Should succeed
         alice.executeForm(form);  // Perform the action
         
         std::cout << BLUE << "\n[FORM. SHRUBBERY]" << std::endl << RESET;
         ShrubberyCreationForm form2("Shrubbery");
         std::cout << form2 << std::endl;
-        alice.signForm(form2);
+        //alice.signForm(form2);
         alice.executeForm(form2);  // Perform the action
-        alice.executeForm(form2);
-        alice.executeForm(form2);
         
         std::cout << BLUE << "\n[FORM. PRESIDENTIAL]" << std::endl << RESET;
         PresidentialPardonForm form3("Presidential");
         std::cout << form3 << std::endl;
         alice.signForm(form3); // Should succeed
         alice.executeForm(form3);  // Perform the action
+        std::cout << form3 << std::endl;
 
+        std::cout << BLUE << "\n[DESTRUCTOR]" << std::endl << RESET;
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }

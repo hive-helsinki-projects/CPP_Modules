@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:36:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:09:51 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,11 @@ const char* AForm::GradeTooHighException::what() const noexcept
 const char* AForm::GradeTooLowException::what() const noexcept
 {
     return (RED "Grade is too low" RESET);
+}
+
+const char* AForm::FormNotSignedException::what() const noexcept
+{
+    return (RED "Form is not signed" RESET);
 }
 
 /* OVERLOADS */

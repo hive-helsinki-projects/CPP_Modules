@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:49:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:11:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,12 @@ std::string ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
-    // Check if executor has the right grade to execute the form &
     // Check if the form is signed
-    if (executor.getGrade() > getGradeToExecute() && getIsSigned()) {
+    if (!getIsSigned()) {
+        throw FormNotSignedException();
+    }
+    // Check if executor has the right grade to execute the form
+    if (executor.getGrade() > getGradeToExecute()) {
         throw GradeTooLowException();
     }
     std::string filename = getTarget() + "_shrubbery";

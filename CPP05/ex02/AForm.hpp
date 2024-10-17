@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:36:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:09:45 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ public:
         const char* what() const noexcept override;
     };
     class GradeTooLowException : public std::exception {
+    public:
+        const char* what() const noexcept override;
+    };
+    class FormNotSignedException : public std::exception {
     public:
         const char* what() const noexcept override;
     };

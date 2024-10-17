@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 13:08:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:49:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,32 +48,25 @@ std::string ShrubberyCreationForm::getTarget() const
     return target;
 }
 
-void ShrubberyCreationForm::action() const
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
+    // Check if executor has the right grade to execute the form &
+    // Check if the form is signed
+    if (executor.getGrade() > getGradeToExecute() && getIsSigned()) {
+        throw GradeTooLowException();
+    }
+    std::string filename = getTarget() + "_shrubbery";
     std::ofstream file;
-    file.open(getTarget() + "_shrubbery");
-    file << "    ccee88oo\n"
-            "  C8O8O8Q8PoOb o8oo\n"
-            " dOB69QO8PdUOpugoO9bD\n"
-            "CgggbU8OU qOp qOdoUOdcb\n"
-            "    6OuU  /p u gcoUodpP\n"
-            "      \\\\\\//  /douUP\n"
-            "        \\\\\\////\n"
-            "         |||/\\ \n"
-            "         |||\\ \\ \n"
-            "         ||||\\ \\\n"
-            "   .....//_\\ \\_.....\n";
-    file << std::endl;
-    file << "    ccee88oo\n"
-            "  C8O8O8Q8PoOb o8oo\n"
-            " dOB69QO8PdUOpugoO9bD\n"
-            "CgggbU8OU qOp qOdoUOdcb\n"
-            "    6OuU  /p u gcoUodpP\n"
-            "      \\\\\\//  /douUP\n"
-            "        \\\\\\////\n"
-            "         |||/\\ \n"
-            "         |||\\ \\ \n"
-            "         ||||\\ \\\n"
-            "   .....//_\\ \\_.....\n";
+    file.open(filename);
+    file << "              ,@@@@@@@,\n";
+    file << "      ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
+    file << "   ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
+    file << "  ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n";
+    file << "  %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n";
+    file << "  %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n";
+    file << "  `&%\\ ` /%&'    |.|        \\ '|8'\n";
+    file << "       |o|        | |         | |\n";
+    file << "       |.|        | |         | |\n";
+    file << "   \\\\/ ._\\//_/__/  ,\\\\_//__\\\\/.  \\_//__/_\n";
     file.close();
 }

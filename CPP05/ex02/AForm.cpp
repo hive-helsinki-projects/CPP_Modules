@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:23:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:36:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,6 @@ void AForm::beSigned(const Bureaucrat& b)
     isSigned = true;
 }
 
-void AForm::execute(const Bureaucrat& executor) const
-{
-    if (!isSigned)
-    {
-        throw FormNotSignedException();
-    }
-    if (executor.getGrade() > gradeToExecute)
-    {
-        throw GradeTooLowException();
-    }
-    action();
-}
-
 /* EXCEPTIONS */
 const char* AForm::GradeTooHighException::what() const noexcept
 {
@@ -116,11 +103,6 @@ const char* AForm::GradeTooHighException::what() const noexcept
 const char* AForm::GradeTooLowException::what() const noexcept
 {
     return (RED "Grade is too low" RESET);
-}
-
-const char* AForm::FormNotSignedException::what() const noexcept
-{
-    return (RED "Form is not signed" RESET);
 }
 
 /* OVERLOADS */

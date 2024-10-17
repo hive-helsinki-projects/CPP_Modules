@@ -6,11 +6,10 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:09:45 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 21:35:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
@@ -18,9 +17,6 @@
 #include <string>
 #include <exception>
 #include "Bureaucrat.hpp"
-
-#define LOWEST 150
-#define HIGHEST 1
 
 class Bureaucrat;
 

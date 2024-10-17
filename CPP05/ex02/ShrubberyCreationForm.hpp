@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:43:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:17:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:23:58 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ private:
     std::string target;
 public:
     ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string& target);
+    ShrubberyCreationForm(std::string const& target);
     ShrubberyCreationForm(ShrubberyCreationForm const& other);
     ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other);
     ~ShrubberyCreationForm();
 
     std::string getTarget() const;
-    void execute(const Bureaucrat& executor) const;
+    void execute(Bureaucrat const& executor) const;
 };
 
 #endif

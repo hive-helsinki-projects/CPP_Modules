@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:17:24 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 20:23:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
     std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
 : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
     std::cout << "ShrubberyCreationForm parameter constructor called" << std::endl;
@@ -49,7 +49,7 @@ std::string ShrubberyCreationForm::getTarget() const
     return target;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
     // Check if the form is signed
     if (!getIsSigned()) {

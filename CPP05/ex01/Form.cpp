@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:38:50 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:09:01 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,8 @@ const char* Form::GradeTooLowException::what() const noexcept
 
 /* OVERLOADS */
 std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << "Form: " << form.getName() << ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
+    os << "Form: " << GREEN << form.getName() << RESET
+       <<  ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
        << ", grade to sign: " << GREEN << form.getGradeToSign() << RESET
        << ", grade to execute: " << GREEN << form.getGradeToExecute() << RESET;
     return os;

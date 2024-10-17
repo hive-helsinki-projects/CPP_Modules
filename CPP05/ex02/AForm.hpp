@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:36:38 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:23:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:11:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ public:
     
     // Sign and execute AForm
     void beSigned(const Bureaucrat& b);
-    void execute(const Bureaucrat& executor) const;
+
+    // Pure virtual method
+    virtual void execute(const Bureaucrat& executor) const = 0;
     
     // Exception classes
     class GradeTooHighException : public std::exception {
@@ -60,9 +62,6 @@ public:
     public:
         const char* what() const noexcept override;
     };
-
-    // Pure virtual method
-    virtual void action() const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, AForm const& AForm);

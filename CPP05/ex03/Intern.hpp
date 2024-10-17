@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:10:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:26:02 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:37:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,21 @@
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
 
+#define BLUE "\033[34m"
+#define GREEN "\033[0;32m"
+#define RED "\033[0;31m"
+#define RESET "\033[0m"
+
 class Intern {
 private:
-    typedef AForm* (*formCreator)(const std::string& target);
+    typedef AForm* (*formCreator)(std::string const& target);
     struct FormType {
         std::string name;
         formCreator creator;
     };
-    static AForm* createShrubberyCreationForm(const std::string& target);
-    static AForm* createRobotomyRequestForm(const std::string& target);
-    static AForm* createPresidentialPardonForm(const std::string& target);
+    static AForm* createShrubberyCreationForm(std::string const& target);
+    static AForm* createRobotomyRequestForm(std::string const& target);
+    static AForm* createPresidentialPardonForm(std::string const& target);
     static const FormType formTypes[3];
 public:
     Intern();
@@ -38,7 +43,7 @@ public:
     Intern& operator=(Intern const& other);
     ~Intern();
 
-    AForm* makeForm(const std::string& form, const std::string& target);
+    AForm* makeForm(std::string const& form, std::string const& target);
 };
 
 #endif

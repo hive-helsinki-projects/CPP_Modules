@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:33:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:38:32 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ Intern::~Intern()
 }
 
 /* FORM CREATION FUNCTIONS */
-AForm* Intern::createShrubberyCreationForm(const std::string& target)
+AForm* Intern::createShrubberyCreationForm(std::string const& target)
 {
     return new ShrubberyCreationForm(target);
 }
 
-AForm* Intern::createRobotomyRequestForm(const std::string& target)
+AForm* Intern::createRobotomyRequestForm(std::string const& target)
 {
     return new RobotomyRequestForm(target);
 }
 
-AForm* Intern::createPresidentialPardonForm(const std::string& target)
+AForm* Intern::createPresidentialPardonForm(std::string const& target)
 {
     return new PresidentialPardonForm(target);
 }
@@ -58,7 +58,7 @@ const Intern::FormType Intern::formTypes[3] = {
     {"presidential pardon", &Intern::createPresidentialPardonForm}
 };
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target)
+AForm* Intern::makeForm(std::string const& formName, std::string const& target)
 {
     std::cout << GREEN << "\n[Form name: " << formName << "]" << std::endl << RESET;
     std::cout << "---------------------------------" << std::endl;

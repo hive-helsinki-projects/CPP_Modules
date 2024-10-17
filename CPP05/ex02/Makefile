@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/17 11:36:36 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/10/17 13:09:07 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 	@echo "[$(NAME)] Everything deleted."
+	@rm -rf *_shrubbery
 
 re: fclean all
 	@echo "[$(NAME)] Everything rebuilt."

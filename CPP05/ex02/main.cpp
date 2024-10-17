@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:56:30 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 12:38:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main() {
     try {
         std::cout << BLUE << "\n[BUREAUCRAT ALICE]" << RESET << std::endl;
         Bureaucrat alice("Alice", 1); // Grade 1 (highest)
+        std::cout << alice << std::endl;
         
         std::cout << BLUE << "\n[FORM. ROBOTOMY]" << std::endl << RESET;
         RobotomyRequestForm form("Robotomy");

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:46:48 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:53:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:08:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,18 @@ void ShrubberyCreationForm::action() const
 {
     std::ofstream file;
     file.open(getTarget() + "_shrubbery");
+    file << "    ccee88oo\n"
+            "  C8O8O8Q8PoOb o8oo\n"
+            " dOB69QO8PdUOpugoO9bD\n"
+            "CgggbU8OU qOp qOdoUOdcb\n"
+            "    6OuU  /p u gcoUodpP\n"
+            "      \\\\\\//  /douUP\n"
+            "        \\\\\\////\n"
+            "         |||/\\ \n"
+            "         |||\\ \\ \n"
+            "         ||||\\ \\\n"
+            "   .....//_\\ \\_.....\n";
+    file << std::endl;
     file << "    ccee88oo\n"
             "  C8O8O8Q8PoOb o8oo\n"
             " dOB69QO8PdUOpugoO9bD\n"

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:13:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 09:19:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ void Bureaucrat::decrementGrade() {
 }
 
 /* EXCEPTION CLASSES */
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
+const char* Bureaucrat::GradeTooHighException::what() const noexcept {
     return (RED "Grade is too high!" RESET);
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
+const char* Bureaucrat::GradeTooLowException::what() const noexcept {
     return (RED "Grade is too low!" RESET);
 }
 

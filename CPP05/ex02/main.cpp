@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 15:06:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 15:54:58 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,7 @@ void test2()
 }
 int main() {
     srand(time(0)); // Seed the random number generator
-
-    //test1();
+    test1();
     test2();
     return 0;
 }

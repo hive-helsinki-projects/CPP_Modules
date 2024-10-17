@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:57:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:47:30 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 16:07:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,12 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
         throw GradeTooLowException();
     }
     std::cout << "*drilling noises*" << std::endl;
-    if (rand() % 2)
-        std::cout << target << " has been robotomized successfully" << std::endl;
-    else
-        std::cout << target << " robotomization failed" << std::endl;
+    int randomNumber = rand();
+    int outcome = randomNumber % 2;
+    std::cout << "Random number: " << randomNumber << ", Outcome (1=Success, 0=Fail): " << outcome << std::endl;
+    if (outcome) {
+        std::cout << target << " has been robotomized successfully 50% of the time" << std::endl;
+    } else {
+        std::cout << target << " failed" << std::endl;
+    }
 }

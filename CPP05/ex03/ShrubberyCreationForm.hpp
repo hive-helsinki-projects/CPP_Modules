@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:43:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 21:38:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:30:25 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@
 #include <fstream>
 #include "AForm.hpp"
 
+class Bureaucrat;
+
 class ShrubberyCreationForm: public AForm {
 private:
     std::string target;
 public:
-    ShrubberyCreationForm();
-    ShrubberyCreationForm(const std::string& target);
-    ShrubberyCreationForm(ShrubberyCreationForm const& other);
-    ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other);
+    ShrubberyCreationForm() = delete;
+    ShrubberyCreationForm(std::string const& target);
+    ShrubberyCreationForm(ShrubberyCreationForm const& other) = delete;
+    ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other) = delete;
     ~ShrubberyCreationForm();
 
     std::string getTarget() const;
-    void execute(const Bureaucrat& executor) const override;
+    void execute(Bureaucrat const& executor) const;
 };
 
 #endif

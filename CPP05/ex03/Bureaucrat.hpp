@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:29:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 21:35:01 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:28:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ private:
     std::string const name;
     int grade;
 public:
-    Bureaucrat();
-    Bureaucrat(const std::string& n, int grade);
-    Bureaucrat(Bureaucrat const& other);
-    Bureaucrat& operator=(Bureaucrat const& other);
+    Bureaucrat() = delete; // No implementation bc of const members
+    Bureaucrat(std::string const& n, int grade);
+    Bureaucrat(Bureaucrat const& other) = delete; // No implementation bc of const members
+    Bureaucrat& operator=(Bureaucrat const& other) = delete; // No implementation bc of const members
     ~Bureaucrat();
     
     // Getters

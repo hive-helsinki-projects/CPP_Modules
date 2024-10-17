@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 10:37:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 21:38:04 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:28:49 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@
 # include <string>
 # include <cstdlib>
 
+class Bureaucrat;
 class PresidentialPardonForm : public AForm
 {
 private:
     std::string target;
 public:
-    PresidentialPardonForm();
-    PresidentialPardonForm(const std::string& target);
-    PresidentialPardonForm(PresidentialPardonForm const& other);
-    PresidentialPardonForm& operator=(PresidentialPardonForm const& other);
+    PresidentialPardonForm() = delete;
+    PresidentialPardonForm(std::string const& target);
+    PresidentialPardonForm(PresidentialPardonForm const& other) = delete;
+    PresidentialPardonForm& operator=(PresidentialPardonForm const& other) = delete;
     ~PresidentialPardonForm();
 
-    void execute(const Bureaucrat& executor) const override;
+    void execute(Bureaucrat const& executor) const override;
 };
 
 #endif

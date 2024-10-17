@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 20:19:52 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:22:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 #include "Bureaucrat.hpp"
 
 /* CONSTRUCTORS, DESTRUCTORS, OPERATORS */
-AForm::AForm()
-: name("default")
-, isSigned(false)
-, gradeToSign(LOWEST)
-, gradeToExecute(LOWEST)
-{
-    std::cout << "AForm default constructor called" << std::endl;
-}
-
 AForm::AForm(std::string const& n, int gradeToSign, int gradeToExecute)
 : name(n)
 , isSigned(false)
@@ -38,15 +29,6 @@ AForm::AForm(std::string const& n, int gradeToSign, int gradeToExecute)
         throw GradeTooLowException();
     }
     std::cout << "AForm parameterized constructor called" << std::endl;
-}
-
-AForm::AForm(AForm const& other)
-: name(other.name)
-, isSigned(other.isSigned)
-, gradeToSign(other.gradeToSign)
-, gradeToExecute(other.gradeToExecute)
-{
-    std::cout << "AForm copy constructor called" << std::endl;
 }
 
 AForm::~AForm()

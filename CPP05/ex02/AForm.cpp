@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:42:36 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:09:51 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:51:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ const char* AForm::FormNotSignedException::what() const noexcept
 
 /* OVERLOADS */
 std::ostream& operator<<(std::ostream& os, const AForm& form) {
-    os << "AForm: " << form.getName() << ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
+    os << "AForm: " << GREEN << form.getName() << RESET
+       << ", signed: " << GREEN << (form.getIsSigned() ? "yes" : "no") << RESET
        << ", grade to sign: " << GREEN << form.getGradeToSign() << RESET
        << ", grade to execute: " << GREEN << form.getGradeToExecute() << RESET;
     return os;

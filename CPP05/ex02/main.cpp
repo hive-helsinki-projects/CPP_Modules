@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:35:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:50:09 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,8 @@
 #include "RobotomyRequestForm.hpp"
 
 void printFormStatus(const AForm& form, const AForm& form1, const AForm& form2) {
-    std::cout << BLUE << "[SHRUBBERY]" << std::endl << RESET;
     std::cout << form << std::endl;
-    
-    std::cout << BLUE << "[ROBOTOMY]" << std::endl << RESET;
     std::cout << form1 << std::endl;
-
-    std::cout << BLUE << "[PRESIDENTIAL]" << std::endl << RESET;
     std::cout << form2 << std::endl;
 }
 
@@ -43,7 +38,7 @@ int main() {
         std::cout << alice << std::endl;
         
         std::cout << GREEN << alice.getName() << " is signning the form..." << std::endl << RESET;        
-        //alice.signForm(form); // Form is not signed, throws exception
+        alice.signForm(form); // Form is not signed, throws exception
         alice.executeForm(form);  // Should fail      
 
         alice.signForm(form1); // Form is signed
@@ -52,6 +47,7 @@ int main() {
         alice.signForm(form2); // Form is signed
         alice.executeForm(form2); // Should succeed
 
+        std::cout << std::endl;
         printFormStatus(form, form1, form2);
 
         std::cout << BLUE << "\n[DESTRUCTOR]" << std::endl << RESET;

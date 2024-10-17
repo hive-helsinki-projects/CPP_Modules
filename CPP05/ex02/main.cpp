@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 11:35:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:56:30 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,29 @@ int main() {
     srand(time(0)); // Seed the random number generator
 
     try {
+        std::cout << BLUE << "\n[BUREAUCRAT ALICE]" << RESET << std::endl;
         Bureaucrat alice("Alice", 1); // Grade 1 (highest)
-        RobotomyRequestForm form("Target");
-
-        alice.signForm(form); // Should succeed
-        form.execute(alice);  // Perform the action
-
+        
+        std::cout << BLUE << "\n[FORM. ROBOTOMY]" << std::endl << RESET;
+        RobotomyRequestForm form("Robotomy");
         std::cout << form << std::endl;
+        alice.signForm(form); // Should succeed
+        alice.executeForm(form);  // Perform the action
+        
+        std::cout << BLUE << "\n[FORM. SHRUBBERY]" << std::endl << RESET;
+        ShrubberyCreationForm form2("Shrubbery");
+        std::cout << form2 << std::endl;
+        alice.signForm(form2);
+        alice.executeForm(form2);  // Perform the action
+        alice.executeForm(form2);
+        alice.executeForm(form2);
+        
+        std::cout << BLUE << "\n[FORM. PRESIDENTIAL]" << std::endl << RESET;
+        PresidentialPardonForm form3("Presidential");
+        std::cout << form3 << std::endl;
+        alice.signForm(form3); // Should succeed
+        alice.executeForm(form3);  // Perform the action
+
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }

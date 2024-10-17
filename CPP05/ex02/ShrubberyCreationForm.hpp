@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:43:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 09:52:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 11:53:39 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
     ShrubberyCreationForm& operator=(ShrubberyCreationForm const& other);
     ~ShrubberyCreationForm();
 
+    std::string getTarget() const;
     void action() const;
 };
 

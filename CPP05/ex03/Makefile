@@ -1,0 +1,50 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
+#    Updated: 2024/10/17 15:10:16 by lkilpela         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		=	a.out
+
+CC			=	c++
+CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp \
+				ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp Intern.cpp
+OBJS		=	$(SRCS:%.cpp=%.o)
+
+all: $(NAME)
+
+%.o : %.cpp
+	@$(CC) $(CCFLAGS) -c $< -o $@
+	@echo "$(GREEN)Compiled: $< $(RESET)"
+
+$(NAME): $(OBJS)
+	@echo "--------------------------------------------"
+	@$(CC) $(OBJS) -o $(NAME)
+	@echo "[$(NAME)] $(BLUE)Built target $(NAME)$(RESET)"
+	@echo "--------------------------------------------"
+
+clean:
+	@rm -rf $(OBJS)
+	@echo "[$(NAME)] Object files cleaned."
+
+fclean: clean
+	@rm -rf $(NAME)
+	@echo "[$(NAME)] Everything deleted."
+	@rm -rf *_shrubbery
+
+re: fclean all
+	@echo "[$(NAME)] Everything rebuilt."
+
+.PHONY: all clean fclean re
+
+GREEN = \033[0;32m
+RESET = \033[0m
+BLUE = \033[34m

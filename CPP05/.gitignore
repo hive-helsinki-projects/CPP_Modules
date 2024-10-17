@@ -45,7 +45,6 @@
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
 
 # Ignore other build system files
 *.make

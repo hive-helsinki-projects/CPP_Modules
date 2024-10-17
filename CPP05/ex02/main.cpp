@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 22:03:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 14:17:03 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 14:35:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,43 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
+void printFormStatus(const AForm& form, const AForm& form1, const AForm& form2) {
+    std::cout << BLUE << "[SHRUBBERY]" << std::endl << RESET;
+    std::cout << form << std::endl;
+    
+    std::cout << BLUE << "[ROBOTOMY]" << std::endl << RESET;
+    std::cout << form1 << std::endl;
+
+    std::cout << BLUE << "[PRESIDENTIAL]" << std::endl << RESET;
+    std::cout << form2 << std::endl;
+}
+
 int main() {
     srand(time(0)); // Seed the random number generator
 
     try {
+      
+        std::cout << BLUE << "\n[STATUS OF FORMS]" << RESET << std::endl;
+        ShrubberyCreationForm form("Shrubbery");
+        RobotomyRequestForm form1("Robotomy");
+        PresidentialPardonForm form2("Presidential");
+        printFormStatus(form, form1, form2);
+
         std::cout << BLUE << "\n[BUREAUCRAT ALICE]" << RESET << std::endl;
-        Bureaucrat alice("Alice", 1); // Grade 1 (highest)
+        Bureaucrat alice("Alice", 1); // Grade 1 (highest), grade 150 (lowest)
         std::cout << alice << std::endl;
         
-        std::cout << BLUE << "\n[FORM. ROBOTOMY]" << std::endl << RESET;
-        RobotomyRequestForm form("Robotomy");
-        std::cout << form << std::endl;
-        //alice.signForm(form); // Should succeed
-        alice.executeForm(form);  // Perform the action
+        std::cout << GREEN << alice.getName() << " is signning the form..." << std::endl << RESET;        
+        //alice.signForm(form); // Form is not signed, throws exception
+        alice.executeForm(form);  // Should fail      
+
+        alice.signForm(form1); // Form is signed
+        alice.executeForm(form1); // Should succeed & a file should be created
         
-        std::cout << BLUE << "\n[FORM. SHRUBBERY]" << std::endl << RESET;
-        ShrubberyCreationForm form2("Shrubbery");
-        std::cout << form2 << std::endl;
-        alice.signForm(form2);
-        alice.executeForm(form2);  // Perform the action
-        
-        std::cout << BLUE << "\n[FORM. PRESIDENTIAL]" << std::endl << RESET;
-        PresidentialPardonForm form3("Presidential");
-        std::cout << form3 << std::endl;
-        alice.signForm(form3); // Should succeed
-        alice.executeForm(form3);  // Perform the action
-        std::cout << form3 << std::endl;
+        alice.signForm(form2); // Form is signed
+        alice.executeForm(form2); // Should succeed
+
+        printFormStatus(form, form1, form2);
 
         std::cout << BLUE << "\n[DESTRUCTOR]" << std::endl << RESET;
     } catch (const std::exception& e) {

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 18:35:28 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 19:59:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/17 22:26:04 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@ const int LOWEST = 150;
 const int HIGHEST = 1;
 
 /* CONSTRUCTORS AND DESTRUCTOR */
-Bureaucrat::Bureaucrat()
-: name("Default")
-, grade(LOWEST)
-{
-    std::cout << "Bureaucrat default constructor called" << std::endl;
-}
-
 Bureaucrat::Bureaucrat(const std::string& n, int grade)
 : name(n)
 , grade(grade)
@@ -30,19 +23,6 @@ Bureaucrat::Bureaucrat(const std::string& n, int grade)
     std::cout << "Bureaucrat parameterized constructor called" << std::endl;
     if (grade < HIGHEST) throw GradeTooHighException();
     if (grade > LOWEST) throw GradeTooLowException();
-}
-
-Bureaucrat::Bureaucrat(Bureaucrat const& other)
-: name(other.name)
-, grade(other.grade)
-{
-    std::cout << "Bureaucrat copy constructor called" << std::endl;
-}
-
-Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
-    if (other.grade < HIGHEST) throw GradeTooHighException();
-    if (other.grade > LOWEST) throw GradeTooLowException();
-    return *this;
 }
 
 Bureaucrat::~Bureaucrat() {

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 22:54:52 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 23:02:44 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 23:05:02 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <ctime>
 #include <cstdlib> 
 
+// Generate a random class
 Base* generate() {
     srand(static_cast<unsigned int>(time(0)));
     int random = rand() % 3;
@@ -32,6 +33,7 @@ Base* generate() {
     return nullptr;
 }
 
+// Identify the class by pointer
 void identify(Base* p) {
     if (dynamic_cast<A*>(p)) {
         std::cout << "A" << std::endl;
@@ -44,6 +46,7 @@ void identify(Base* p) {
     }
 }
 
+// Identify the class by reference
 void identify(Base& p) {
     try {
         (void)dynamic_cast<A&>(p);

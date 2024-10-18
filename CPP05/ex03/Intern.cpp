@@ -6,28 +6,16 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:12:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:38:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 09:10:22 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
+/* CONSTRUCTOR, DESTRUCTOR */
 Intern::Intern()
 {
     std::cout << "Intern default constructor called" << std::endl;
-}
-
-Intern::Intern(Intern const& other)
-{
-    *this = other;
-    std::cout << "Intern copy constructor called" << std::endl;
-}
-
-Intern& Intern::operator=(Intern const& other)
-{
-    (void)other;
-    std::cout << "Intern assignment operator called" << std::endl;
-    return *this;
 }
 
 Intern::~Intern()

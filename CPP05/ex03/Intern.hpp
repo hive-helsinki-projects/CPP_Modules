@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 15:10:50 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:37:46 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 09:10:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ private:
     static const FormType formTypes[3];
 public:
     Intern();
-    Intern(Intern const& other);
-    Intern& operator=(Intern const& other);
+    Intern(Intern const& other) = delete;
+    Intern& operator=(Intern const& other) = delete;
     ~Intern();
 
     AForm* makeForm(std::string const& form, std::string const& target);

@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/18 11:55:12 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/10/18 14:29:46 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ test: $(NAME)
 	@echo "$(GREEN)Test: -2147483649 (int underflow)$(RESET)"
 	@./$(NAME) -2147483649
 	@echo "--------------------------------------------"
-	@echo "$(GREEN)Test: 3.4e38 (float overflow)$(RESET)"
-	@./$(NAME) 3.4e38
-	@echo "$(GREEN)Test: -3.4e38 (float underflow)$(RESET)"
-	@./$(NAME) -3.4e38
+	@echo "$(GREEN)Test: 4.9e38 (float overflow)$(RESET)"
+	@./$(NAME) 4.9e38
+	@echo "$(GREEN)Test: -4.9e38 (float underflow)$(RESET)"
+	@./$(NAME) -4.9e38
 	@echo "$(GREEN)Test: 1.2e-38 (float underflow)$(RESET)"
 	@./$(NAME) 1.2e-38
 	@echo "$(GREEN)Test: -1.2e-38 (float underflow)$(RESET)"
@@ -61,10 +61,10 @@ test: $(NAME)
 	@./$(NAME) 1e308
 	@echo "$(GREEN)Test: -1e308 (double underflow)$(RESET)"
 	@./$(NAME) -1e308
-	@echo "$(GREEN)Test: 1e-308 (double underflow)$(RESET)"
-	@./$(NAME) 1e-308
-	@echo "$(GREEN)Test: -1e-308 (double underflow)$(RESET)"
-	@./$(NAME) -1e-308
+	@echo "$(GREEN)Test: 2e-308 (double underflow)$(RESET)"
+	@./$(NAME) 2e-308
+	@echo "$(GREEN)Test: -2e-308 (double underflow)$(RESET)"
+	@./$(NAME) -2e-308
 	@echo "--------------------------------------------"
 
 .PHONY: all clean fclean re test

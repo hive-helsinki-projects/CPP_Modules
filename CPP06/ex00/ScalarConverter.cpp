@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 14:08:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:38:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,26 @@
 bool isSpecialLiteral(const std::string &input) {
     return (input == "-inff" || input == "+inff" || input == "nanf" ||
             input == "-inf" || input == "+inf" || input == "nan");
+}
+
+void specialLiteral(std::string const& input)
+{
+    if (isSpecialLiteral(input))
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        if (input == "+inf" || input == "-inf" || input == "nan") {
+            std::cout << "float: " << input << "f" << std::endl;
+            std::cout << "double: " << input << std::endl;
+        } else if (input == "+inff" || input == "-inff" || input == "nanf") {
+            std::cout << "float: " << input << std::endl;
+            std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
+        } else {
+            std::cout << "float: " << input << "f" << std::endl;
+            std::cout << "double: " << input << std::endl;
+        }
+    }
+    return ;
 }
 
 void charConvert(double d)
@@ -43,7 +63,8 @@ void intConverter(double d)
 void floatConverter(double d)
 {
     try {
-        if (d < std::numeric_limits<float>::min()
+        std::cout << d << std::endl;
+        if (d < std::numeric_limits<float>::lowest()
             || d > std::numeric_limits<float>::max()) {
             throw std::out_of_range("float overflow/underflow");
         } else {
@@ -58,44 +79,22 @@ void floatConverter(double d)
 
 void doubleConverter(double d)
 {
-    try {
-        if (d < std::numeric_limits<double>::min()
-            || d > std::numeric_limits<double>::max()) {
-            throw std::out_of_range("double overflow/underflow");
-        } else {
-            std::cout << std::fixed << std::setprecision(1);
-            std::cout << "double: " << d << std::endl;
-        }
-    } catch (const std::out_of_range&) {
-        std::cout << "double: impossible" << std::endl;
-    }
+    std::cout << std::fixed << std::setprecision(1);
+    std::cout << "double: " << d << std::endl;
 }
 
-void ScalarConverter::convert(const std::string &input) {
-    // Handle special float and double literals
-    if (isSpecialLiteral(input)) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        if (input == "+inf" || input == "-inf" || input == "nan") {
-            std::cout << "float: " << input << "f" << std::endl;
-            std::cout << "double: " << input << std::endl;
-        } else if (input == "+inff" || input == "-inff" || input == "nanf") {
-            std::cout << "float: " << input << std::endl;
-            std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
-        } else {
-            std::cout << "float: " << input << "f" << std::endl;
-            std::cout << "double: " << input << std::endl;
-        }
-        return;
-    }
-
+void ScalarConverter::convert(const std::string &input)
+{
     size_t pos = 0;
     double d = 0.0;
 
+    // Handle special float and double literals
+    specialLiteral(input);
+
+    // Handle regular int, char, float and double literals
     try {
         // Convert to double first to handle both float and double literals
         d = std::stod(input, &pos);
-        std::cout << "double: " << d << std::endl;
         if (pos != input.length() && input[pos] != 'f')
             throw std::invalid_argument("Invalid input");
 
@@ -111,6 +110,11 @@ void ScalarConverter::convert(const std::string &input) {
         // Convert to double
         doubleConverter(d);
     } catch (const std::invalid_argument&) {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    } catch (const std::out_of_range&) {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;

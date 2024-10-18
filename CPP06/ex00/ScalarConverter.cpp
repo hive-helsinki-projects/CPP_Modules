@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 14:01:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:08:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@ bool isSpecialLiteral(const std::string &input) {
 
 void charConvert(double d)
 {
-    try {
-        if (d >= 32 && d <= 126) {
-            std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
-        } else {
-            std::cout << "char: Non displayable" << std::endl;
-        } 
-    } catch (const std::out_of_range&) {
-            std::cout << "char: impossible" << std::endl;
-        }
+    if (d >= 32 && d <= 126) {
+        std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+    } else {
+        std::cout << "char: Non displayable" << std::endl;
+    } 
 }
 
 void intConverter(double d)

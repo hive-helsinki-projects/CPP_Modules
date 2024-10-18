@@ -60,3 +60,5 @@ cmake_install.cmake
 # Ignore other common files
 *.DS_Store
 *.directory
+
+convert

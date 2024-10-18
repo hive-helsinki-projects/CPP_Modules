@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/18 14:29:46 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/10/18 14:54:30 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,27 +43,27 @@ re: fclean all
 test: $(NAME)
 	@echo "$(BLUE)Running tests... $(RESET)"
 	@echo "--------------------------------------------"
-	@echo "$(GREEN)Test: 2147483648 (int overflow) $(RESET)"
+	@echo "$(GREEN)Test: 2147483648 (INT_MAX overflow) $(RESET)"
 	@./$(NAME) 2147483648
-	@echo "$(GREEN)Test: -2147483649 (int underflow)$(RESET)"
+	@echo "$(GREEN)Test: -2147483649 (INT_MIN underflow)$(RESET)"
 	@./$(NAME) -2147483649
 	@echo "--------------------------------------------"
-	@echo "$(GREEN)Test: 4.9e38 (float overflow)$(RESET)"
+	@echo "$(GREEN)Test: 4.9e38 (FLT_MAX 3.4e+38 overflow)$(RESET)"
 	@./$(NAME) 4.9e38
-	@echo "$(GREEN)Test: -4.9e38 (float underflow)$(RESET)"
+	@echo "$(GREEN)Test: -4.9e38 (FLT_MAX -3.4e+38 underflow)$(RESET)"
 	@./$(NAME) -4.9e38
-	@echo "$(GREEN)Test: 1.2e-38 (float underflow)$(RESET)"
-	@./$(NAME) 1.2e-38
-	@echo "$(GREEN)Test: -1.2e-38 (float underflow)$(RESET)"
-	@./$(NAME) -1.2e-38
+	@echo "$(GREEN)Test: 2.2e-38 (FLT_MIN 1.17e-38 underflow)$(RESET)"
+	@./$(NAME) 2.2e-38
+	@echo "$(GREEN)Test: -2.2e-38 (FLT_MIN -1.17e-38 underflow)$(RESET)"
+	@./$(NAME) -2.2e-38
 	@echo "--------------------------------------------"
-	@echo "$(GREEN)Test: 1e308 (double overflow)$(RESET)"
-	@./$(NAME) 1e308
-	@echo "$(GREEN)Test: -1e308 (double underflow)$(RESET)"
-	@./$(NAME) -1e308
-	@echo "$(GREEN)Test: 2e-308 (double underflow)$(RESET)"
+	@echo "$(GREEN)Test: 2e308 (DBL_MAX 1.79e+308 overflow)$(RESET)"
+	@./$(NAME) 2e308
+	@echo "$(GREEN)Test: -2e308 (DBL_MAX -1.79e+308 underflow)$(RESET)"
+	@./$(NAME) -2e308
+	@echo "$(GREEN)Test: 2e-308 (DBL_MIN 2.22e-308 underflow)$(RESET)"
 	@./$(NAME) 2e-308
-	@echo "$(GREEN)Test: -2e-308 (double underflow)$(RESET)"
+	@echo "$(GREEN)Test: -2e-308 (DBL_MIN -2.22e-308 underflow)$(RESET)"
 	@./$(NAME) -2e-308
 	@echo "--------------------------------------------"
 

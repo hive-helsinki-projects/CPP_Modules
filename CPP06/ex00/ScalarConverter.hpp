@@ -6,31 +6,26 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:36:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 19:45:52 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 10:15:22 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef SCALARCONVERTER_HPP
 # define SCALARCONVERTER_HPP
 
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <limits>
-#include <cmath>
+#include <iostream> // std::cout, std::cerr, std::endl
+#include <string> // std::string, std::stoi, std::stof, std::stod
+#include <iomanip> // std::fixed, std::setprecision
+#include <cmath> // std::isnan, std::isinf, std::isfinite
+#include <exception> // std::invalid_argument
 
 class ScalarConverter {
 private:
-    std::string input;
-
+    ScalarConverter() {};
+    ~ScalarConverter() {};
 public:
-    ScalarConverter();
-    ScalarConverter(std::string input);
-    ScalarConverter(ScalarConverter const &other);
-    ~ScalarConverter();
 
-    static void convert(const std::string &input);
-}
+    static void convert(std::string const& input);
+};
 
 #endif

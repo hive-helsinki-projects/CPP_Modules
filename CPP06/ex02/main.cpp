@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 22:54:52 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 23:05:02 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 23:06:05 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ Base* generate() {
     int random = rand() % 3;
     switch (random) {
         case 0:
+            std::cout << "Generated A" << std::endl;
             return new A();
         case 1:
+            std::cout << "Generated B" << std::endl;
             return new B();
         case 2:
+            std::cout << "Generated C" << std::endl;
             return new C();
     }
     return nullptr;

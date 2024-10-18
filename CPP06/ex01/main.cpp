@@ -6,30 +6,31 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:17:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 15:19:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 22:35:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+#include "Data.hpp"
 
 int main() {
-    Serializer::Data originalData;
-    originalData.s1 = "Hello";
+    Data originalData;
+    originalData.s = "Hello World";
     originalData.n = 42;
-    originalData.s2 = "World";
 
     std::cout << "Original Data:" << std::endl;
-    std::cout << "s1: " << originalData.s1 << std::endl;
+    std::cout << "s: " << originalData.s << std::endl;
     std::cout << "n: " << originalData.n << std::endl;
-    std::cout << "s2: " << originalData.s2 << std::endl;
 
     uintptr_t serializedData = Serializer::serialize(&originalData);
-    Serializer::Data* deserializedData = Serializer::deserialize(serializedData);
+    std::cout << "\nSerialized Address: " << &originalData << std::endl;
+    
+    Data* deserializedData = Serializer::deserialize(serializedData);
+    std::cout << "Deserialized Adress: " << deserializedData << std::endl;
 
     std::cout << "\nDeserialized Data:" << std::endl;
-    std::cout << "s1: " << deserializedData->s1 << std::endl;
+    std::cout << "s: " << deserializedData->s << std::endl;
     std::cout << "n: " << deserializedData->n << std::endl;
-    std::cout << "s2: " << deserializedData->s2 << std::endl;
 
     if (deserializedData == &originalData) {
         std::cout << "\nDeserialization successful: Pointers match." << std::endl;

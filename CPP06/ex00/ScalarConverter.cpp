@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 14:59:24 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 15:07:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,37 @@ void specialLiteral(std::string const& input)
     }
 }
 
-void charConvert(long double d)
+void charConvert(long double ld)
 {
-    if (d >= 32 && d <= 126) {
-        std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+    if (ld >= 32 && ld <= 126) {
+        std::cout << "char: '" << static_cast<char>(ld) << "'" << std::endl;
     } else {
         std::cout << "char: Non displayable" << std::endl;
     } 
 }
 
-void intConverter(long double d)
+void intConverter(long double ld)
 {
     try {
-        if (d < std::numeric_limits<int>::min()
-            || d > std::numeric_limits<int>::max()) {
+        if (ld < std::numeric_limits<int>::min()
+            || ld > std::numeric_limits<int>::max()) {
             throw std::out_of_range("int overflow/underflow");
         } else {
-            std::cout << "int: " << static_cast<int>(d) << std::endl;
+            std::cout << "int: " << static_cast<int>(ld) << std::endl;
         }
     } catch (const std::out_of_range&) {
         std::cout << "int: impossible" << std::endl;
     }
 }
 
-void floatConverter(long double d)
+void floatConverter(long double ld)
 {
     try {
-        if (d < std::numeric_limits<float>::lowest()
-            || d > std::numeric_limits<float>::max()) {
+        if (ld < std::numeric_limits<float>::lowest()
+            || ld > std::numeric_limits<float>::max()) {
             throw std::out_of_range("float overflow/underflow");
         } else {
-            float f = static_cast<float>(d);
+            float f = static_cast<float>(ld);
             std::cout << std::fixed << std::setprecision(1);
             std::cout << "float: " << f << "f" << std::endl;
         }
@@ -75,13 +75,14 @@ void floatConverter(long double d)
     }
 }
 
-void doubleConverter(long double d)
+void doubleConverter(long double ld)
 {
     try {
-        if (d < std::numeric_limits<double>::lowest()
-            || d > std::numeric_limits<double>::max()) {
+        if (ld < std::numeric_limits<double>::lowest()
+            || ld > std::numeric_limits<double>::max()) {
             throw std::out_of_range("double overflow/underflow");
         } else {
+            double d = static_cast<double>(ld);
             std::cout << std::fixed << std::setprecision(1);
             std::cout << "double: " << d << std::endl;
         }
@@ -93,7 +94,7 @@ void doubleConverter(long double d)
 void ScalarConverter::convert(const std::string &input)
 {
     size_t pos = 0;
-    long double d = 0.0;
+    long double ld = 0.0;
 
     // Handle special float and double literals
     specialLiteral(input);
@@ -101,21 +102,21 @@ void ScalarConverter::convert(const std::string &input)
     // Handle regular int, char, float and double literals
     try {
         // Convert to double first to handle both float and double literals
-        d = std::stold(input, &pos);
+        ld = std::stold(input, &pos);
         if (pos != input.length() && input[pos] != 'f')
             throw std::invalid_argument("Invalid input");
 
         // Convert to char
-        charConvert(d);
+        charConvert(ld);
         
         // Convert to int
-        intConverter(d);
+        intConverter(ld);
 
         // Convert to float
-        floatConverter(d);
+        floatConverter(ld);
 
         // Convert to double
-        doubleConverter(d);
+        doubleConverter(ld);
     } catch (const std::invalid_argument&) {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:12:01 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 22:31:17 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 22:47:23 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 class Serializer {
 private:
     Serializer();
-    Serializer(Serializer const& other);
-    Serializer& operator=(Serializer const& other);
     ~Serializer();
 public:
     // Method to serialize a Data struct

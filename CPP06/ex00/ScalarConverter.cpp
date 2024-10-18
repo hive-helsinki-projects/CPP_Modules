@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 11:49:30 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 14:01:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,64 @@
 bool isSpecialLiteral(const std::string &input) {
     return (input == "-inff" || input == "+inff" || input == "nanf" ||
             input == "-inf" || input == "+inf" || input == "nan");
+}
+
+void charConvert(double d)
+{
+    try {
+        if (d >= 32 && d <= 126) {
+            std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+        } else {
+            std::cout << "char: Non displayable" << std::endl;
+        } 
+    } catch (const std::out_of_range&) {
+            std::cout << "char: impossible" << std::endl;
+        }
+}
+
+void intConverter(double d)
+{
+    try {
+        if (d < std::numeric_limits<int>::min()
+            || d > std::numeric_limits<int>::max()) {
+            throw std::out_of_range("int overflow/underflow");
+        } else {
+            std::cout << "int: " << static_cast<int>(d) << std::endl;
+        }
+    } catch (const std::out_of_range&) {
+        std::cout << "int: impossible" << std::endl;
+    }
+}
+
+void floatConverter(double d)
+{
+    try {
+        if (d < std::numeric_limits<float>::min()
+            || d > std::numeric_limits<float>::max()) {
+            throw std::out_of_range("float overflow/underflow");
+        } else {
+            float f = static_cast<float>(d);
+            std::cout << std::fixed << std::setprecision(1);
+            std::cout << "float: " << f << "f" << std::endl;
+        }
+    } catch (const std::out_of_range&) {
+        std::cout << "float: impossible" << std::endl;
+    }
+}
+
+void doubleConverter(double d)
+{
+    try {
+        if (d < std::numeric_limits<double>::min()
+            || d > std::numeric_limits<double>::max()) {
+            throw std::out_of_range("double overflow/underflow");
+        } else {
+            std::cout << std::fixed << std::setprecision(1);
+            std::cout << "double: " << d << std::endl;
+        }
+    } catch (const std::out_of_range&) {
+        std::cout << "double: impossible" << std::endl;
+    }
 }
 
 void ScalarConverter::convert(const std::string &input) {
@@ -41,52 +99,21 @@ void ScalarConverter::convert(const std::string &input) {
     try {
         // Convert to double first to handle both float and double literals
         d = std::stod(input, &pos);
+        std::cout << "double: " << d << std::endl;
         if (pos != input.length() && input[pos] != 'f')
             throw std::invalid_argument("Invalid input");
 
         // Convert to char
-        if (d >= 32 && d <= 126) {
-            std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
-        } else {
-            std::cout << "char: Non displayable" << std::endl;
-        }
-
+        charConvert(d);
+        
         // Convert to int
-        if (d >= std::numeric_limits<int>::min()
-            && d <= std::numeric_limits<int>::max()) {
-            std::cout << "int: " << static_cast<int>(d) << std::endl;
-        } else {
-            std::cout << "int: impossible" << std::endl;
-        }
+        intConverter(d);
 
         // Convert to float
-        if (d >= -std::numeric_limits<float>::max()
-            && d <= std::numeric_limits<float>::max()) {
-            float f = static_cast<float>(d);
-            if (f == std::numeric_limits<float>::infinity() 
-                || f == -std::numeric_limits<float>::infinity()) {
-                std::cout << "float: impossible" << std::endl;
-            } else {
-                std::cout << std::fixed << std::setprecision(1);
-                std::cout << "float: " << f << "f" << std::endl;
-            }
-        } else {
-            std::cout << "float: impossible" << std::endl;
-        }
+        floatConverter(d);
 
         // Convert to double
-        if (d == std::numeric_limits<double>::infinity()
-            || d == -std::numeric_limits<double>::infinity()) {
-            std::cout << "double: impossible" << std::endl;
-        } else {
-            std::cout << std::fixed << std::setprecision(1);
-            std::cout << "double: " << d << std::endl;
-        }
-    } catch (const std::out_of_range&) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
+        doubleConverter(d);
     } catch (const std::invalid_argument&) {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;

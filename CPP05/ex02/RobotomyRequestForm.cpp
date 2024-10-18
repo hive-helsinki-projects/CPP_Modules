@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 09:57:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/17 22:32:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/18 09:01:07 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 /* METHOD EXECUTE */
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
+    srand(time(0)); // Seed the random number generator
     // Check if the form is signed
     if (!getIsSigned()) {
         throw FormNotSignedException();

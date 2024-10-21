@@ -6,11 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 15:07:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:32:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <iostream> // std::cout, std::cerr, std::endl
+#include <iomanip> // std::fixed, std::setprecision
+#include <exception> // std::invalid_argument
 
 bool isSpecialLiteral(const std::string &input) {
     return (input == "-inff" || input == "+inff" || input == "nanf" ||

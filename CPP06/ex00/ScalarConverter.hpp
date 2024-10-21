@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:36:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 10:15:22 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:28:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@
 
 class ScalarConverter {
 private:
-    ScalarConverter() {};
+    ScalarConverter() {};  
     ~ScalarConverter() {};
 public:
-
     static void convert(std::string const& input);
 };
 

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:12:01 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 22:47:23 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:29:11 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 class Serializer {
 private:
-    Serializer();
-    ~Serializer();
+    Serializer() {};
+    ~Serializer() {};
 public:
     // Method to serialize a Data struct
     static uintptr_t serialize(Data* ptr);

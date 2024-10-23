@@ -57,6 +57,14 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "stop_token": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "*.tpp": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "deque": "cpp",
+        "queue": "cpp",
+        "span": "cpp",
+        "stack": "cpp",
+        "unordered_map": "cpp"
     }
 }

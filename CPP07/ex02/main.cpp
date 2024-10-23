@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:59:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 14:09:58 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:19:27 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 int main() {
     // Test default constructor
     Array<int> emptyArray;
-    std::cout << "Empty array size: " << emptyArray.size() << std::endl;
+    std::cout << YELLOW "Empty array size: " RESET << emptyArray.size() << std::endl;
 
     // Test constructor with size parameter
     Array<int> intArray(5);
-    std::cout << "Int array size: " << intArray.size() << std::endl;
+    std::cout << YELLOW "Int array size: " RESET << intArray.size() << std::endl;
     for (unsigned int i = 0; i < intArray.size(); i++) {
         std::cout << intArray[i] << " ";
     }
@@ -29,7 +29,7 @@ int main() {
 
     // Test copy constructor
     Array<int> copyArray(intArray);
-    std::cout << "Copy array size: " << copyArray.size() << std::endl;
+    std::cout << YELLOW "Copy array size: " RESET << copyArray.size() << std::endl;
     for (unsigned int i = 0; i < copyArray.size(); i++) {
         std::cout << copyArray[i] << " ";
     }
@@ -38,7 +38,7 @@ int main() {
     // Test assignment operator
     Array<int> assignedArray;
     assignedArray = intArray;
-    std::cout << "Assigned array size: " << assignedArray.size() << std::endl;
+    std::cout << YELLOW "Assigned array size: " RESET << assignedArray.size() << std::endl;
     for (unsigned int i = 0; i < assignedArray.size(); i++) {
         std::cout << assignedArray[i] << " ";
     }
@@ -47,8 +47,8 @@ int main() {
     // Test subscript operator and exception handling
     try {
         intArray[2] = 42;
-        std::cout << "intArray[2] = " << intArray[2] << std::endl;
-        std::cout << "Accessing out of bounds element: " << intArray[10] << std::endl;
+        std::cout << YELLOW "intArray[2] = " << intArray[2] << std::endl;
+        std::cout << YELLOW "Accessing out of bounds element: " RESET << intArray[10] << std::endl;
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
@@ -58,7 +58,7 @@ int main() {
     stringArray[0] = "Hello";
     stringArray[1] = "World";
     stringArray[2] = "!";
-    std::cout << "String array size: " << stringArray.size() << std::endl;
+    std::cout << YELLOW "String array size: " RESET << stringArray.size() << std::endl;
     for (unsigned int i = 0; i < stringArray.size(); i++) {
         std::cout << stringArray[i] << " ";
     }

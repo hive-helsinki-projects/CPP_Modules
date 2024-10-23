@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 22:54:52 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 23:06:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/23 10:39:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cstdlib> 
 
 // Generate a random class
-Base* generate() {
+Base* generate(void) {
     srand(static_cast<unsigned int>(time(0)));
     int random = rand() % 3;
     switch (random) {

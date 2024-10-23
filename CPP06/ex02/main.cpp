@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 22:54:52 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 10:39:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:44:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include <iostream>
-#include <ctime>
-#include <cstdlib> 
+#include <iostream> // std::cout, std::endl
+#include <ctime> // time
+#include <cstdlib> // srand, rand
+#include <typeinfo> // std::bad_cast 
+#include "D.hpp"
 
 // Generate a random class
 Base* generate(void) {
     srand(static_cast<unsigned int>(time(0)));
-    int random = rand() % 3;
+    int random = rand() % 4;
     switch (random) {
         case 0:
             std::cout << "Generated A" << std::endl;
@@ -32,6 +34,9 @@ Base* generate(void) {
         case 2:
             std::cout << "Generated C" << std::endl;
             return new C();
+        case 3: // Dummy class that is not derived from Base. This class is not handled by the identify functions, so it will trigger "Unknown type" message.
+            std::cout << "Generated D" << std::endl;
+            return new D();
     }
     return nullptr;
 }
@@ -65,6 +70,8 @@ void identify(Base& p) {
         (void)dynamic_cast<C&>(p);
         std::cout << "C" << std::endl;
     } catch (std::bad_cast&) {}
+
+    std::cout << "Unknown type" << std::endl;
 }
 
 int main() {

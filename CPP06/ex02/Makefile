@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/18 23:03:34 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/10/23 11:41:01 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	a.out
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
-SRCS		=	main.cpp Base.cpp
+SRCS		=	main.cpp Base.cpp 
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 all: $(NAME)

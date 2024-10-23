@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:59:45 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 14:19:27 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:36:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main() {
     // Test subscript operator and exception handling
     try {
         intArray[2] = 42;
-        std::cout << YELLOW "intArray[2] = " << intArray[2] << std::endl;
+        std::cout << YELLOW "intArray[2] = " RESET << intArray[2] << std::endl;
         std::cout << YELLOW "Accessing out of bounds element: " RESET << intArray[10] << std::endl;
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;

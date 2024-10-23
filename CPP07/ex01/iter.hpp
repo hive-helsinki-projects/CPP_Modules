@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 12:27:24 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 12:45:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/23 13:21:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void iter(T *array, int length, void (*func)(T const &))
 }
 
 template <typename T>
-void print(T const &x)
+void printValue(T const &x)
 {
     std::cout << x << " ";
 }

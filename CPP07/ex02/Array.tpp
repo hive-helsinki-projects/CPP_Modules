@@ -6,13 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:25:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 14:08:12 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:20:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include <stdexcept>
 
+/* CONSTRUCTORS, DESTRUCTOR, ASSIGNMENT OPERATOR */
 template <typename T>
 Array<T>::Array()
 : array(nullptr)
@@ -50,6 +51,7 @@ Array<T>::~Array(void) {
     delete[] array;
 }
 
+/* SUBSCRIPT OPERATOR AND SIZE FUNCTION */
 template <typename T>
 T &Array<T>::operator[](unsigned int n) {
     if (n >= arraySize) {

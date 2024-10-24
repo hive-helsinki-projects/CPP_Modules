@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:13:21 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 12:22:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:25:52 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,11 @@ void testList() {
 }
 
 void testDeque() {
-    std::deque<int> deq = {1, 2, 3, 4, 5};
+    std::deque<int> deq = {41, 21, 83, 34, 15};
 
     // Test value present
     try {
-        int found = easyfind(deq, 3);
+        int found = easyfind(deq, 15);
         std::cout << "Found: " << found << std::endl;
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
@@ -99,16 +99,16 @@ void testLargeContainer() {
 
 int main() {
 
-    std::cout << "Testing with std::vector:" << std::endl;
+    std::cout << YELLOW "Testing with std::vector:" RESET << std::endl;
     testVector();
 
-    std::cout << "\nTesting with std::list:" << std::endl;
+    std::cout << YELLOW "\nTesting with std::list:" RESET << std::endl;
     testList();
 
-    std::cout << "\nTesting with std::deque:" << std::endl;
+    std::cout << YELLOW "\nTesting with std::deque:" RESET << std::endl;
     testDeque();
 
-    std::cout << "\nTesting with large container:" << std::endl;
+    std::cout << YELLOW "\nTesting with large container:" RESET << std::endl;
     testLargeContainer();
 
     return 0;

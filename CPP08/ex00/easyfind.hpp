@@ -6,12 +6,15 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:42:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 12:16:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:24:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
+
+# define YELLOW  "\033[33m"
+# define RESET   "\033[0m"
 
 # include <algorithm>
 # include <stdexcept>

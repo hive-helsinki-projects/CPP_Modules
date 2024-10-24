@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:23:10 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 15:35:57 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:46:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,23 @@ Span& Span::operator=(const Span& other) {
 
 Span::~Span() {}
 
-/* ADD NUMBER */
+/* ADD SINGLE NUMBER */
 void Span::addNumber(int number) {
     if (numbers.size() < maxSize) {
         numbers.push_back(number);
-    } else {
-        throw std::runtime_error("Span is full");
     }
+    throw std::runtime_error("Span is full");
 }
 
+/* ADD RANGE OF NUMBERS */
+template <typename T>
+void Span::addNumber(T begin, T end) {
+    if (numbers.size() + std::distance(begin, end) > maxSize) {
+        throw std::runtime_error("Span is full");
+    }
+    numbers.insert(numbers.end(), begin, end);
+}
+/* FIND SHORTEST SPAN (MIN DISTANCE BETWEEN TWO NUMBERS) */
 int Span::shortestSpan() const {
     if (numbers.size() < 2) {
         throw std::runtime_error("Not enough numbers to calculate span");
@@ -49,20 +57,22 @@ int Span::shortestSpan() const {
     std::sort(sorted.begin(), sorted.end());
     int min = std::numeric_limits<int>::max();
     for (size_t i = 1; i < sorted.size() - 1; i++) {
-        if (sorted[i + 1] - sorted[i] < min) {
-            min = sorted[i + 1] - sorted[i];
+        int span = sorted[i] - sorted[i - 1];
+        if (span < min) {
+            min = span;
         }
     }
     return min;
 }
 
+/* FIND LONGEST SPAN (MAX DISTANCE BETWEEN TWO NUMBERS) */
 int Span::longestSpan() const {
     if (numbers.size() < 2) {
         throw std::runtime_error("Not enough numbers to calculate span");
     }
-    std::vector<int> sorted = numbers;
-    std::sort(sorted.begin(), sorted.end());
-    return sorted.back() - sorted.front();
+    int min = *std::min_element(numbers.begin(), numbers.end());
+    int max = *std::max_element(numbers.begin(), numbers.end());
+    return max - min;
 }
 
 

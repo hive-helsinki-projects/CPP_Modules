@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:36:33 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 15:36:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:22:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main() {
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
+        //sp.addNumber(12);
 
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 15:57:49 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 22:24:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,20 @@
 # include <iterator>
 
 template <typename T>
-class MutanStack : public std::stack<T> {
+class MutantStack : public std::stack<T> {
 public:
     // Type definitions for iterators
-    using iterator = typename std::deque<T>::iterator;
-    using const_iterator = typename std::deque<T>::const_iterator;
 
-    using std::stack<T>::stack;
     using iterator = typename std::stack<T>::container_type::iterator;
+    using const_iterator = typename std::stack<T>::container_type::const_iterator;
     
-    MutanStack() : std::stack<T>() {}
-    MutanStack(const MutanStack& other) : std::stack<T>(other) {}
-    MutanStack &operator=(const MutanStack& other) {
+    MutantStack() : std::stack<T>() {}
+    MutantStack(const MutantStack& other) : std::stack<T>(other) {}
+    MutantStack &operator=(const MutantStack& other) {
         std::stack<T>::operator=(other);
         return *this;
     }
-    ~MutanStack() {}
+    ~MutantStack() {}
   
     // Iterator methods
     iterator begin() {

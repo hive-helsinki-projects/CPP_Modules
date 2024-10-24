@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:36:33 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 13:48:18 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:55:13 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "Span.hpp"
 
 int main() {
+
+    // Test with 5 numbers
     try {
         Span sp = Span(5);
         sp.addNumber(6);
@@ -36,6 +38,7 @@ int main() {
         std::cerr << e.what() << std::endl;
     }
 
+    // Test with 10000 numbers
     try {
         Span sp = Span(10000);
         for (int i = 0; i < 10000; ++i) {

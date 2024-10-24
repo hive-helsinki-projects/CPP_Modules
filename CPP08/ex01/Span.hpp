@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:23:18 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 13:51:01 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:54:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ public:
 
     // Add single number to the Span
     void addNumber(int number);
+    
     // Add range of numbers to the Span
     template <typename T>
     void addNumbers(T begin, T end) {
         if (numbers.size() + std::distance(begin, end) > maxSize) {
-            throw std::runtime_error("Span is full");
+            throw std::out_of_range("Span is full");
         }
         numbers.insert(numbers.end(), begin, end);
     }

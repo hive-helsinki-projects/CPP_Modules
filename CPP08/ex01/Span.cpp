@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:23:10 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 13:46:38 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:51:08 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,7 @@ void Span::addNumber(int number) {
     throw std::runtime_error("Span is full");
 }
 
-/* ADD RANGE OF NUMBERS */
-template <typename T>
-void Span::addNumber(T begin, T end) {
-    if (numbers.size() + std::distance(begin, end) > maxSize) {
-        throw std::runtime_error("Span is full");
-    }
-    numbers.insert(numbers.end(), begin, end);
-}
+
 /* FIND SHORTEST SPAN (MIN DISTANCE BETWEEN TWO NUMBERS) */
 int Span::shortestSpan() const {
     if (numbers.size() < 2) {

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:36:33 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 13:22:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:48:18 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ int main() {
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
-        //sp.addNumber(12);
 
         std::cout << "Shortest Span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp.longestSpan() << std::endl;
+
+        // Adding more numbers in one call using a range
+        std::vector<int> numbers = {20, 30, 40, 50};
+        Span sp2(10);
+        sp2.addNumbers(numbers.begin(), numbers.end());
+        std::cout << "Shortest span: " << sp2.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp2.longestSpan() << std::endl;
+
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }

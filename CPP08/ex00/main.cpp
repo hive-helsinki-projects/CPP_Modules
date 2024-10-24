@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:13:21 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 15:19:44 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:03:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ int main() {
 
     try {
         std::cout << easyfind(vec, 6) << std::endl;
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    try {
+        std::cout << easyfind(vec, -6) << std::endl;
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }

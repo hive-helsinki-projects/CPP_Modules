@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 22:24:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/25 08:14:09 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 template <typename T>
 class MutantStack : public std::stack<T> {
 public:
-    // Type definitions for iterators
-
+    // Type definnition for iterator
     using iterator = typename std::stack<T>::container_type::iterator;
     using const_iterator = typename std::stack<T>::container_type::const_iterator;
     

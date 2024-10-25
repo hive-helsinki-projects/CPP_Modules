@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 09:31:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/25 13:23:55 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:41:42 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ bool BitcoinExchange::validateDate(const std::string& line) {
     iss >> date;
     if (!isValidDate(date)) {
         std::cerr << "Error: Bad input => " << date << std::endl;
-         return false;
+            return false;
     }
     return true;
 }
@@ -88,13 +88,17 @@ void BitcoinExchange::readDb(const std::string& filename) {
         if (!validateDate(line)) {
             continue;
         }
-        
+        std::cout << "Line: " << line << std::endl;
         if (std::regex_match(line, match, linePattern)) {
-
+            
             // Extract the date and value from the matched groups
-            date = match[1];
-            value = std::stod(match[2]);
-
+            date = match[1].str();
+            std::cout << "Date: " << match[1] << std::endl;
+            std::cout << "Value: " << match[2]<< std::endl;
+            std::cout << "match 3: " << match[3] << std::endl;
+            std::cout << "match 4: " << match[4] << std::endl; 
+            value = std::stod(match[4]);
+            
             // Validate the value
             if (!isValidValue(value)) {
                 if (value < 0) {

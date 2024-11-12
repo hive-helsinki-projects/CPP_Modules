@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/21 15:32:13 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/12 15:19:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream> // std::cout, std::cerr, std::endl
 #include <iomanip> // std::fixed, std::setprecision
 #include <exception> // std::invalid_argument
+#include <limits>
 
 bool isSpecialLiteral(const std::string &input) {
     return (input == "-inff" || input == "+inff" || input == "nanf" ||
@@ -99,36 +100,38 @@ void ScalarConverter::convert(const std::string &input)
     size_t pos = 0;
     long double ld = 0.0;
 
-    // Handle special float and double literals
-    specialLiteral(input);
+    if (!isSpecialLiteral(input))
+    {
+        // Handle regular int, char, float and double literals
+        try {
+            // Convert to double first to handle both float and double literals
+            ld = std::stold(input, &pos);
+            if (pos != input.length() && input[pos] != 'f')
+                throw std::invalid_argument("Invalid input");
 
-    // Handle regular int, char, float and double literals
-    try {
-        // Convert to double first to handle both float and double literals
-        ld = std::stold(input, &pos);
-        if (pos != input.length() && input[pos] != 'f')
-            throw std::invalid_argument("Invalid input");
+            // Convert to char
+            charConvert(ld);
+            
+            // Convert to int
+            intConverter(ld);
 
-        // Convert to char
-        charConvert(ld);
-        
-        // Convert to int
-        intConverter(ld);
+            // Convert to float
+            floatConverter(ld);
 
-        // Convert to float
-        floatConverter(ld);
-
-        // Convert to double
-        doubleConverter(ld);
-    } catch (const std::invalid_argument&) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
-    } catch (const std::out_of_range&) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
+            // Convert to double
+            doubleConverter(ld);
+        } catch (const std::invalid_argument&) {
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+        } catch (const std::out_of_range&) {
+            std::cout << "char: impossible" << std::endl;
+            std::cout << "int: impossible" << std::endl;
+            std::cout << "float: impossible" << std::endl;
+            std::cout << "double: impossible" << std::endl;
+        }
     }
+        // Handle special float and double literals
+    specialLiteral(input);
 }

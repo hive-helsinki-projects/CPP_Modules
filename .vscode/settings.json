@@ -45,6 +45,16 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "map": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "list": "cpp",
+        "ratio": "cpp",
+        "regex": "cpp",
+        "iomanip": "cpp",
+        "shared_mutex": "cpp"
     }
 }

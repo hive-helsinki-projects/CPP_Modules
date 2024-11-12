@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 09:31:23 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/25 13:41:42 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:49:38 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool BitcoinExchange::validateDate(const std::string& line) {
     std::string date;
     iss >> date;
     if (!isValidDate(date)) {
-        std::cerr << "Error: Bad input => " << date << std::endl;
+        std::cerr << "Error: bad input => " << date << std::endl;
             return false;
     }
     return true;
@@ -92,19 +92,18 @@ void BitcoinExchange::readDb(const std::string& filename) {
         if (std::regex_match(line, match, linePattern)) {
             
             // Extract the date and value from the matched groups
-            date = match[1].str();
-            std::cout << "Date: " << match[1] << std::endl;
-            std::cout << "Value: " << match[2]<< std::endl;
-            std::cout << "match 3: " << match[3] << std::endl;
-            std::cout << "match 4: " << match[4] << std::endl; 
+            date = match[1].str() + "-" + match[2].str() + "-" + match[3].str();
+            std::cout << "Date: " << date << std::endl;
+            
             value = std::stod(match[4]);
+            std::cout << "Value " << value << std::endl; 
             
             // Validate the value
             if (!isValidValue(value)) {
                 if (value < 0) {
-                    std::cerr << "Error: Not a positive numer. " << std::endl;
+                    std::cerr << "Error: not a positive numer. " << std::endl;
                 } else {
-                    std::cerr << "Error: Value too large. " << std::endl;
+                    std::cerr << "Error: value too large. " << std::endl;
                 }
             }
 
@@ -114,20 +113,6 @@ void BitcoinExchange::readDb(const std::string& filename) {
             std::cerr << "Error: could not parse line " << line << std::endl;
         }
     }
-    
-/*     // Read the file line by line
-    while(std::getline(file, line)) {
-        std::istringstream iss(line); // init an input string stream with a line
-        
-        // Parse each line into a date and a value
-        if (iss >> date >> pipe >> value && pipe == '|') {
-            db[date] = value; // Inserts the parsed date and value into the map
-            //std::cout << "Date: " << date << " Value: " << value << std::endl;        
-        } else {
-            std::cerr << "Error: could not parse line " << line << std::endl;
-        }
-        std::cout << "File " << filename << " read successfully line: " << line << std::endl;
-    } */
     file.close();
 }
 

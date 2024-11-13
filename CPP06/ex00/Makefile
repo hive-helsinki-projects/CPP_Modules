@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/18 15:09:38 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/13 15:26:09 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,30 @@ re: fclean all
 
 test: $(NAME)
 	@echo "$(BLUE)Running tests... $(RESET)"
+	@echo "--------------------------------------------"
+	@echo "$(GREEN)Test: converting integer 0 $(RESET)"
+	@./$(NAME) 0
+	@echo "$(GREEN)Test: converting integer -42 $(RESET)"
+	@./$(NAME) -42
+	@echo "$(GREEN)Test: converting char c $(RESET)"
+	@./$(NAME) c
+	@echo "$(GREEN)Test: converting float 42.0f $(RESET)"
+	@./$(NAME) 42.0f
+	@echo "$(GREEN)Test: converting float -4.2f $(RESET)"
+	@./$(NAME) -4.2f
+	@echo "$(GREEN)Test: converting double -123.456 $(RESET)"
+	@./$(NAME) -123.456
+	@echo "--------------------------------------------"
+	@echo "$(GREEN)Test: converting double nan $(RESET)"
+	@./$(NAME) nan
+	@echo "$(GREEN)Test: converting double +inf $(RESET)"
+	@./$(NAME) +inf
+	@echo "$(GREEN)Test: converting double -inf $(RESET)"
+	@./$(NAME) -inf
+	@echo "$(GREEN)Test: converting double +inff $(RESET)"
+	@./$(NAME) +inf
+	@echo "$(GREEN)Test: converting double -inff $(RESET)"
+	@./$(NAME) -inf
 	@echo "--------------------------------------------"
 	@echo "$(GREEN)Test: 2147483648 (INT_MAX overflow) $(RESET)"
 	@./$(NAME) 2147483648

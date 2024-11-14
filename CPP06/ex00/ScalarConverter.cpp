@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/13 15:15:39 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:41:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,11 +122,15 @@ void ScalarConverter::convert(const std::string &input)
     }
         // Handle regular int, char, float and double literals
     try {
-        // Convert to double first to handle both float and double literals
-        ld = std::stold(input, &pos);
-        if (pos != input.length() && input[pos] != 'f')
-            throw std::invalid_argument("Invalid input");
-
+        if (input.length() == 1 && !std::isdigit(input[0]))
+            ld = static_cast<long double>(input[0]);
+        else {
+            // Convert to double first to handle both float and double literals
+            ld = std::stold(input, &pos);
+            if (pos != input.length() && input[pos] != 'f')
+                throw std::invalid_argument("Invalid input");
+        }
+        
         // Convert to char
         convertChar(ld);
         

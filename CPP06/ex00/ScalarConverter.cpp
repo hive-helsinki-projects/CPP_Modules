@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/15 13:43:36 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:54:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void specialLiteral(std::string const& input)
 }
 static bool IsCharLiteral(const std::string& input)
 {
-    std::cout << "input: " << input << std::endl;
     return input.length() == 3 && input[0] == '\'' && input[2] == '\'';
 }
 
@@ -67,7 +66,6 @@ void convertChar(const std::string& input)
 void convertInt(const std::string& input)
 {
     try {
-       //size_t pos = 0;
         int v = 0;
         if(IsCharLiteral(input))
             v = static_cast<int>(input[1]);
@@ -83,7 +81,6 @@ void convertInt(const std::string& input)
 
 void convertFloat(const std::string& input)
 {
-
     try {
         float v = 0;
         if(IsCharLiteral(input))
@@ -101,7 +98,6 @@ void convertFloat(const std::string& input)
 
 void convertDouble(const std::string& input)
 {
-    
     try {
         double v = 0;
         if(IsCharLiteral(input))
@@ -119,16 +115,15 @@ void convertDouble(const std::string& input)
 
 void ScalarConverter::convert(const std::string &input)
 {
-  
-        // Convert to char
-        convertChar(input);
-        
-        // Convert to int
-        convertInt(input);
+    // Convert to char
+    convertChar(input);
+    
+    // Convert to int
+    convertInt(input);
 
-        // Convert to float
-        convertFloat(input);
+    // Convert to float
+    convertFloat(input);
 
-        // Convert to double
-        convertDouble(input); 
+    // Convert to double
+    convertDouble(input); 
 }

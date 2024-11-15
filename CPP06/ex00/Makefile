@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/11/15 13:39:39 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/15 13:55:01 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ test: $(NAME)
 	@echo "$(GREEN)Test: converting integer -42 $(RESET)"
 	@./$(NAME) -42
 	@echo "$(GREEN)Test: converting char c $(RESET)"
-	@./$(NAME) 'c'
+	@./$(NAME) \'c\'
 	@echo "$(GREEN)Test: converting float 42.0f $(RESET)"
 	@./$(NAME) 42.0f
 	@echo "$(GREEN)Test: converting float -4.2f $(RESET)"

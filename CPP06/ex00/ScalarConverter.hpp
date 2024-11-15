@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:36:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/14 22:20:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:08:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,12 @@
 
 class ScalarConverter {
 private:
-    ScalarConverter() {}
-    ScalarConverter(ScalarConverter const&);
-    ScalarConverter& operator=(ScalarConverter const&);  
-    ~ScalarConverter() {}
+    ScalarConverter() = delete;
+    ScalarConverter(ScalarConverter const&) = delete;
+    ScalarConverter& operator=(ScalarConverter const&) = delete;  
+    ~ScalarConverter();
 
-    static void handlePseudoLiteral(const std::string& literal);
-    static void printChar(double value);
-    static void printInt(double value);
-    static void printFloat(float value);
-    static void printDouble(double value);
 public:
-    static bool isCharLiteral(const std::string& literal);
-    static bool isPseudoLiteral(const std::string& literal);
-    static bool isInteger(const std::string& literal);
-    static bool isFloat(const std::string& literal);
-    static bool isDouble(const std::string& literal);
     static void convert(const std::string& literal);
 
 };

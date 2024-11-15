@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/15 13:54:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:51:40 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,25 @@ static bool IsCharLiteral(const std::string& input)
     return input.length() == 3 && input[0] == '\'' && input[2] == '\'';
 }
 
+bool isDecimal(const std::string& input, size_t pos) {
+    auto p = input.find('.');
+    if (p < 1 || p > input.size() - 2)
+        return false;
+    return input.substr(pos) == "f" && std::isdigit(input[p - 1]) && std::isdigit(input[p + 1]);
+}
+
+bool isValidInput(const std::string& input) {
+    try {
+        if (IsCharLiteral(input)) {
+            return true;
+        }
+        size_t pos = 0;
+        std::stod(input, &pos);
+        return pos == input.size() || isDecimal(input, pos);
+    } catch (...) {
+        return false;
+    }
+}
 
 void convertChar(const std::string& input)
 {
@@ -115,15 +134,22 @@ void convertDouble(const std::string& input)
 
 void ScalarConverter::convert(const std::string &input)
 {
-    // Convert to char
-    convertChar(input);
-    
-    // Convert to int
-    convertInt(input);
+    if (isValidInput(input)) {
+        // Convert to char
+        convertChar(input);
+        
+        // Convert to int
+        convertInt(input);
 
-    // Convert to float
-    convertFloat(input);
+        // Convert to float
+        convertFloat(input);
 
-    // Convert to double
-    convertDouble(input); 
+        // Convert to double
+        convertDouble(input); 
+    } else {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
 }

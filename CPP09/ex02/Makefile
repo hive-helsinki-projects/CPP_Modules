@@ -6,15 +6,15 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/25 08:46:01 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/18 23:41:51 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	btc
+NAME		=	PmergeMe
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
-SRCS		=	main.cpp BitcoinExchange.cpp
+SRCS		=	main.cpp PmergeMe.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 all: $(NAME)

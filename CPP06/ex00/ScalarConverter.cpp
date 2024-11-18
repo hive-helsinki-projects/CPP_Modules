@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 23:13:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:22:53 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cmath>
 #include <regex>
 
-static bool IsCharLiteral(const std::string& input)
+static bool isCharLiteral(const std::string& input)
 {
     return input.length() == 3 && input[0] == '\'' && input[2] == '\'';
 }
@@ -48,18 +48,22 @@ bool isInteger(const std::string& input) {
     return std::regex_match(input, integerRegex);
 }
 
-bool isValidInput(const std::string& input) {
+bool isSpecialCase(const std::string& input) {
+    std::regex specialRegex(R"(^(nan|nanf|\+inf|\-inf|\+inff|\-inff)$)");
+    return std::regex_match(input, specialRegex);
+}
 
-    if (IsCharLiteral(input)) return true;
-    std::regex specialFloats(R"(^[-+]?(inf|nan)f?$)", std::regex::icase);
-    if (std::regex_match(input, specialFloats)) return true;
+bool isValidInput(const std::string& input) {
+    if (isSpecialCase(input)) {
+        return true;
+    }
+    if (isCharLiteral(input)) {
+        return true;
+    }
     try {
-/*         if (IsCharLiteral(input)) {
-            return true;
-        } */
         size_t pos = 0;
         std::stod(input, &pos);
-        return pos == input.size() /* || (isDecimal(input) && input.substr(pos) == "f") */;
+        return pos == input.size() || (isDecimal(input) && input.substr(pos) == "f");
     } catch (...) {
         return false;
     }
@@ -69,7 +73,7 @@ void convertChar(const std::string& input)
 {
     try {
         int v = 0;
-        if(IsCharLiteral(input))
+        if (isCharLiteral(input))
             v = static_cast<int>(input[1]);
         else
             v = std::stoi(input);
@@ -88,7 +92,7 @@ void convertInt(const std::string& input)
 {
     try {
         int v = 0;
-        if (IsCharLiteral(input))
+        if (isCharLiteral(input))
             v = static_cast<int>(input[1]);
         else {
             size_t pos = 0;
@@ -112,9 +116,9 @@ void convertFloat(const std::string& input)
 {
     try {
         float v = 0;
-        if (IsCharLiteral(input))
+        if (isCharLiteral(input))
             v = static_cast<float>(input[1]);
-        else if (isDecimal(input) || isInteger(input)) {
+        else if (isSpecialCase(input) || isDecimal(input) || isInteger(input)) {
             v = std::stof(input);
         } else {
             throw std::invalid_argument("Invalid float format");
@@ -132,9 +136,9 @@ void convertDouble(const std::string& input)
 {
     try {
         double v = 0;
-        if(IsCharLiteral(input))
+        if (isCharLiteral(input))
             v = static_cast<double>(input[1]);
-        else if (isDecimal(input) || isInteger(input)) {
+        else if (isSpecialCase(input) || isDecimal(input) || isInteger(input)) {
             v = std::stod(input);
         } else {
             throw std::invalid_argument("Invalid double format");

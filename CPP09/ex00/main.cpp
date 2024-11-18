@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 16:05:29 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:43:56 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,25 +36,26 @@ bool isValidValue(const std::string& valueStr, double& value) {
     }
 }
 
-bool validateDate(const std::string& line) {
+void validateDate(const std::string& line) {
     // Extract the date from line
     std::istringstream iss(line);
     std::string date;
     iss >> date;
     if (!isValidDate(date)) {
-        std::cerr << "Error: bad input => " << date << std::endl;
-            return false;
+        //std::cerr << "Error: bad input => " << date << std::endl;
+        throw std::runtime_error("Error: bad input => " + date);
+        //return false;
     }
-    return true;
+    //return true;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cerr << "Usage: ./btc <input file>" << std::endl;
-        return 1;
-    }
-
     try {
+        if (argc != 2) {    
+        //std::cerr << "Usage: ./btc <input file>" << std::endl;
+        //return 1;
+        throw std::runtime_error("Usage: ./btc <input file>");                                                                                                                                              
+        }   
         BitcoinExchange btc("data.csv");
 
         std::ifstream inputFile(argv[1]);
@@ -63,32 +64,35 @@ int main(int argc, char* argv[]) {
         }
 
         std::string line;
+        // Skip the header line swe
+        std::getline(inputFile, line);
+        std::cout << line << std::endl;
         std::string date, separator, valueStr;
         double value;
         std::smatch match;
         // linePattern means that the line must have a date in the format YYYY-MM-DD, a pipe, and a value
         std::regex linePattern(R"((\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]) \| (-?\d+(\.\d+)?))"); 
-        std::cout << "date | value" << std::endl;
+        //td::cout << "date | value" << std::endl;
         
         while (std::getline(inputFile, line)) {
-            if (!validateDate(line)) {
-            continue;
-            }
-            if (std::regex_match(line, match, linePattern)) {
-                date = match[1].str() + "-" + match[2].str() + "-" + match[3].str();
-                valueStr = match[4];
-                if (!isValidValue(valueStr, value)) {
-                    if (value < 0) {
-                        std::cerr << "Error: not a positive numer. " << std::endl;
-                    } else {
-                        std::cerr << "Error: value too large. " << std::endl;
-                    }
-                }
-            } else {
-                std::cerr << "Error: could not parse line " << line << std::endl;
-            }
-
             try {
+                validateDate(line);
+                if (std::regex_match(line, match, linePattern)) {
+                    date = match[1].str() + "-" + match[2].str() + "-" + match[3].str();
+                    valueStr = match[4];
+                    if (!isValidValue(valueStr, value)) {
+                        if (value < 0) {
+                            //std::cerr << "Error: not a positive numer. " << std::endl;
+                            throw std::runtime_error("Error: not a positive number");
+                        } else {
+                            //std::cerr << "Error: value too large. " << std::endl;
+                            throw std::runtime_error("Error: value too large");
+                        }
+                    }
+                } else {
+                    std::cerr << "Error: could not parse line " << line << std::endl;
+                }
+            
                 double rate = btc.getExchangeRate(date);
                 std::cout << date << " => " << value << " = " << (value * rate) << std::endl;
             } catch (const std::exception& e) {

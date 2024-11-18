@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 22:54:52 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 12:55:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:24:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 // Generate a random class
 Base* generate(void) {
     int random = rand() % 4;
+    std::cout << "Random number: " << random << std::endl;
     switch (random) {
         case 0:
             std::cout << "Generated A" << std::endl;
@@ -40,6 +41,7 @@ Base* generate(void) {
 }
 
 // Identify the class by pointer
+// dynamic_cast returns a null pointer if the cast fails
 void identify(Base* p) {
     if (dynamic_cast<A*>(p)) {
         std::cout << "A" << std::endl;
@@ -76,9 +78,23 @@ void identify(Base& p) {
 }
 
 int main() {
-    // Seed the random number generator
-    srand(static_cast<unsigned int>(time(0)));
+/*     // Seed the random number generator
+    srand(static_cast<unsigned int>(time(0))); */
+
+    // Get the current time as the number of seconds since the epoch
+    std::time_t currentTime = std::time(0);
+
+    // Print the current time
+    std::cout << "Current time (seconds since epoch): " << currentTime << std::endl;
+
+    // Convert to unsigned int
+    unsigned int seed = static_cast<unsigned int>(currentTime);
+
+    // Print the seed
+    std::cout << "Seed: " << seed << std::endl;
     
+    srand(seed);
+
     Base* basePtr = generate();
     std::cout << "Identifying by pointer: ";
     identify(basePtr);

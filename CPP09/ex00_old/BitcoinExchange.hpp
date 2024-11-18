@@ -5,28 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 14:26:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 14:37:05 by lkilpela         ###   ########.fr       */
+/*   Created: 2024/10/25 08:45:22 by lkilpela          #+#    #+#             */
+/*   Updated: 2024/10/25 13:23:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
-#include <map> // std::map
-#include <string> // std::string
-#include <fstream> // std::ifstream
-#include <stdexcept> // std::runtime_error
+# include <map>
+# include <string>
 
 class BitcoinExchange {
 private:
-    std::map<std::string, double> exchangeRates; // Store exchange rates in container
+    std::map<std::string, double> db; // database
 
 public:
     BitcoinExchange();
-    BitcoinExchange(const std::string& databaseFile);
     BitcoinExchange(const BitcoinExchange& other);
     BitcoinExchange &operator=(const BitcoinExchange& other);
     ~BitcoinExchange();
-    
-    double getExchangeRate(const std::string& date) const;
+
+    //const std::map<std::string, double>& getDb() const;
+    void readDb(const std::string& filename);
+    std::string findClosestDate(const std::string& date) const;
+    bool isValidDate(const std::string& date);
+    bool validateDate(const std::string& line);  
+    bool isValidValue(double value) const;
 };
+#endif

@@ -51,6 +51,27 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "fstream": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "__locale": "cpp",
+        "__threading_support": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "clocale": "cpp",
+        "condition_variable": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "mutex": "cpp",
+        "print": "cpp",
+        "queue": "cpp",
+        "span": "cpp",
+        "sstream": "cpp",
+        "stack": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "system_error": "cpp",
+        "format": "cpp",
+        "thread": "cpp"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 09:50:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:53:27 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ static bool IsCharLiteral(const std::string& input)
     return input.length() == 3 && input[0] == '\'' && input[2] == '\'';
 }
 
-bool isDecimal(const std::string& input, size_t pos) {
+bool isDecimal(const std::string& input ) {
     auto p = input.find('.');
     if (p < 1 || p > input.size() - 2)
         return false;
-    return input.substr(pos) == "f" && std::isdigit(input[p - 1]) && std::isdigit(input[p + 1]);
+    return std::isdigit(input[p - 1]) && std::isdigit(input[p + 1]);
 }
 
 bool isValidInput(const std::string& input) {
@@ -37,7 +37,7 @@ bool isValidInput(const std::string& input) {
         }
         size_t pos = 0;
         std::stod(input, &pos);
-        return pos == input.size() || isDecimal(input, pos);
+        return pos == input.size() || (isDecimal(input) && input.substr(pos) == "f");
     } catch (...) {
         return false;
     }

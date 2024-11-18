@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:26:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 14:37:05 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:40:09 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 
 public:
     BitcoinExchange();
-    BitcoinExchange(const std::string& databaseFile);
+    BitcoinExchange(const std::string& dataFile);
     BitcoinExchange(const BitcoinExchange& other);
     BitcoinExchange &operator=(const BitcoinExchange& other);
     ~BitcoinExchange();

@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/11/18 08:54:35 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/18 23:16:20 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,10 @@ test: $(NAME)
 	@echo "$(GREEN)Test: INVALID CASES $(RESET)"
 	@echo "$(GREEN)Test: Invalid Integer Literal: 1.ab $(RESET)"
 	@./$(NAME) 1.ab
+	@echo "$(GREEN)Test: Invalid Double Literal: .123 $(RESET)"
+	@./$(NAME) .123
+	@echo "$(GREEN)Test: Invalid Float Literal: .123f $(RESET)"
+	@./$(NAME) .123f
 	@echo "$(GREEN)Test: Invalid Float Literal: .f $(RESET)"
 	@./$(NAME) .f
 	@echo "$(GREEN)Test: Invalid Float Literal with Characters: 1.fab $(RESET)"
@@ -101,6 +105,7 @@ test: $(NAME)
 	@./$(NAME) -0f
 	@echo "$(GREEN)Test: Invalid Negative Float Literal: -0.f $(RESET)"
 	@./$(NAME) -0.f
+
 	@echo "--------------------------------------------"
 
 .PHONY: all clean fclean re test

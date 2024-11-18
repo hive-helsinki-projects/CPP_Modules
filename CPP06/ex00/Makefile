@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/11/15 13:55:01 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/18 08:54:35 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,14 +81,26 @@ test: $(NAME)
 	@echo "$(GREEN)Test: -2.2e-38 (FLT_MIN -1.17e-38 underflow)$(RESET)"
 	@./$(NAME) -2.2e-38
 	@echo "--------------------------------------------"
-	@echo "$(GREEN)Test: 1e308 (DBL_MAX 1.79e+308 overflow)$(RESET)"
-	@./$(NAME) 1e308
-	@echo "$(GREEN)Test: -1e308 (DBL_MAX -1.79e+308 underflow)$(RESET)"
-	@./$(NAME) -1e308
+	@echo "$(GREEN)Test: 2e308 (DBL_MAX 1.79e+308 overflow)$(RESET)"
+	@./$(NAME) 2e308
+	@echo "$(GREEN)Test: -2e308 (DBL_MAX -1.79e+308 underflow)$(RESET)"
+	@./$(NAME) -2e308
 	@echo "$(GREEN)Test: 2e-308 (DBL_MIN 2.22e-308 underflow)$(RESET)"
 	@./$(NAME) 2e-308
 	@echo "$(GREEN)Test: -2e-308 (DBL_MIN -2.22e-308 underflow)$(RESET)"
 	@./$(NAME) -2e-308
+	@echo "--------------------------------------------"
+	@echo "$(GREEN)Test: INVALID CASES $(RESET)"
+	@echo "$(GREEN)Test: Invalid Integer Literal: 1.ab $(RESET)"
+	@./$(NAME) 1.ab
+	@echo "$(GREEN)Test: Invalid Float Literal: .f $(RESET)"
+	@./$(NAME) .f
+	@echo "$(GREEN)Test: Invalid Float Literal with Characters: 1.fab $(RESET)"
+	@./$(NAME) 1.fab
+	@echo "$(GREEN)Test: Invalid Negative Float Literal: -0f $(RESET)"
+	@./$(NAME) -0f
+	@echo "$(GREEN)Test: Invalid Negative Float Literal: -0.f $(RESET)"
+	@./$(NAME) -0.f
 	@echo "--------------------------------------------"
 
 .PHONY: all clean fclean re test

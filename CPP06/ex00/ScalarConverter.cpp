@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/15 14:51:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 08:51:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <limits>
 #include <sstream>
 #include <cmath>
+
 
 bool isSpecialLiteral(const std::string &input) {
     return (input == "-inff" || input == "+inff" || input == "nanf" ||
@@ -88,8 +89,16 @@ void convertInt(const std::string& input)
         int v = 0;
         if(IsCharLiteral(input))
             v = static_cast<int>(input[1]);
-        else
-            v = std::stoi(input);
+        else {
+            size_t pos = 0;
+            v = std::stoi(input, &pos);
+            if(pos != input.size()) {
+                double dv = std::stod(input);
+                if (dv > std::numeric_limits<int>::max() || dv < std::numeric_limits<int>::min())
+                    throw std::out_of_range("Out of range");
+                v = static_cast<int>(dv);
+            }                
+        }
         std::cout << "int: " << v << std::endl;
     } catch (const std::out_of_range&) {
         std::cout << "int: impossible" << std::endl;

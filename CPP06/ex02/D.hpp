@@ -1,11 +1,5 @@
-#ifndef D_HPP
-# define D_HPP
+#pragma once
 
-#include "Base.hpp"
-
-class D : public Base {
-public:
-    virtual ~D() {}
+class D: public Base {
+// No need to implement anything here
 };
-
-#endif

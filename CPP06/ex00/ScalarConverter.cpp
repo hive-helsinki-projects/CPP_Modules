@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 08:51:54 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 08:56:50 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <limits>
 #include <sstream>
 #include <cmath>
-
 
 bool isSpecialLiteral(const std::string &input) {
     return (input == "-inff" || input == "+inff" || input == "nanf" ||
@@ -39,6 +38,7 @@ void specialLiteral(std::string const& input)
         std::cout << "double: " << input << std::endl;
     }
 }
+
 static bool IsCharLiteral(const std::string& input)
 {
     return input.length() == 3 && input[0] == '\'' && input[2] == '\'';

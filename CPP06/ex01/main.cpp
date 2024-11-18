@@ -6,12 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:17:34 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/18 22:35:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:54:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 #include "Data.hpp"
+#include <iostream>
 
 int main() {
     Data originalData;

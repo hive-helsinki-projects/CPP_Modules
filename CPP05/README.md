@@ -1,3 +1,4 @@
+# CPP_Module_05 Repetition and Exceptions
 ## ex00: Bureaucrat
 In this exercise, you will implement a `Bureaucrat class` that represents a bureaucrat with `a name` and `a grade`. The grade must be between `1 (highest)` and `150 (lowest)`. You will also implement exception handling for invalid grades.
 

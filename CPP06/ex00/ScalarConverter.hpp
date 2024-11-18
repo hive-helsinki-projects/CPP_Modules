@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:36:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/15 13:08:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:33:41 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ private:
     ScalarConverter() = delete;
     ScalarConverter(ScalarConverter const&) = delete;
     ScalarConverter& operator=(ScalarConverter const&) = delete;  
-    ~ScalarConverter();
+    ~ScalarConverter() = delete;
 
 public:
     static void convert(const std::string& literal);
-
 };
 
 #endif

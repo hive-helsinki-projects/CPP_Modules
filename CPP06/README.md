@@ -1,3 +1,4 @@
+# CPP_Module_06 C++ casts
 ## ex00: Conversion of Scalar Types
 In this exercise, you will implement a program that converts scalar types (char, int, float, and double) from a string literal. The main goal is to handle various edge cases and invalid inputs gracefully.
 

@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 08:56:50 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:50:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,6 @@
 #include <limits>
 #include <sstream>
 #include <cmath>
-
-bool isSpecialLiteral(const std::string &input) {
-    return (input == "-inff" || input == "+inff" || input == "nanf" ||
-            input == "-inf" || input == "+inf" || input == "nan");
-}
-
-void specialLiteral(std::string const& input)
-{
-    std::cout << "char: impossible" << std::endl;
-    std::cout << "int: impossible" << std::endl;
-    if (input == "+inf" || input == "-inf" || input == "nan") {
-        std::cout << "float: " << input << "f" << std::endl;
-        std::cout << "double: " << input << std::endl;
-    } else if (input == "+inff" || input == "-inff" || input == "nanf") {
-        std::cout << "float: " << input << std::endl;
-        std::cout << "double: " << input.substr(0, input.length() - 1) << std::endl;
-    } else {
-        std::cout << "float: " << input << "f" << std::endl;
-        std::cout << "double: " << input << std::endl;
-    }
-}
 
 static bool IsCharLiteral(const std::string& input)
 {

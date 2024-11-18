@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 16:43:56 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 16:45:14 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
         if (argc != 2) {    
         //std::cerr << "Usage: ./btc <input file>" << std::endl;
         //return 1;
-        throw std::runtime_error("Usage: ./btc <input file>");                                                                                                                                              
+            throw std::runtime_error("Usage: ./btc <input file>");                                                                                                                                              
         }   
         BitcoinExchange btc("data.csv");
 

@@ -6,12 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:36:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 09:33:41 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:53:43 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#pragma once
 
 #include <string> // std::string, std::stoi, std::stof, std::stod
 
@@ -25,5 +24,3 @@ private:
 public:
     static void convert(const std::string& literal);
 };
-
-#endif

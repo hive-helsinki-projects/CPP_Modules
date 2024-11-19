@@ -6,18 +6,17 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:39:56 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 23:22:53 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/19 09:50:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iostream> // std::cout, std::cerr, std::endl
 #include <iomanip> // std::fixed, std::setprecision
-#include <exception> // std::invalid_argument
-#include <limits>
-#include <sstream>
-#include <cmath>
-#include <regex>
+#include <exception> // std::invalid_argument, std::out_of_range
+#include <limits> // std::numeric_limits
+#include <cmath> // std::isprint
+#include <regex> // std::regex, std::regex_match
 
 static bool isCharLiteral(const std::string& input)
 {
@@ -25,25 +24,20 @@ static bool isCharLiteral(const std::string& input)
 }
 
 /*This regular expression will match:
-
-Optional leading minus sign (-?)
-One or more digits before the decimal point (\d+)
-Decimal point (\.)
-One or more digits after the decimal point (\d+)
-Optional trailing 'f' for float literals (f?)*/
+- Optional leading minus sign (-?)
+- One or more digits before the decimal point (\d+)
+- Decimal point (\.)
+- One or more digits after the decimal point (\d+)
+- Optional trailing 'f' for float literals (f?)*/
 bool isDecimal(const std::string& input ) {
-/*     auto p = input.find('.');
-    if (p == std::string::npos && p  < 1 && p >= input.size() - 2)
-        return false;
-    return std::isdigit(input[p - 1]) || std::isdigit(input[p + 1]); */
     static const std::regex decimalRegex(R"(^-?\d+\.\d+(f)?$)");
     return std::regex_match(input, decimalRegex);
 }
 
+/* Regex for valid integers:
+- Optional leading minus sign
+- At least one digit */
 bool isInteger(const std::string& input) {
-    // Regex for valid integers:
-    // - Optional leading minus sign
-    // - At least one digit
     std::regex integerRegex(R"(^-?\d+$)");
     return std::regex_match(input, integerRegex);
 }
@@ -97,6 +91,7 @@ void convertInt(const std::string& input)
         else {
             size_t pos = 0;
             v = std::stoi(input, &pos);
+            std::cout << "v: " << v << std::endl;   
             if (pos != input.size()) {
                 double dv = std::stod(input);
                 if (dv > std::numeric_limits<int>::max() || dv < std::numeric_limits<int>::min())

@@ -6,14 +6,14 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/11/18 23:16:20 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/19 22:26:02 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	convert
 
 CC			=	c++
-CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
+CCFLAGS		=	-Wall -Wextra -Werror -std=c++17
 SRCS		=	main.cpp ScalarConverter.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 

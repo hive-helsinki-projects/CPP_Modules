@@ -132,9 +132,7 @@ void ScalarConverter::convert(const std::string& literal) {
             case DOUBLE: {
                 double d;
                 if (!convertTo<double>(literal, d)) {
-                    overflow = true;
-                    foverflow = true;
-                    doverflow = true;
+                    throw std::out_of_range("Double overflow");
                 }
                 printResults(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, false, overflow, foverflow, doverflow);
                 break;
@@ -151,9 +149,9 @@ void ScalarConverter::convert(const std::string& literal) {
                 throw std::invalid_argument("Unknown literal type");
         }
     } catch (...) {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: impossible" << std::endl;
+    std::cout << "double: impossible" << std::endl;
     }
 }

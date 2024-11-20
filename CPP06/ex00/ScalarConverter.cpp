@@ -63,7 +63,7 @@ bool convertTo(const std::string& literal, T& result) {
     }
 }
 
-static void printResults(char c, int i, float f, double d, bool special = false, bool overflow = false, bool foverflow = false, bool doverflow = false) {
+static void printResults(char c, int i, float f, double d, bool special = false, bool overflow = false, bool foverflow = false) {
     if (!special) {
         if (!overflow) {
             if (std::isprint(c))
@@ -94,9 +94,7 @@ static void printResults(char c, int i, float f, double d, bool special = false,
         std::cout << "float: " << f << "f" << std::endl;
     }
 
-    if (doverflow)
-        std::cout << "double: impossible" << std::endl;
-    else if (std::isinf(d) || std::isnan(d))
+    if (std::isinf(d) || std::isnan(d))
         std::cout << "double: " << d << std::endl;
     else {
         std::cout << std::fixed << std::setprecision(1);
@@ -109,7 +107,6 @@ void ScalarConverter::convert(const std::string& literal) {
         LiteralType type = detectLiteralType(literal);
         bool overflow = false;
         bool foverflow = false;
-        bool doverflow = false;
         switch (type) {
             case CHAR: {
                 char c = literal[1];
@@ -144,7 +141,7 @@ void ScalarConverter::convert(const std::string& literal) {
                 if (!convertTo<double>(literal, d)) {
                     throw std::out_of_range("Double overflow");
                 }
-                printResults(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, false, overflow, foverflow, doverflow);
+                printResults(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d, false, overflow, foverflow);
                 break;
             }
             case SPECIAL: {

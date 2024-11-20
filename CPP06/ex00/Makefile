@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/11/19 22:26:02 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/20 12:56:37 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,9 +73,9 @@ test: $(NAME)
 	@./$(NAME) -2147483649
 	@echo "--------------------------------------------"
 	@echo "$(GREEN)Test: 4.9e38 (FLT_MAX 3.4e+38 overflow)$(RESET)"
-	@./$(NAME) 4.9e38
+	@./$(NAME) 490000000000000000000000000000000000000.0f
 	@echo "$(GREEN)Test: -4.9e38 (FLT_MAX -3.4e+38 underflow)$(RESET)"
-	@./$(NAME) -4.9e38
+	@./$(NAME) -490000000000000000000000000000000000000.0f
 	@echo "$(GREEN)Test: 2.2e-38 (FLT_MIN 1.17e-38 underflow)$(RESET)"
 	@./$(NAME) 2.2e-38
 	@echo "$(GREEN)Test: -2.2e-38 (FLT_MIN -1.17e-38 underflow)$(RESET)"

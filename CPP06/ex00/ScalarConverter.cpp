@@ -42,7 +42,7 @@ T convertTo(const std::string& literal) {
             }
             return static_cast<int>(value);
         } else if (std::is_same_v<T, float>) {
-/*             float value = std::stof(literal);
+/*          float value = std::stof(literal);
             if (value > std::numeric_limits<float>::max() || value < -std::numeric_limits<float>::max()) {
                 throw std::out_of_range("float overflow/underflow");
             }
@@ -87,19 +87,18 @@ static void printResults(char c, int i, float f, double d, bool special = false,
 
     if (std::isinf(f) || std::isnan(f))
         std::cout << "float: " << f << "f" << std::endl;
-/*     else if (overflow) {
+    else if (f > std::numeric_limits<float>::max() || f < std::numeric_limits<float>::lowest()) {
         std::cout << "float: impossible" << std::endl;
-    } */
-    else {
+    } else {
         std::cout << std::fixed << std::setprecision(1);
         std::cout << "float: " << f << "f" << std::endl;
     }
 
     if (std::isinf(d) || std::isnan(d))
         std::cout << "double: " << d << std::endl;
-/*     else if (d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity()) {
+    else if (d > std::numeric_limits<double>::infinity() || d < std::numeric_limits<float>::lowest()) {
         std::cout << "double: impossible" << std::endl;
-    } */
+    }
     else {
         std::cout << std::fixed << std::setprecision(1);
         std::cout << "double: " << d << std::endl;
@@ -129,15 +128,9 @@ void ScalarConverter::convert(const std::string& literal) {
                 break;
             }
             case FLOAT: {
-                overflow = false;
-                float f = 0.0f;
-                try {
-                    f = convertTo<float>(literal);
-                } catch (const std::out_of_range&) {
-                    overflow = true;
-                }
+                float f = convertTo<float>(literal);
                 double d = convertTo<double>(literal);
-                printResults(static_cast<char>(f), static_cast<int>(f), f, d, false, overflow);
+                printResults(static_cast<char>(f), static_cast<int>(f), f, d);
                 break;
             }
             case DOUBLE: {

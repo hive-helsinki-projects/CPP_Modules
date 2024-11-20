@@ -6,6 +6,7 @@
 #include <cctype> // std::isprint
 #include <cmath> // std::isinf, std::isnan
 #include <iomanip> // std::fixed, std::setprecision
+#include <regex> // std::regex, std::regex_match
 
 enum LiteralType {
     CHAR,
@@ -17,17 +18,27 @@ enum LiteralType {
 };
 
 static LiteralType detectLiteralType(const std::string& input) {
-    if (input.length() == 3 && input[0] == '\'' && input[2] == '\'') {
+    if (input.length() == 3 && input[0] == '\'' && input[2] == '\'')
         return CHAR;
-    } else if (input == "nan" || input == "nanf" || input == "+inf" || input == "-inf" || input == "+inff" || input == "-inff") {
+    else if (input == "nan" || input == "nanf" || input == "+inf" || input == "-inf" || input == "+inff" || input == "-inff")
         return SPECIAL;
-    } else if (input.find('.') != std::string::npos) {
-        if (input.back() == 'f')
-            return FLOAT;
-        else
-            return DOUBLE;
-    } else
+    // Regular expressions for valid FLOAT and DOUBLE types
+    std::regex floatPattern(R"(^-?\d+\.\d+f$)");
+    std::regex doublePattern(R"(^-?\d+\.\d+$)");
+
+    if (std::regex_match(input, floatPattern)) {
+        return FLOAT;
+    } else if (std::regex_match(input, doublePattern)) {
+        return DOUBLE;
+    }
+
+    // Regular expression for valid INT type
+    std::regex intPattern(R"(^-?\d+$)");
+    if (std::regex_match(input, intPattern)) {
         return INT;
+    }
+
+    return UNKNOWN;
 }
 
 template <typename T>

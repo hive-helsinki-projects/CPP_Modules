@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/11/20 14:01:08 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/11/20 14:22:24 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,13 +81,13 @@ test: $(NAME)
 	@echo "$(GREEN)Test: -2.2e-38 (FLT_MIN -1.17e-38 underflow)$(RESET)"
 	@./$(NAME) -2.2e-38
 	@echo "--------------------------------------------"
-	@echo "$(GREEN)Test: 2e308 (DBL_MAX 1.79e+308 overflow)$(RESET)"
+	@echo "$(GREEN)Test: 2.1e308 (DBL_MAX 1.79e+308 overflow)$(RESET)"
 	@./$(NAME) 2.1e308
-	@echo "$(GREEN)Test: -2e308 (DBL_MAX -1.79e+308 underflow)$(RESET)"
+	@echo "$(GREEN)Test: -2.1e308 (DBL_MAX -1.79e+308 underflow)$(RESET)"
 	@./$(NAME) -2.1e308
-	@echo "$(GREEN)Test: 2e-308 (DBL_MIN 2.22e-308 underflow)$(RESET)"
+	@echo "$(GREEN)Test: 2.1e-308 (DBL_MIN 2.22e-308 underflow)$(RESET)"
 	@./$(NAME) 2.1e-308
-	@echo "$(GREEN)Test: -2e-308 (DBL_MIN -2.22e-308 underflow)$(RESET)"
+	@echo "$(GREEN)Test: -2.1e-308 (DBL_MIN -2.22e-308 underflow)$(RESET)"
 	@./$(NAME) -2.1e-308
 	@echo "--------------------------------------------"
 	@echo "$(GREEN)Test: INVALID CASES $(RESET)"

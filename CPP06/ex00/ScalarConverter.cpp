@@ -1,11 +1,11 @@
 #include "ScalarConverter.hpp"
-#include <iostream>
-#include <string>
-#include <limits>
-#include <cstdlib>
-#include <cctype>
-#include <cmath>
-#include <iomanip>
+#include <iostream> // std::cout, std::endl
+#include <string> // std::string
+#include <limits> // std::numeric_limits
+#include <cstdlib> // std::out_of_range
+#include <cctype> // std::isprint
+#include <cmath> // std::isinf, std::isnan
+#include <iomanip> // std::fixed, std::setprecision
 
 enum LiteralType {
     CHAR,
@@ -40,8 +40,7 @@ bool convertTo(const std::string& literal, T& result) {
             }
             result = static_cast<int>(value);
         } else if (std::is_same_v<T, float>) {
-            float value = std::stof(literal);
-            result = value;
+            result = std::stof(literal);
         } else if (std::is_same_v<T, double>) {
             result = std::stod(literal);
         }

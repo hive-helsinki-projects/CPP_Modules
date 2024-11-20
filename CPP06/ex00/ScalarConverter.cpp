@@ -35,31 +35,61 @@ static LiteralType detectLiteralType(const std::string& input) {
 template <typename T>
 T convertTo(const std::string& literal) {
     try {
-        if constexpr (std::is_same_v<T, int>) {
-            return std::stoi(literal);
-        } else if constexpr (std::is_same_v<T, float>) {
+        if (std::is_same_v<T, int>) {
+            long long value = std::stoll(literal);
+            if (value > std::numeric_limits<int>::max() || value < std::numeric_limits<int>::min()) {
+                throw std::out_of_range("int overflow/underflow");
+            }
+            return static_cast<int>(value);
+        } else if (std::is_same_v<T, float>) {
+/*             float value = std::stof(literal);
+            if (value > std::numeric_limits<float>::max() || value < -std::numeric_limits<float>::max()) {
+                throw std::out_of_range("float overflow/underflow");
+            }
+            return value; */
             return std::stof(literal);
-        } else if constexpr (std::is_same_v<T, double>) {
+        } else if (std::is_same_v<T, double>) {
+/*             double value = std::stod(literal);
+            if (value > std::numeric_limits<double>::max() || value < -std::numeric_limits<double>::max()) {
+                throw std::out_of_range("double overflow/underflow");
+            }
+            return value; */
             return std::stod(literal);
         }
+    } catch (const std::out_of_range&) {
+        throw;
     } catch (const std::exception&) {
-        return std::numeric_limits<T>::infinity();
+        throw;
     }
 }
 
-static void printResults(char c, int i, float f, double d) {
-    if (std::isprint(c))
-        std::cout << "char: '" << c << "'" << std::endl;
-    else
-        std::cout << "char: Non displayable" << std::endl;
+static void printResults(char c, int i, float f, double d, bool special = false, bool overflow = false) {
+    if (!special) {
+        if (!overflow) {
+            if (std::isprint(c))
+                std::cout << "char: '" << c << "'" << std::endl;
+            else
+                std::cout << "char: Non displayable" << std::endl;
+        } else {
+            std::cout << "char: impossible" << std::endl;
+        }
 
-    if (i == std::numeric_limits<int>::infinity())
+        if (overflow) {
+            std::cout << "int: impossible" << std::endl;
+        } else {
+            std::cout << "int: " << i << std::endl;
+        }
+    }
+    else {
+        std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-    else
-        std::cout << "int: " << i << std::endl;
+    }
 
     if (std::isinf(f) || std::isnan(f))
         std::cout << "float: " << f << "f" << std::endl;
+/*     else if (overflow) {
+        std::cout << "float: impossible" << std::endl;
+    } */
     else {
         std::cout << std::fixed << std::setprecision(1);
         std::cout << "float: " << f << "f" << std::endl;
@@ -67,6 +97,9 @@ static void printResults(char c, int i, float f, double d) {
 
     if (std::isinf(d) || std::isnan(d))
         std::cout << "double: " << d << std::endl;
+/*     else if (d == std::numeric_limits<double>::infinity() || d == -std::numeric_limits<double>::infinity()) {
+        std::cout << "double: impossible" << std::endl;
+    } */
     else {
         std::cout << std::fixed << std::setprecision(1);
         std::cout << "double: " << d << std::endl;
@@ -76,6 +109,7 @@ static void printResults(char c, int i, float f, double d) {
 void ScalarConverter::convert(const std::string& literal) {
     try {
         LiteralType type = detectLiteralType(literal);
+        bool overflow = false;
         switch (type) {
             case CHAR: {
                 char c = literal[1];
@@ -83,16 +117,27 @@ void ScalarConverter::convert(const std::string& literal) {
                 break;
             }
             case INT: {
-                int i = convertTo<int>(literal);
+                int i;
+                try {
+                    i = convertTo<int>(literal);
+                } catch (const std::out_of_range&) {
+                    overflow = true;
+                }
                 float f = convertTo<float>(literal);
                 double d = convertTo<double>(literal);
-                printResults(static_cast<char>(i), i, f, d);
+                printResults(static_cast<char>(i), i, f, d, false, overflow);
                 break;
             }
             case FLOAT: {
-                float f = convertTo<float>(literal);
+                overflow = false;
+                float f = 0.0f;
+                try {
+                    f = convertTo<float>(literal);
+                } catch (const std::out_of_range&) {
+                    overflow = true;
+                }
                 double d = convertTo<double>(literal);
-                printResults(static_cast<char>(f), static_cast<int>(f), f, d);
+                printResults(static_cast<char>(f), static_cast<int>(f), f, d, false, overflow);
                 break;
             }
             case DOUBLE: {
@@ -104,16 +149,14 @@ void ScalarConverter::convert(const std::string& literal) {
             case SPECIAL: {
                 float f = convertTo<float>(literal);
                 double d = convertTo<double>(literal);
-                std::cout << "char: impossible" << std::endl;
-                std::cout << "int: impossible" << std::endl;
-                printResults('?', '?', f, d);
+                printResults('?', '?', f, d, true);
                 break;
             }
             default:
                 throw std::invalid_argument("Unknown literal type");
         }
     } catch (const std::exception& e) {
-        std::cerr << "Conversion error: " << e.what() << std::endl;
+
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;

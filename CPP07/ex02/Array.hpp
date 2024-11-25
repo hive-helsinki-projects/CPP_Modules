@@ -6,12 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:23:13 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 14:19:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:33:34 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
+#pragma once
 
 # define YELLOW "\033[0;33m"
 # define RESET "\033[0m"
@@ -32,5 +31,3 @@ public:
     
     unsigned int size() const; // Size function
 };
-
-#endif

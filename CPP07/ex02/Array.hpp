@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:23:13 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/25 17:33:34 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:46:16 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
     ~Array(void); // Destructor
     
     T &operator[](unsigned int n); // Subscript operator
+    const T &operator[](unsigned int n) const; // Subscript operator
     
     unsigned int size() const; // Size function
 };

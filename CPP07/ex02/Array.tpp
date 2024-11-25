@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:25:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/23 14:20:40 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/11/25 17:46:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,15 @@ T &Array<T>::operator[](unsigned int n) {
     }
     return array[n];
 }
+
+template <typename T>
+const T &Array<T>::operator[](unsigned int n) const {
+    if (n >= arraySize) {
+        throw std::out_of_range("Index out of range");
+    }
+    return array[n];
+}
+
 
 template <typename T>
 unsigned int Array<T>::size() const {

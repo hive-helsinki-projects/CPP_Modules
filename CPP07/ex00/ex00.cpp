@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 
-class Awesome
-{
+class Awesome {
 public:
     Awesome(void) : _n(0) {}
     Awesome( int n ) : _n( n ) {}

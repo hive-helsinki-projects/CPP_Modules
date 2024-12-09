@@ -6,12 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/09 17:28:02 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 18:08:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#pragma once
 
 # include <stack>
 # include <deque>
@@ -50,5 +49,3 @@ public:
         return std::stack<T>::c.end();
     }
 };
-
-#endif

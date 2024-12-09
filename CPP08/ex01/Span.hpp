@@ -6,12 +6,11 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:23:18 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 13:54:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:27:31 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#pragma once
 
 # include <algorithm>   // sort, distance, max, min
 # include <vector>      // vector
@@ -45,5 +44,3 @@ public:
     int shortestSpan() const;
     int longestSpan() const;
 };
-
-#endif

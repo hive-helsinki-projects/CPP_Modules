@@ -6,15 +6,15 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:13:21 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 12:25:52 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:59:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include <vector>
-#include <list>
-#include <deque>
-#include <iostream>
+#include <vector> // std::vector
+#include <list> // std::list
+#include <deque> // std::deque
+#include <iostream> // std::cout, std::cerr
 
 void testVector() {
     std::vector<int> vec = {1, 2, 3, 4, 5};

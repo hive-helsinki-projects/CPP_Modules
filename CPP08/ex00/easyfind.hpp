@@ -6,18 +6,17 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:42:19 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 12:24:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:59:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#pragma once
 
 # define YELLOW  "\033[33m"
 # define RESET   "\033[0m"
 
-# include <algorithm>
-# include <stdexcept>
+# include <algorithm> // std::find
+# include <stdexcept> // std::runtime_error
 
 // Template for the container type.
 template <typename T> 
@@ -41,5 +40,3 @@ int easyfind(T& container, int value) {
         throw std::runtime_error("Value not found in container");
     }
 }
-
-#endif

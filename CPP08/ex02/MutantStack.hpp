@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/25 08:14:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:28:02 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stack>
 # include <deque>
 # include <iterator>
+
+# define YELLOW "\033[33m"
+# define GREEN "\033[32m"
+# define RESET "\033[0m"
 
 template <typename T>
 class MutantStack : public std::stack<T> {

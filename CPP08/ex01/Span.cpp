@@ -6,12 +6,12 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:23:10 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/10/24 15:01:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:36:36 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-
+#include <limits>      // numeric_limits
 
 /* CONSTRUCTORS, DESTRUCTOR, OPERATOR= */
 Span::Span()

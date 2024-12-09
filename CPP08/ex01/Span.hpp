@@ -6,16 +6,20 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:23:18 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/09 16:27:31 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:56:21 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include <algorithm>   // sort, distance, max, min
+# include <algorithm>   // distance, sort, max, min
 # include <vector>      // vector
-# include <stdexcept>   // runtime_error
-# include <limits>      // numeric_limits
+# include <stdexcept>   // out_of_range, logic_error
+
+
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define RESET   "\033[0m"
 
 class Span {
 private:
@@ -43,4 +47,6 @@ public:
     // Calculate the shortest span and longest span between numbers
     int shortestSpan() const;
     int longestSpan() const;
+
+    void print(std::ostream& os) const;
 };

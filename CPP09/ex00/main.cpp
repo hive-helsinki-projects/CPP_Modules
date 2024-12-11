@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 16:45:14 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/11 18:11:19 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,13 @@ void validateDate(const std::string& line) {
     std::string date;
     iss >> date;
     if (!isValidDate(date)) {
-        //std::cerr << "Error: bad input => " << date << std::endl;
         throw std::runtime_error("Error: bad input => " + date);
-        //return false;
     }
-    //return true;
 }
 
 int main(int argc, char* argv[]) {
     try {
-        if (argc != 2) {    
-        //std::cerr << "Usage: ./btc <input file>" << std::endl;
-        //return 1;
+        if (argc != 2) {
             throw std::runtime_error("Usage: ./btc <input file>");                                                                                                                                              
         }   
         BitcoinExchange btc("data.csv");
@@ -82,17 +77,14 @@ int main(int argc, char* argv[]) {
                     valueStr = match[4];
                     if (!isValidValue(valueStr, value)) {
                         if (value < 0) {
-                            //std::cerr << "Error: not a positive numer. " << std::endl;
                             throw std::runtime_error("Error: not a positive number");
                         } else {
-                            //std::cerr << "Error: value too large. " << std::endl;
                             throw std::runtime_error("Error: value too large");
                         }
                     }
                 } else {
                     std::cerr << "Error: could not parse line " << line << std::endl;
                 }
-            
                 double rate = btc.getExchangeRate(date);
                 std::cout << date << " => " << value << " = " << (value * rate) << std::endl;
             } catch (const std::exception& e) {
@@ -103,6 +95,5 @@ int main(int argc, char* argv[]) {
         std::cerr << e.what() << std::endl;
         return 1;
     }
-
     return 0;
 }

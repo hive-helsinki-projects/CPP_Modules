@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:26:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 14:40:09 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/18 22:03:54 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 #include <map> // std::map
 #include <string> // std::string
-#include <fstream> // std::ifstream
-#include <stdexcept> // std::runtime_error
 
 class BitcoinExchange {
 private:
@@ -23,7 +21,8 @@ private:
 
 public:
     BitcoinExchange();
-    BitcoinExchange(const std::string& dataFile);
+    explicit BitcoinExchange(const std::map<std::string, double>& exchangeRates);   
+    //BitcoinExchange(const std::string& dataFile);
     BitcoinExchange(const BitcoinExchange& other);
     BitcoinExchange &operator=(const BitcoinExchange& other);
     ~BitcoinExchange();

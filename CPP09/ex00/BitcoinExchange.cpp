@@ -6,11 +6,15 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:26:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 15:32:49 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/18 22:20:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <stdexcept> // std::runtime_error
+#include <regex>    // regex_match, regex
+#include <fstream>  // ifstream
+#include <sstream>  // istringstream
 
 /* CONSTRUCTORS, DESTRUCTOR, OPERATOR= */
 BitcoinExchange::BitcoinExchange() {}
@@ -21,39 +25,15 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) {
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange& other) {
     if (this != &other) {
-        this->exchangeRates = other.exchangeRates;
+        exchangeRates = other.exchangeRates;
     }
     return *this;
 }
 
 BitcoinExchange::~BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const std::string& dataFile) {
-    std::ifstream file(dataFile);
-    if (!file.is_open()) {
-        throw std::runtime_error("Could not open file");
-    }
-
-    std::string line;
-    // Skip the header line
-    std::getline(file, line);
-    
-    std::string date;
-    double rate;
-    size_t comma;
-    while (std::getline(file, line)) {
-        comma = line.find(',');
-        if (comma == std::string::npos) {
-            throw std::runtime_error("Invalid data format");
-        }
-        // Extract date and rate from line
-        date = line.substr(0, comma);
-        rate = std::stod(line.substr(comma + 1));
-
-        exchangeRates[date] = rate;
-    }
-    file.close();
-}
+BitcoinExchange::BitcoinExchange(const std::map<std::string, double>& exchangerates)
+: exchangeRates(exchangerates) {}
 
 /* METHODS */
 double BitcoinExchange::getExchangeRate(const std::string& date) const {
@@ -69,4 +49,54 @@ double BitcoinExchange::getExchangeRate(const std::string& date) const {
         --it;
     }
     return it->second;
+}
+
+/* UTILS */
+
+// Check if the date has valid format YYYY-MM-DD
+bool isValidDate(const std::string& date) {
+    std::regex datePattern(R"((\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))");
+    return std::regex_match(date, datePattern);
+}
+
+bool isValidValue(const std::string& valueStr, double& value) {
+    try {
+        value = std::stod(valueStr);
+        return value >= 0 && value <= 1000;
+    } catch (...) {
+        return false;
+    }
+}
+
+void validateDate(const std::string& line) {
+    // Extract the date from line
+    std::istringstream iss(line);
+    std::string date;
+    iss >> date;
+    if (!isValidDate(date)) {
+        throw std::runtime_error("Error: bad input => " + date);
+    }
+}
+
+std::map<std::string, double> parseDataFile(const std::string& dataFile) {
+    std::ifstream file(dataFile);
+    if (!file.is_open()) {
+        throw std::runtime_error("Error: Could not open file");
+    }
+
+    std::map<std::string, double> rates;
+    std::string line;
+    std::getline(file, line); // Skip header
+
+    while (std::getline(file, line)) {
+        size_t comma = line.find(',');
+        if (comma == std::string::npos) {
+            throw std::runtime_error("Error: Invalid data format in " + line);
+        }
+
+        std::string date = line.substr(0, comma);
+        double rate = std::stod(line.substr(comma + 1));
+        rates[date] = rate;
+    }
+    return rates;
 }

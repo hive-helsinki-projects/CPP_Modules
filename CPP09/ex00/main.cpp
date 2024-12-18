@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/18 22:31:43 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/18 23:07:35 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,24 @@ void processInputFile(const std::string& inputFile, const BitcoinExchange& btc) 
     }
 
     std::string line;
-    std::getline(file, line); // Skip header
+    if (std::getline(file, line)) {
+        if (line != "date | value") {
+            std::cerr << "Warning: Invalid header format. Expected 'date | value', found '" << line << "'" << std::endl;
+        }
+    } else {
+        std::cerr << "Warning: Input file is empty." << std::endl;
+        return;
+    }
 
     std::regex linePattern(R"((\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]) \| (-?\d+(\.\d+)?))");
     std::smatch match;
+    bool hasValidLine = false;
 
     while (std::getline(file, line)) {
         try {
             validateDate(line);
             if (std::regex_match(line, match, linePattern)) {
+                hasValidLine = true;
                 std::string date = match[1].str() + "-" + match[2].str() + "-" + match[3].str();
                 std::string valueStr = match[4].str();
 
@@ -52,6 +61,9 @@ void processInputFile(const std::string& inputFile, const BitcoinExchange& btc) 
         } catch (const std::exception& e) {
             std::cerr << e.what() << std::endl;
         }
+    }
+    if (!hasValidLine) {
+        std::cerr << "Warning: No valid lines found in input file." << std::endl;
     }
 } 
 

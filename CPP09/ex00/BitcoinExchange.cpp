@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:26:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/18 22:20:17 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/18 23:12:33 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ double BitcoinExchange::getExchangeRate(const std::string& date) const {
     auto it = exchangeRates.lower_bound(date);
     // check if the it points to first element and the key is not equal to date
     if (it == exchangeRates.begin() && it->first != date) {
-        throw std::runtime_error("Date not found");
+        throw std::runtime_error("Error: Date not found");
     }
     // check if it points to the end of the container or the key is not equal to date
     // decrement it to get the element is lower than requested date

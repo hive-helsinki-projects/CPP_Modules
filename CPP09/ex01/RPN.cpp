@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:35:30 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 23:35:42 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:11:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,59 @@
 #include <stack> // stack
 #include <stdexcept> // runtime_error
 #include <cctype> // isdigit
+#include <cstdlib> // strtol
+#include <sstream> // istringstream
+#include <iostream> // cout
 
-int RPN::evaluate(const char* expression) {
+/* CONSTRUCTOR, DESTRUCTOR */
+RPN::RPN() {}
+RPN::RPN(const RPN& other) { (void)other; }
+RPN& RPN::operator=(const RPN& other) { (void)other; return *this; }
+RPN::~RPN() {}
+
+bool isValidOperator(const std::string& token) {
+    return (token == "+" || token == "-" || token == "*" || token == "/");
+}
+
+bool isValidToken(const std::string& token) {
+    try {
+        if(!isValidOperator(token)) {
+            std::stoi(token);
+        }
+        return true;
+    } catch (const std::invalid_argument& e) {
+        return false;
+    }
+}
+
+/* MEMBER FUNCTION */
+int RPN::evaluate(const std::string& expression) {
+    std::cout << "Evaluating expression: " << expression << std::endl;
+
+    if (expression.empty() || expression.size() < 3) {
+        throw std::runtime_error("Error: invalid expression");
+    }
+    
     std::stack<int> stack;
-    const char* p = expression;
-
-    while (*p) {
-        if (std::isspace(*p)) {
-            p++;
-        } else if (std::isdigit(*p)) {
-            stack.push(std::strtol(p, const_cast<char**>(&p), 10));
+    std::istringstream iss(expression);
+    std::string token;
+    
+    while (iss >> token) {
+        if (!isValidToken(token)) {
+            throw std::runtime_error("Error: invalid token in expression: " + token);
+        }
+        if (!isValidOperator(token)) {
+            stack.push(std::stoi(token));
         } else {
             if (stack.size() < 2) {
-                throw std::runtime_error("Error: not enough operands");
+                throw std::runtime_error("Error: not enough numbers");
             }
-
             int b = stack.top();
             stack.pop();
             int a = stack.top();
             stack.pop();
 
-            switch (*p) {
+            switch (token[0]) {
                 case '+':
                     stack.push(a + b);
                     break;
@@ -54,13 +86,10 @@ int RPN::evaluate(const char* expression) {
                 default:
                     throw std::runtime_error("Error: invalid operator");
             }
-
-            p++;
         }
     }
-
     if (stack.size() != 1) {
-        throw std::runtime_error("Error: too many operands");
+        throw std::runtime_error("Error: invalid expression");
     }
 
     return stack.top();

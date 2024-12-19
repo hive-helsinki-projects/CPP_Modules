@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/12/19 11:46:51 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/12/19 13:31:12 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,16 @@ test: $(NAME)
 	@echo "Test 11 $(GREEN)Expected result: Error $(RESET)"
 	-@./$(NAME) "3 4 5 +"
 	@echo "--------------------------------------------"
-	
-	
+	@echo "Test 12 $(GREEN)Expected result: 7 $(RESET)"
+	-@./$(NAME) "3 4 +"
+	@echo "--------------------------------------------"
+	@echo "Test 13 $(GREEN)Expected result: Error $(RESET)"
+	-@./$(NAME) "3 4"
+	@echo "--------------------------------------------"
+	@echo "Test 14 $(GREEN)Expected result: Error $(RESET)"
+	-@./$(NAME) "3 4 + 50"
+	@echo "--------------------------------------------"
+
 clean:
 	@rm -rf $(OBJS)
 	@echo "[$(NAME)] Object files cleaned."

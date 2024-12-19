@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 23:35:47 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/11/18 23:35:49 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/19 11:17:24 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 
     try {
         int result = RPN::evaluate(argv[1]);
-        std::cout << result << std::endl;
+        std::cout << "Result: " << result << std::endl;
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
         return 1;

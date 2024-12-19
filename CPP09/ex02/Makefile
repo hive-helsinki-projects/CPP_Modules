@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/12/19 14:23:32 by lkilpela         ###   ########.fr        #
+#    Updated: 2024/12/19 14:37:19 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,14 +43,19 @@ re: fclean all
 test: $(NAME)
 	@echo "$(BLUE)Running tests... $(RESET)"
 	@echo "Test 1 $(GREEN) A range of 5 elements $(RESET)"
-	@./$(NAME) "3 5 9 7 4"
+	@./$(NAME) 3 5 9 7 4
 	@echo "--------------------------------------------"
-	@echo "Test 2 $(GREEN) A range of 3000 elements $(RESET)"
-	@./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+	@echo "Test 2 $(GREEN)(LINUX) A range of 3000 elements $(RESET)"
+	-@./$(NAME) $(shuf -i 1-100000 -n 3000 | tr "\n" " ") > /dev/null && echo "OK"
 	@echo "--------------------------------------------"
-	@echo "Test 3 $(GREEN) Error $(RESET)"
-	@./$(NAME) "-1" "2"
+	@echo "Test 3 $(GREEN)(MacOS) A range of 3000 elements $(RESET)"
+	@./$(NAME) `jot -r 3000 1 100000 | tr '\n' ' '`
+	-@echo "--------------------------------------------"
+	@echo "Test 4 $(GREEN) Error $(RESET)"
+	-@./$(NAME) "-1" "2"
 	@echo "--------------------------------------------"
+
+	
 	
 
 .PHONY: all clean fclean re test

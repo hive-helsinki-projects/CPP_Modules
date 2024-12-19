@@ -5,16 +5,14 @@
 #include <chrono>
 #include <sstream>
 
-int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Error: No input provided." << std::endl;
-        return 1;
-    }
+int main(int argc, char **argv) {
 
     std::vector<int> vec;
     std::deque<int> deq;
 
     try {
+        if (argc < 2)
+            throw std::invalid_argument("Error: invalid number of arguments");
         for (int i = 1; i < argc; ++i) {
             int num = std::stoi(argv[i]);
             if (num <= 0) throw std::invalid_argument("Non-positive integer");

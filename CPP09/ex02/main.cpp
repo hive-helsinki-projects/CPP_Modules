@@ -6,7 +6,6 @@
 #include <sstream>
 
 int main(int argc, char **argv) {
-    PmergeMe pmergeMe;
-    pmergeMe.processSequence(argc, argv);
+    processSequence(argc, argv);
     return 0;
 }

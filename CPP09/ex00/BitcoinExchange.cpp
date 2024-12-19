@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:26:49 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/18 23:12:33 by lkilpela         ###   ########.fr       */
+/*   Updated: 2024/12/19 08:44:12 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange& other) {
 
 BitcoinExchange::~BitcoinExchange() {}
 
-BitcoinExchange::BitcoinExchange(const std::map<std::string, double>& exchangerates)
-: exchangeRates(exchangerates) {}
+BitcoinExchange::BitcoinExchange(const std::map<std::string, double>& rates)
+: exchangeRates(rates) {}
 
 /* METHODS */
 double BitcoinExchange::getExchangeRate(const std::string& date) const {
+    if (exchangeRates.empty()) {
+        throw std::runtime_error("Error: No exchange rates available");
+    }
     // find the element with the key that is not less than specific date
     auto it = exchangeRates.lower_bound(date);
     // check if the it points to first element and the key is not equal to date

@@ -4,15 +4,21 @@
 #include <deque>
 #include <iostream>
 
-// Function to print a container
-template <typename Container>
-void printContainer(const Container& container);
+class PmergeMe {
+private:
+    std::vector<int> vec;
+    std::deque<int> deq;
+public:
+    PmergeMe() = default;
+    PmergeMe(const PmergeMe&) = delete;
+    PmergeMe& operator=(const PmergeMe&) = delete;
+    ~PmergeMe() = default;
 
-// Merge-insert sort algorithm for std::vector
-void mergeInsertSortVector(std::vector<int>& vec);
-
-// Merge-insert sort algorithm for std::deque
-void mergeInsertSortDeque(std::deque<int>& deq);
+    std::vector<int> parseInput(int argc, char **argv);
+    void mergeInsertSortVector(std::vector<int>& sequence);
+    void mergeInsertSortDeque(std::deque<int>& sequence);
+    void processSequence(int argc, char **argv);
+};
 
 // Function to print a container
 template <typename Container>

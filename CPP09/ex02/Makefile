@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/12/19 16:17:37 by lkilpela         ###   ########.fr        #
+#    Updated: 2025/02/10 16:31:34 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ test: $(NAME)
 	@./$(NAME) 3 5 9 7 4
 	@echo "--------------------------------------------"
 	@echo "Test 2 $(GREEN)(LINUX) A range of 3000 elements $(RESET)"
-	-@./$(NAME) $(shuf -i 1-100000 -n 3000 | tr "\n" " ") > /dev/null && echo "OK"
+	-@./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 	@echo "--------------------------------------------"
 	@echo "Test 3 $(GREEN)(MacOS) A range of 3000 elements $(RESET)"
 	@./$(NAME) `jot -r 5000 1 100000 | sort -u | head -n 3000 | tr '\n' ' '`

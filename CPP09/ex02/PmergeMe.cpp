@@ -1,15 +1,16 @@
 #include "PmergeMe.hpp"
 #include <algorithm>
 #include <iostream>
+#include <chrono>
 #include <set>
+#include <deque>
+
 
 /* FORD-JOHSON ALGORITM 
 1. Divide the list into pairs of elements.
 2. Sort each pair.
 3. Merge the sorted pairs into a single list.
 4. Insert any remaining elements into the merged list.*/
-
-// FORD-JOHSON ALGORITM
 
 /*
 Initial Vector [3, 6, 8, 2]
@@ -37,46 +38,49 @@ merge(vec, 0, 1, 3) is called to merge [3, 6] and [2, 8].
     - Result after merge: [2, 3, 6, 8].
 */
 
-void merge(std::vector<int>& vec, int left, int mid, int right) {
-    std::vector<int> leftVec(vec.begin() + left, vec.begin() + mid + 1);
-    std::vector<int> rightVec(vec.begin() + mid + 1, vec.begin() + right + 1);
+template <typename T>
+void merge(T& container, int left, int mid, int right) {
+    T left(container.begin() + left, container.begin() + mid + 1);
+    T right(container.begin() + mid + 1, container.begin() + right + 1);
 
     size_t leftIndex = 0;
     size_t rightIndex = 0;
     size_t index = left;
 
-    while (leftIndex < leftVec.size() && rightIndex < rightVec.size()) {
-        if (leftVec[leftIndex] < rightVec[rightIndex]) {
-            vec[index++] = leftVec[leftIndex++];
+    while (leftIndex < left.size() && rightIndex < right.size()) {
+        if (left[leftIndex] < right[rightIndex]) {
+            container[index++] = left[leftIndex++];
         } else {
-            vec[index++] = rightVec[rightIndex++];
+            container[index++] = right[rightIndex++];
         }
     }
 
-    while (leftIndex < leftVec.size()) {
-        vec[index++] = leftVec[leftIndex++];
+    while (leftIndex < left.size()) {
+        container[index++] = left[leftIndex++];
     }
 
-    while (rightIndex < rightVec.size()) {
-        vec[index++] = rightVec[rightIndex++];
+    while (rightIndex < right.size()) {
+        container[index++] = right[rightIndex++];
     }
 }
 
-void fordJohnsonSort(std::vector<int>& vec, int left, int right) {
+template <typename T>
+void fordJohnsonSort(T& container, int left, int right) {
     if (left >= right) return;
 
     int mid = left + (right - left) / 2;
     
-    fordJohnsonSort(vec, left, mid);
-    fordJohnsonSort(vec, mid + 1, right);
+    fordJohnsonSort(container, left, mid);
+    fordJohnsonSort(container, mid + 1, right);
 
-    merge(vec, left, mid, right);
+    merge(container, left, mid, right);
 }
 
-void mergeInsertSort(std::vector<int>& vec) {
-    if (vec.size() <= 1) return;
+template <typename T>
+void mergeInsertSort(T& container) {
+    if (container.size() <= 1) return;
 
-    fordJohnsonSort(vec, 0, vec.size() - 1);
+    fordJohnsonSort(vec, 0, container.size() - 1);
 }
 
 // Parse input arguments into a vector of integers
@@ -110,24 +114,18 @@ void processSequence(int argc, char **argv) {
         // Parse input sequence
         std::vector<int> vec = parseInput(argc, argv);
         // Copy sequence to deque for second sorting
-        //std::deque<int> deq(vec.begin(), vec.end());
+        std::deque<int> deq(vec.begin(), vec.end());
 
         std::cout << "Before: ";
         printContainer(vec);
 
-        
         mergeInsertSort(vec);
-
-
-/*         start = std::chrono::high_resolution_clock::now();
         mergeInsertSort(deq);
-        end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double, std::micro> durationDeque = end - start; */
 
         std::cout << "After: ";
         printContainer(vec);
 
-            auto end = std::chrono::high_resolution_clock::now();
+        auto end = std::chrono::high_resolution_clock::now();
         std::chrono::duration<double, std::micro> durationVector = end - start;
 
         std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << durationVector.count() << " us" << std::endl;

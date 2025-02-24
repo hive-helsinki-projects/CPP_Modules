@@ -38,51 +38,6 @@ merge(vec, 0, 1, 3) is called to merge [3, 6] and [2, 8].
     - Result after merge: [2, 3, 6, 8].
 */
 
-template <typename T>
-void merge(T& container, int left, int mid, int right) {
-    T leftPart(container.begin() + left, container.begin() + mid + 1);
-    T rightPart(container.begin() + mid + 1, container.begin() + right + 1);
-
-    size_t leftIndex = 0;
-    size_t rightIndex = 0;
-    size_t index = left;
-
-    while (leftIndex < leftPart.size() && rightIndex < rightPart.size()) {
-        if (leftPart[leftIndex] < rightPart[rightIndex]) {
-            container[index++] = leftPart[leftIndex++];
-        } else {
-            container[index++] = rightPart[rightIndex++];
-        }
-    }
-
-    while (leftIndex < leftPart.size()) {
-        container[index++] = leftPart[leftIndex++];
-    }
-
-    while (rightIndex < rightPart.size()) {
-        container[index++] = rightPart[rightIndex++];
-    }
-}
-
-template <typename T>
-void fordJohnsonSort(T& container, int left, int right) {
-    if (left >= right) return;
-
-    int mid = left + (right - left) / 2;
-    
-    fordJohnsonSort(container, left, mid);
-    fordJohnsonSort(container, mid + 1, right);
-
-    merge(container, left, mid, right);
-}
-
-template <typename T>
-void mergeInsertSort(T& container) {
-    if (container.size() <= 1) return;
-
-    fordJohnsonSort(container, 0, container.size() - 1);
-}
-
 // Parse input arguments into a vector of integers
 std::vector<int> parseInput(int argc, char **argv) {
     if (argc < 2) {
@@ -105,15 +60,6 @@ std::vector<int> parseInput(int argc, char **argv) {
         sequence.push_back(num);
     }
     return sequence;
-}
-
-template <typename T>
-double measureSortTime(T& container) {
-    auto start = std::chrono::high_resolution_clock::now();
-    mergeInsertSort(container);
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::micro> duration = end - start;
-    return duration.count();
 }
 
 void processSequence(int argc, char **argv) {

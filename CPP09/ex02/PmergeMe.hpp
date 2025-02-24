@@ -3,6 +3,7 @@
 #include <vector>
 #include <deque>
 #include <iostream>
+#include <chrono>
 
 // Prototype
 void processSequence(int argc, char **argv);

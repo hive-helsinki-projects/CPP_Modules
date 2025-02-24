@@ -6,17 +6,17 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/18 23:07:35 by lkilpela         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:32:45 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
 #include <iostream> // cerr, endl
 #include <fstream>  // ifstream
 #include <regex>    // regex_match, regex
 #include "Utils.hpp"
 
+// Function to read and process input file containing Bitcoin exchange data
 void processInputFile(const std::string& inputFile, const BitcoinExchange& btc) {
    std::ifstream file(inputFile);
     if (!file.is_open()) {
@@ -24,13 +24,8 @@ void processInputFile(const std::string& inputFile, const BitcoinExchange& btc) 
     }
 
     std::string line;
-    if (std::getline(file, line)) {
-        if (line != "date | value") {
-            std::cerr << "Warning: Invalid header format. Expected 'date | value', found '" << line << "'" << std::endl;
-        }
-    } else {
-        std::cerr << "Warning: Input file is empty." << std::endl;
-        return;
+    if (!std::getline(file, line) || line != "date | value") {
+        std::cerr << "Warning: Invalid header format" << std::endl;
     }
 
     std::regex linePattern(R"((\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]) \| (-?\d+(\.\d+)?))");
@@ -72,10 +67,10 @@ int main(int argc, char **argv) {
         if (argc != 2) {
             throw std::runtime_error("Error: could not open file");
         }
-        std::map<std::string, double> exchangeRates = parseDataFile("data.csv");
-        BitcoinExchange btc(exchangeRates);
-
+        
+        BitcoinExchange btc(parseDataFile("data.csv"));
         processInputFile(argv[1], btc);
+
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
         return 1;

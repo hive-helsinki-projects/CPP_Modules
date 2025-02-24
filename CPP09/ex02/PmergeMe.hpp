@@ -1,12 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/24 15:23:03 by lkilpela          #+#    #+#             */
+/*   Updated: 2025/02/24 18:54:34 by lkilpela         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #pragma once
 
-#include <vector>
-#include <deque>
 #include <iostream>
 #include <chrono>
+#include <algorithm>
 
 // Prototype
 void processSequence(int argc, char **argv);
+
+/* TEMPLATE */
+
+// Function to check if a container is sorted
+template <typename T>
+bool isSorted(const T& container) {
+    return std::is_sorted(container.begin(), container.end());
+}
 
 // Function to merge two sorted parts of a container
 template <typename T>

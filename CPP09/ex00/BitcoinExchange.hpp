@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:26:53 by lkilpela          #+#    #+#             */
-/*   Updated: 2024/12/19 10:34:48 by lkilpela         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:26:29 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class BitcoinExchange {
 private:
-    std::map<std::string, double> exchangeRates; // Store exchange rates in container
+    std::map<std::string, double> exchangeRates;
 
 public:
     BitcoinExchange();

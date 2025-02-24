@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2024/10/25 08:46:01 by lkilpela         ###   ########.fr        #
+#    Updated: 2025/02/24 18:10:56 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	btc
 
 CC			=	c++
 CCFLAGS		=	-Wall -Wextra -Werror -std=c++11
-SRCS		=	main.cpp BitcoinExchange.cpp
+SRCS		=	main.cpp BitcoinExchange.cpp Utils.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 all: $(NAME)

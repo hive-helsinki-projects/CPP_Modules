@@ -1,5 +1,6 @@
 #pragma once
 
+#include "BitcoinExchange.hpp"
 #include <string>
 #include <map>
 

@@ -6,7 +6,7 @@
 #    By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 10:48:55 by lkilpela          #+#    #+#              #
-#    Updated: 2025/02/10 16:31:34 by lkilpela         ###   ########.fr        #
+#    Updated: 2025/02/24 19:19:01 by lkilpela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,23 +48,23 @@ test: $(NAME)
 	@echo "Test 2 $(GREEN)(LINUX) A range of 3000 elements $(RESET)"
 	-@./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
 	@echo "--------------------------------------------"
-	@echo "Test 3 $(GREEN)(MacOS) A range of 3000 elements $(RESET)"
-	@./$(NAME) `jot -r 5000 1 100000 | sort -u | head -n 3000 | tr '\n' ' '`
-	-@echo "--------------------------------------------"
-	@echo "Test 4 $(GREEN) Error $(RESET)"
+	@echo "Test 3 $(GREEN) Error $(RESET)"
 	-@./$(NAME) "-1" "2"
 	@echo "--------------------------------------------"
-	@echo "Test 5 $(GREEN) Error $(RESET)"
-	-@./$(NAME) "1" "2" "3" "4" "5" "6"
+	@echo "Test 4 $(GREEN) Error $(RESET)"
+	-@./$(NAME) 1 2 3 4 5 6
 	@echo "--------------------------------------------"
-	@echo "Test 6 $(GREEN) Error $(RESET)"
+	@echo "Test 5 $(GREEN) Error $(RESET)"
 	@./$(NAME) 3 5 j 7 4
 	@echo "--------------------------------------------"
-	@echo "Test 7 $(GREEN) Error $(RESET)"
+	@echo "Test 6 $(GREEN) Error $(RESET)"
 	@./$(NAME) 3 -5 9 7 4 6
 	@echo "--------------------------------------------"
-	@echo "Test 8 $(GREEN) Error $(RESET)"
+	@echo "Test 7 $(GREEN) Error $(RESET)"
 	@./$(NAME) 3 5 5 9 7 4 6
+	@echo "--------------------------------------------"
+	@echo "Test 8 $(GREEN) Error $(RESET)"
+	@./$(NAME) 3
 	@echo "--------------------------------------------"
 
 

@@ -40,27 +40,27 @@ merge(vec, 0, 1, 3) is called to merge [3, 6] and [2, 8].
 
 template <typename T>
 void merge(T& container, int left, int mid, int right) {
-    T left(container.begin() + left, container.begin() + mid + 1);
-    T right(container.begin() + mid + 1, container.begin() + right + 1);
+    T leftPart(container.begin() + left, container.begin() + mid + 1);
+    T rightPart(container.begin() + mid + 1, container.begin() + right + 1);
 
     size_t leftIndex = 0;
     size_t rightIndex = 0;
     size_t index = left;
 
-    while (leftIndex < left.size() && rightIndex < right.size()) {
-        if (left[leftIndex] < right[rightIndex]) {
-            container[index++] = left[leftIndex++];
+    while (leftIndex < leftPart.size() && rightIndex < rightPart.size()) {
+        if (leftPart[leftIndex] < rightPart[rightIndex]) {
+            container[index++] = leftPart[leftIndex++];
         } else {
-            container[index++] = right[rightIndex++];
+            container[index++] = rightPart[rightIndex++];
         }
     }
 
-    while (leftIndex < left.size()) {
-        container[index++] = left[leftIndex++];
+    while (leftIndex < leftPart.size()) {
+        container[index++] = leftPart[leftIndex++];
     }
 
-    while (rightIndex < right.size()) {
-        container[index++] = right[rightIndex++];
+    while (rightIndex < rightPart.size()) {
+        container[index++] = rightPart[rightIndex++];
     }
 }
 
@@ -80,7 +80,7 @@ template <typename T>
 void mergeInsertSort(T& container) {
     if (container.size() <= 1) return;
 
-    fordJohnsonSort(vec, 0, container.size() - 1);
+    fordJohnsonSort(container, 0, container.size() - 1);
 }
 
 // Parse input arguments into a vector of integers
@@ -107,10 +107,17 @@ std::vector<int> parseInput(int argc, char **argv) {
     return sequence;
 }
 
+template <typename T>
+double measureSortTime(T& container) {
+    auto start = std::chrono::high_resolution_clock::now();
+    mergeInsertSort(container);
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::micro> duration = end - start;
+    return duration.count();
+}
+
 void processSequence(int argc, char **argv) {
     try {
-        auto start = std::chrono::high_resolution_clock::now();
-
         // Parse input sequence
         std::vector<int> vec = parseInput(argc, argv);
         // Copy sequence to deque for second sorting
@@ -119,17 +126,14 @@ void processSequence(int argc, char **argv) {
         std::cout << "Before: ";
         printContainer(vec);
 
-        mergeInsertSort(vec);
-        mergeInsertSort(deq);
+        double durationVector = measureSortTime(vec);
+        double durationDeque = measureSortTime(deq);
 
         std::cout << "After: ";
         printContainer(vec);
 
-        auto end = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double, std::micro> durationVector = end - start;
-
-        std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << durationVector.count() << " us" << std::endl;
-        //std::cout << "Time to process a range of " << deq.size() << " elements with std::deque: " << durationDeque.count() << " us" << std::endl;
+        std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << durationVector << " us" << std::endl;
+        std::cout << "Time to process a range of " << deq.size() << " elements with std::deque: " << durationDeque << " us" << std::endl;
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
